@@ -109,7 +109,7 @@ class Game {
 
 
     newGame() {
-        this.solution = Array.from(this.words[this.getRandom()]);
+        this.solution = Array.from(this.words[this.getRandom()].toUpperCase());
         this.gameState = "ongoing";
         this.searchWords = new Array();
         this.guess_count = 0;
@@ -184,7 +184,7 @@ class Game {
     }
 
     askL(letter) {
-        this.gameBoard.writeLetter(letter);
+        this.gameBoard.writeLetter(letter.toUpperCase());
         if (this.gameBoard.checkRow()) {
             this.checkRow();
         }
