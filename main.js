@@ -56,17 +56,18 @@ class GameBoard {
     }
 
     getLetterCanvas(row, letterIndex) {
-        let selector = `#try${this.row}${this.letterIndex}`
+        let selector = `#try${row}${letterIndex}`
         console.log(`getLetter selector: ${selector}`)
         return this.canvas.querySelector(selector).innerHTML;
     }
     setLetterColor(row, letterIndex, color) {
-        let setLine = `#try${row}${letter}`;
+        let setLine = `#try${row}${letterIndex}`;
         console.log(`writing row: ${row} letterIndex: ${letterIndex} color: ${color} setLine: ${setLine}`);
         this.canvas.querySelector(setLine).classList.add(color);
     }
 
-    //I JUST WANT TO MAKE ANOTHER PUSH
+    
+    //PUSH PUSH PUSH
 
     writeLine(word2d, guess_count) {
         let returnValue = "";
@@ -153,7 +154,7 @@ class Game {
 
 
         for(let i = 0; i < LENGTH_WORD; i++){
-            input_letter = this.gameBoard.getLetterCanvas(row,i+1);
+            input_letter = this.gameBoard.getLetterCanvas(row,(i+1));
 
             if (this.solution[i] === input_letter) {
                 return_color[i]= "green";
@@ -162,7 +163,7 @@ class Game {
         }
 
         for(let i = 0; i < LENGTH_WORD; i++){
-            input_letter = this.gameBoard.getLetterCanvas(row,i+1);
+            input_letter = this.gameBoard.getLetterCanvas(row,(i+1));
 
             if(return_color[i]==="green"){
                 continue;
