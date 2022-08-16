@@ -34,15 +34,32 @@ class GameBoard {
         this.canvas = obj;
         this.row = 1;
         this.letter = 1;
+        this.checkRowv = false;
     }
 
+    checkRow() {
+        let returnV = this.checkRowv;
+        this.checkRowv = false;
+        return returnV;
+    }
+
+    getRowIndex() { this.row; }
+    getLetterIndex() { this.letter; }
+
     newGame(solution) {
-        
-        for(let elem in this.canvas.childnodes){
+
+        for (let elem in this.canvas.childnodes) {
             this.canvas.childnodes[elem].innerHTML = "<td> </td>   <td> </td>        <td> </td>        <td> </td>     <td> </td>"
         }
-        this.writeLine(solution,0);
+        this.writeLine(solution, 0);
 
+    }
+
+    getLetterCanvas(row, letterIndex) {
+        return this.canvas.querySelector(`#try${this.row}${this.letter}`).innerHTML;
+    }
+    setLetterColor(row, letterIndex, color) {
+        this.canvas.querySelector(`#try${this.row}${this.letter}`).classList.add(color);
     }
 
     writeLine(word2d, guess_count) {
@@ -55,15 +72,16 @@ class GameBoard {
         this.canvas.querySelector(`#try${guess_count}`).innerHTML = insertString;
     }
 
-    writeLetter(try_letter){
+    writeLetter(try_letter) {
         let writeTarget = `#try${this.row}${this.letter}`;
         console.log(writeTarget);
         let elem = this.canvas.querySelector(writeTarget);
         this.letter++;
         elem.innerHTML = try_letter;
-        if(this.letter > 5){
+        if (this.letter > LENGTH_WORD) {
             this.letter = 1;
             this.row++;
+            this.checkRowv = true;
         }
     }
 
@@ -77,6 +95,7 @@ class Game {
         this.gameBoard = gameBoard;
         this.dictionary = this.getWordsArray(LENGTH_WORD);
         this.guess_count = 0;
+
     }
 
 
@@ -86,7 +105,7 @@ class Game {
         this.searchWords = new Array();
         this.guess_count = 0;
         this.gameBoard.newGame(this.solution.join(""));
-        
+
     }
 
     ask(currentTry) {
@@ -104,10 +123,10 @@ class Game {
         }
 
 
-        
+
         this.writeLine(currentTry);
         this.searchWords.push(currentTry);
-        
+
 
         if (currentTry == this.solution.join("")) {
             this.gameState = "won";
@@ -117,9 +136,42 @@ class Game {
 
     }
 
-    askL(letter){
-        this.gameBoard.writeLetter(letter);
+    checkRow() {
+        let row = this.gameBoard.getRowIndex -1;
+        let solution = this.solution.split("");
+        let input_letter;
+        let return_color = new Array(LENGTH_WORD).fill("grey");
 
+
+        for(let i = 1; i <= LENGTH_WORD; i++){
+            input_letter = this.gameBoard.getLetterCanvas(row,i);
+
+            if (this.solution[i] === input_letter) {
+                return_color[i]= "green";
+                delete solution[i];
+            }
+        }
+
+        for(let i = 1; i <= LENGTH_WORD; i++){
+            input_letter = this.gameBoard.getLetterCanvas(row,i);
+
+            if (solution.includes(input_letter)) {
+                return_color[i] = "yellow";
+                delete solution[solution.indexOf(input_letter)];
+            }
+            setLetterColor(row, i, return_color[i]);
+        }
+
+
+
+
+    }
+
+    askL(letter) {
+        this.gameBoard.writeLetter(letter);
+        if (GameBoard.checkRow()) {
+            this.checkRow();
+        }
     }
 
 
@@ -189,7 +241,7 @@ document.addEventListener('keyup', (event) => {
         console.log(name);
     }
 */
-  }, false);
+}, false);
 
 /*
 let ask_words = ["Gisch", "Busch", "Clown", "Audio", "chlii", "statt", "Hilfe"]
