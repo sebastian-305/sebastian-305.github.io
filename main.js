@@ -43,8 +43,8 @@ class GameBoard {
         return returnV;
     }
 
-    getRowIndex() { this.row; }
-    getLetterIndex() { this.letter; }
+    getRowIndex() { return this.row; }
+    getLetterIndex() { return this.letter; }
 
     newGame(solution) {
 
@@ -95,6 +95,7 @@ class Game {
         this.gameBoard = gameBoard;
         this.dictionary = this.getWordsArray(LENGTH_WORD);
         this.guess_count = 0;
+        this.solution = [];
 
     }
 
@@ -137,14 +138,15 @@ class Game {
     }
 
     checkRow() {
-        let row = this.gameBoard.getRowIndex -1;
-        let solution = this.solution.split("");
+        let row = this.gameBoard.getRowIndex() - 1;
+        
+        let solution = [...this.solution];
         let input_letter;
         let return_color = new Array(LENGTH_WORD).fill("grey");
 
 
-        for(let i = 1; i <= LENGTH_WORD; i++){
-            input_letter = this.gameBoard.getLetterCanvas(row,i);
+        for(let i = 0; i < LENGTH_WORD; i++){
+            input_letter = this.gameBoard.getLetterCanvas(row,i+1);
 
             if (this.solution[i] === input_letter) {
                 return_color[i]= "green";
@@ -152,14 +154,19 @@ class Game {
             }
         }
 
-        for(let i = 1; i <= LENGTH_WORD; i++){
-            input_letter = this.gameBoard.getLetterCanvas(row,i);
+        for(let i = 0; i < LENGTH_WORD; i++){
+            input_letter = this.gameBoard.getLetterCanvas(row,i+1);
+
+            if(return_color[i]==="green"){
+                continue;
+            }
 
             if (solution.includes(input_letter)) {
                 return_color[i] = "yellow";
                 delete solution[solution.indexOf(input_letter)];
             }
-            setLetterColor(row, i, return_color[i]);
+            console.log(`row: ${row} i: ${i} return_color[i-1] ${return_color[i]} input_letter ${input_letter}`);
+            this.gameBoard.setLetterColor(row, i+1, return_color[i]);
         }
 
 
@@ -169,7 +176,7 @@ class Game {
 
     askL(letter) {
         this.gameBoard.writeLetter(letter);
-        if (gameBoard.checkRow()) {
+        if (this.gameBoard.checkRow()) {
             this.checkRow();
         }
     }
