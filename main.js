@@ -56,10 +56,12 @@ class GameBoard {
     }
 
     getLetterCanvas(row, letterIndex) {
-        return this.canvas.querySelector(`#try${this.row}${this.letter}`).innerHTML;
+        return this.canvas.querySelector(`#try${this.row}${this.letterIndex}`).innerHTML;
     }
     setLetterColor(row, letterIndex, color) {
-        this.canvas.querySelector(`#try${this.row}${this.letter}`).classList.add(color);
+        let setLine = `#try${row}${letter}`;
+        console.log(`writing row: ${row} letterIndex: ${letterIndex} color: ${color} setLine: ${setLine}`);
+        this.canvas.querySelector(setLine).classList.add(color);
     }
 
     writeLine(word2d, guess_count) {
@@ -74,9 +76,10 @@ class GameBoard {
 
     writeLetter(try_letter) {
         let writeTarget = `#try${this.row}${this.letter}`;
-        console.log(writeTarget);
+        // console.log(writeTarget);
         let elem = this.canvas.querySelector(writeTarget);
         this.letter++;
+        console.log(`try Letter:${try_letter}:`)
         elem.innerHTML = try_letter;
         if (this.letter > LENGTH_WORD) {
             this.letter = 1;
