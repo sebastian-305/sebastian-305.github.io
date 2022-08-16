@@ -166,6 +166,7 @@ class Game {
             input_letter = this.gameBoard.getLetterCanvas(row,(i+1));
 
             if(return_color[i]==="green"){
+                this.gameBoard.setLetterColor(row, i+1, return_color[i]);
                 continue;
             }
 
