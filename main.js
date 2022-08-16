@@ -56,7 +56,10 @@ class GameBoard {
     }
 
     writeLetter(try_letter){
-        let elem = this.canvas.querySelector(`#try${this.row}${this.letter++}`);
+        let writeTarget = `#try${this.row}${this.letter}`;
+        console.log(writeTarget);
+        let elem = this.canvas.querySelector(writeTarget);
+        this.letter++;
         elem.innerHTML = try_letter;
         if(this.letter >= 5){
             this.letter = 1;
@@ -187,7 +190,7 @@ document.addEventListener('keyup', (event) => {
     }
 */
   }, false);
-  
+
 /*
 let ask_words = ["Gisch", "Busch", "Clown", "Audio", "chlii", "statt", "Hilfe"]
 
