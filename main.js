@@ -66,6 +66,8 @@ class GameBoard {
         this.canvas.querySelector(setLine).classList.add(color);
     }
 
+    //I JUST WANT TO MAKE ANOTHER PUSH
+
     writeLine(word2d, guess_count) {
         let returnValue = "";
         for (let i = 0; i < 5; i++) {
