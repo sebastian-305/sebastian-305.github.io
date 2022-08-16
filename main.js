@@ -169,7 +169,7 @@ class Game {
 
     askL(letter) {
         this.gameBoard.writeLetter(letter);
-        if (GameBoard.checkRow()) {
+        if (gameBoard.checkRow()) {
             this.checkRow();
         }
     }
