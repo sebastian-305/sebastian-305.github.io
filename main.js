@@ -61,7 +61,7 @@ class GameBoard {
         let elem = this.canvas.querySelector(writeTarget);
         this.letter++;
         elem.innerHTML = try_letter;
-        if(this.letter >= 5){
+        if(this.letter > 5){
             this.letter = 1;
             this.row++;
         }
