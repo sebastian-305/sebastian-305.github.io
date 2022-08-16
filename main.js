@@ -56,7 +56,9 @@ class GameBoard {
     }
 
     getLetterCanvas(row, letterIndex) {
-        return this.canvas.querySelector(`#try${this.row}${this.letterIndex}`).innerHTML;
+        let selector = `#try${this.row}${this.letterIndex}`
+        console.log(`getLetter selector: ${selector}`)
+        return this.canvas.querySelector(selector).innerHTML;
     }
     setLetterColor(row, letterIndex, color) {
         let setLine = `#try${row}${letter}`;
