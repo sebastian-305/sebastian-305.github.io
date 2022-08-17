@@ -48,7 +48,6 @@ class GameBoard {
      *    -----Methods-----
      * void constructor(Object)
      * void newGame()
-     * char getLetterCanvas(Number, Number)
      * void setLetterColor(Number, String[])
      * void writeLetter(char)
      * string getCurrentRowCanvas()
@@ -80,22 +79,6 @@ class GameBoard {
         this.length_word = length_word;
     }
 
-    getLetterCanvas(row, letterIndex) {
-        let selector = `#try${row}${letterIndex}`
-        console.log(`getLetter selector: ${selector}`)
-        console.log(`Letters given back: ${this.canvas.querySelector(selector).innerHTML}`);
-        return this.canvas.querySelector(selector).innerHTML;
-    }
-
-    setLetterColor(row, color) {
-        console.log(`writing  color: ${color}`);
-
-        for (let i = 1; i <= LENGTH_WORD; i++) {
-            /*Maybe Add a little animation later */
-            this.canvas.querySelector(`#try${row}${i}`).classList.add(color[i - 1]);
-        }
-    }
-
     writeLetter(row, letter_index, try_letter) {
         let writeTarget = `#try${row}${letter_index}`;
         let elem = this.canvas.querySelector(writeTarget);
@@ -104,17 +87,13 @@ class GameBoard {
         elem.innerHTML = try_letter;
     }
 
-    getCurrentRowCanvas() { return this.currentRowContent.join(""); } /* to be abolished */
-
-    handleUnknownWord(row, word) { /* alert(`Unbekanntes Wort: ${word} row: ${row}`); */ this.resetRowColors(row, "orange"); }
-
     removeLetter(row, letter_index) {
         let writeTarget = `#try${row}${letter_index}`;
         let elem = this.canvas.querySelector(writeTarget);
         elem.innerHTML = "";
     }
 
-    resetRowColors(row, colorClass = "") {
+    setRowColors(row, colorClass = "") {
         for (let i = 1; i <= LENGTH_WORD; i++) {
             /*Maybe Add a little animation later */
             this.canvas.querySelector(`#try${this.current_row}${i}`).className = colorClass;
@@ -122,9 +101,22 @@ class GameBoard {
 
     }
 
-    handleWrongInput() {/*Do nothing*/ }
-
     handleShortInput(current_word) { alert(`This word is too short: ${current_word}`); }
+
+    handleUnknownWord(row, word) { /* alert(`Unbekanntes Wort: ${word} row: ${row}`); */ this.setRowColors(row, "orange"); }
+
+    setLetterColor(row, color) {
+       // console.log(`writing  color: ${color}`);
+
+        for (let i = 1; i <= LENGTH_WORD; i++) {
+            /*Maybe Add a little animation later */
+            this.canvas.querySelector(`#try${row}${i}`).classList.add(color[i - 1]);
+        }
+    }
+     
+    handleGameWon(){/*I don't care*/}
+
+    handleWrongInput() {/*Do nothing*/ } 
 };
 
 class Game {
@@ -163,6 +155,7 @@ class Game {
 
     }
 
+    //public:
     newGame(length_word, solution_words) {
         this.length_word = length.word;
         this.solution = Array.from(this.solution_words[Math.floor(Math.random() * this.solution_words.length)].toUpperCase());
@@ -172,6 +165,54 @@ class Game {
         console.log(this.current_row_content);
     }
 
+    inputSingleLetter(letter) {
+        if (this.gameState === "won") {
+            return;
+        }
+
+        letter = letter.toUpperCase();
+
+        if (letter === 'BACKSPACE' && this.current_letter_index !== 1) {
+
+            console.log(this.current_row_content);
+            this.current_row_content.pop();
+
+            this.gameBoard.removeLetter(this.current_row, --this.current_letter_index);
+            if (this.gameState === "unmapped") {
+                this.gameState = "ongoing";
+                this.gameBoard.setRowColors();
+            }
+            return;
+        }
+
+        if (letter === 'ENTER') {
+            this.checkRow();
+            return;
+        }
+
+        //Normaler Spielzug
+        {
+        if (letter === 'SS') {
+            letter = '\u00df';
+        }
+
+        
+        
+            let valid_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '\u00c4', '\u00d6', '\u00dc', '\u00df'];
+
+            //Wenn es kein gültiger Buchstabe ist *do nothing*
+            if (!valid_letters.includes(letter) || this.current_letter_index > this.length_word) {
+
+                console.log(`letter: ${letter}`);
+                return;
+            }
+
+            this.current_row_content.push(letter);
+            this.gameBoard.writeLetter(this.current_row, this.current_letter_index++, letter);
+        }
+    }
+
+    //private
     checkRow() {
         let solution = [...this.solution];
         let input_letter = "";
@@ -194,7 +235,7 @@ class Game {
 
         //Grüne Buchstaben 
         for (let i = 0; i < LENGTH_WORD; i++) {
-            input_letter = this.gameBoard.getLetterCanvas(this.current_row, (i + 1));
+            input_letter = this.current_row_content[i];
 
             if (this.solution[i] === input_letter) {
                 return_color[i] = "green";
@@ -207,7 +248,7 @@ class Game {
         } else {
             //Gelbe Buchstaben
             for (let i = 0; i < LENGTH_WORD; i++) {
-                input_letter = this.gameBoard.getLetterCanvas(this.current_row, (i + 1));
+                input_letter = this.current_row_content[i];
 
                 if (return_color[i] === "green") {
                     continue;
@@ -225,52 +266,15 @@ class Game {
         //Buchstaben einfärben
         this.gameBoard.setLetterColor(this.current_row, return_color);
 
+        if(this.gameState === "won"){
+            this.gameBoard.handleGameWon();
+            return;
+        }
+
         this.current_row++;
         this.current_letter_index = 1;
         this.current_row_content = [];
 
-    }
-
-    inputSingleLetter(letter) {
-        if (this.gameState === "won") {
-            return;
-        }
-
-        letter = letter.toUpperCase();
-
-        if (letter === 'BACKSPACE' && this.current_letter_index !== 1) {
-
-            console.log(this.current_row_content);
-            this.current_row_content.pop();
-
-            this.gameBoard.removeLetter(this.current_row, --this.current_letter_index);
-            if (this.gameState === "unmapped") {
-                this.gameState = "ongoing";
-                this.gameBoard.resetRowColors();
-            }
-            return;
-        }
-
-        if (letter === 'ENTER') {
-            this.checkRow();
-            return;
-        }
-
-        if (letter === 'SS') {
-            letter = '\u00df';
-        }
-
-        let valid_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '\u00c4', '\u00d6', '\u00dc', '\u00df'];
-
-        //Wenn es kein gültiger Buchstabe ist *do nothing*
-        if (!valid_letters.includes(letter) || this.current_letter_index > this.length_word) {
-
-            console.log(`letter: ${letter}`);
-            return;
-        }
-
-        this.current_row_content.push(letter);
-        this.gameBoard.writeLetter(this.current_row, this.current_letter_index++, letter);
     }
 
     setUpDictionary(word_length, dict_words) {
