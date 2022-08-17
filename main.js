@@ -53,11 +53,10 @@ class GameBoard {
      * void writeLetter(char)
      * string getCurrentRowCanvas()
      * void handleUnknownWord()
-     * void removeLastLetter()
-     * void resetRowColors()
+     * void removeLetter(Number, Number))
+     * void resetRowColors(Number, ?String)
      * void handleWrongInput()
-     * void handleShortInput()
-     * void incrementRow() 
+     * void handleShortInput(String) 
      * 
      ******************************/
 
@@ -107,7 +106,7 @@ class GameBoard {
 
     getCurrentRowCanvas() { return this.currentRowContent.join(""); } /* to be abolished */
 
-    handleUnknownWord() { /* alert(`Unbekanntes Wort: ${this.getCurrentRowCanvas()}`); */ this.resetRowColors("orange"); }
+    handleUnknownWord(row, word) { /* alert(`Unbekanntes Wort: ${word} row: ${row}`); */ this.resetRowColors(row, "orange"); }
 
     removeLetter(row, letter_index) {
         let writeTarget = `#try${row}${letter_index}`;
@@ -125,9 +124,7 @@ class GameBoard {
 
     handleWrongInput() {/*Do nothing*/ }
 
-    handleShortInput() { alert(`This word is too short: ${this.getCurrentRowCanvas()}`); }
-
-
+    handleShortInput(current_word) { alert(`This word is too short: ${current_word}`); }
 };
 
 class Game {
@@ -162,6 +159,7 @@ class Game {
         this.current_row = 1;
         this.current_letter_index = 1;
         this.length_word = 0;
+        this.current_row_content;
 
     }
 
@@ -170,6 +168,8 @@ class Game {
         this.solution = Array.from(this.solution_words[Math.floor(Math.random() * this.solution_words.length)].toUpperCase());
         this.gameState = "ongoing";
         this.gameBoard.newGame(length_word);
+        this.current_row_content = [];
+        console.log(this.current_row_content);
     }
 
     checkRow() {
@@ -178,15 +178,16 @@ class Game {
         let return_color = new Array(LENGTH_WORD).fill("grey");
 
         //Wort zu kurz
-        if (this.current_letter_index{
-            this.gameBoard.handleShortInput();
+        if (this.current_letter_index < this.length_word) {
+            console.log(`Current Letter Index: ${this.current_letter_index}`);
+            this.gameBoard.handleShortInput(this.current_row_content);
             return;
         }
 
         //Wort unbekannt
         if (!this.dictionary.includes(this.current_row_content.join(""))) {
             console.log(`Wort: ${this.current_row_content.join("")} ist nicht im Wörterbuch!`);
-            this.gameBoard.handleUnknownWord();
+            this.gameBoard.handleUnknownWord(this.current_row, this.current_row_content.join(""));
             this.gameState = "unmapped";
             return;
         }
@@ -225,6 +226,8 @@ class Game {
         this.gameBoard.setLetterColor(this.current_row, return_color);
 
         this.current_row++;
+        this.current_letter_index = 1;
+        this.current_row_content = [];
 
     }
 
@@ -236,9 +239,11 @@ class Game {
         letter = letter.toUpperCase();
 
         if (letter === 'BACKSPACE' && this.current_letter_index !== 1) {
-            this.current_letter_index--;
 
-            this.gameBoard.removeLetter(this.current_row, this.current_letter_index);
+            console.log(this.current_row_content);
+            this.current_row_content.pop();
+
+            this.gameBoard.removeLetter(this.current_row, --this.current_letter_index);
             if (this.gameState === "unmapped") {
                 this.gameState = "ongoing";
                 this.gameBoard.resetRowColors();
@@ -258,12 +263,13 @@ class Game {
         let valid_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '\u00c4', '\u00d6', '\u00dc', '\u00df'];
 
         //Wenn es kein gültiger Buchstabe ist *do nothing*
-        if (!valid_letters.includes(letter) || this.current_letter_index > LENGTH_WORD) {
+        if (!valid_letters.includes(letter) || this.current_letter_index > this.length_word) {
 
             console.log(`letter: ${letter}`);
             return;
         }
 
+        this.current_row_content.push(letter);
         this.gameBoard.writeLetter(this.current_row, this.current_letter_index++, letter);
     }
 
