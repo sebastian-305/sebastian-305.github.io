@@ -183,7 +183,7 @@ class GameBoard {
 
     setUsedLetters(usedLetters){
 
-        let setString = "Bereits verwendete Buchstaben: <br/>";
+        let setString = "Nicht vorhandene Buchstaben: <br/>";
         for(let element of usedLetters.values()){
         setString += element;
         setString += "  ";
