@@ -183,7 +183,7 @@ class GameBoard {
 
     setUsedLetters(usedLetters){
 
-        let setString = "Bereits verwendete Worte:\n";
+        let setString = "Bereits verwendete Buchstaben: <br/>";
         for(let element of usedLetters.values()){
         setString += element;
         setString += "  ";
