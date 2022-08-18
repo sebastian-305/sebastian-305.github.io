@@ -35,7 +35,29 @@ let solution_word_array;
         "Qualm",
         "Szene",
         "Lende",
-        "Tonne"
+        "Tonne",
+        "Perle",
+        "Döner",
+        "Messe",
+        "sacht",
+        "Küken",
+        "Komik",
+        "Hitze",
+        "recht",
+        "Ozean",
+        "Bogen",
+        "sauer",
+        "Enkel",
+        "Party",
+        "Rente",
+        "Kampf",
+        "nötig",
+        "Pumpe",
+        "Onkel",
+        "Sturz",
+        "Aktiv",
+        "Mumie",
+        "Drama"
     );
 }
 
@@ -158,7 +180,20 @@ class GameBoard {
         };
         alert(`Cheater!!!\n L\u00f6sungswort: ${solution}`);
     }
-       
+
+    setUsedLetters(usedLetters){
+
+        let setString = "Bereits verwendete Worte:\n";
+        for(let element of usedLetters.values()){
+        setString += element;
+        setString += "  ";
+        }
+
+        this.canvas.querySelector(`#usedLetters`).innerHTML = setString;
+
+
+    }
+
 };
 
 class Game {
@@ -198,6 +233,7 @@ class Game {
         this.length_word = 0;
         this.current_row_content;
         this.restart;
+        this.usedLetters;
 
     }
 
@@ -213,6 +249,7 @@ class Game {
         this.gameBoard.newGame(length_word);
         this.current_row_content = [];
         this.restart = 0;
+        this.usedLetters = new Set();
     }
 
     inputSingleLetter(letter) {
@@ -299,9 +336,10 @@ class Game {
         //Grüne Buchstaben 
         for (let i = 0; i < this.length_word; i++) {
             input_letter = this.current_row_content[i];
+            this.usedLetters.add(input_letter);
 
             if (this.solution[i] === input_letter) {
-                return_color[i] = "green";
+                return_color[i] = "green";                
                 delete solution[i];
             }
         }
@@ -314,10 +352,12 @@ class Game {
                 input_letter = this.current_row_content[i];
 
                 if (return_color[i] === "green") {
+                    this.usedLetters.delete(input_letter);
                     continue;
                 }
 
                 if (solution.includes(input_letter)) {
+                    this.usedLetters.delete(input_letter);
                     return_color[i] = "yellow";
                     delete solution[solution.indexOf(input_letter)];
                 }
@@ -337,6 +377,8 @@ class Game {
         this.current_row++;
         this.current_letter_index = 1;
         this.current_row_content = [];
+
+        this.gameBoard.setUsedLetters(this.usedLetters);
 
     }
 
@@ -361,7 +403,7 @@ class Game {
 
 /*START MAIN LOGIC*/{
 
-    const element = this.document.getElementById("gaming_table").firstElementChild;
+    const element = this.document;
 
     let Board = new GameBoard(element);
     let MyGame = new Game(solution_word_array, Board, dict_words);
