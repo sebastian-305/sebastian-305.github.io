@@ -188,14 +188,16 @@ class GameBoard {
         if (LOGGER === "info") {
             console.log(`GameBoard.handleGameWon()`);
         }
-        alert(`Du hast gewonnnen!\n Das gesuchte Worte war: ${solution}`);
+        
+        setTimeout(function () { alert(`Du hast gewonnnen!\nDas gesuchte Worte war: ${solution}`); }, 1);
     }
 
     handleGameLost(solution) {
         if (LOGGER === "info") {
             console.log(`GameBoard.handleGameLost()`);
         }
-        alert(`Du hast leider alle Versuche aufgebraucht!\n Das gesuchte Worte war: ${solution}`);
+       
+        setTimeout(function () {  alert(`Du hast leider alle Versuche aufgebraucht!\nDas gesuchte Worte war: ${solution}`); }, 1);
     }
 
     handleWrongInput() {
@@ -204,11 +206,11 @@ class GameBoard {
         }/*Do nothing*/
     }
 
-    cheat(solution) {
+    showSolution(solution) {
         if (LOGGER === "info") {
-            console.log(`GameBoard.cheat()`);
+            console.log(`GameBoard.showSolution()`);
         };
-        alert(`Cheater!!!\n L\u00f6sungswort: ${solution}`);
+        setTimeout(function () { alert(`Bauchst du etwas Hilfe?\n L\u00f6sungswort: ${solution}`); }, 1);
     }
 
     setUsedLetters(usedLetters){
@@ -305,8 +307,8 @@ class Game {
             return;
         }
 
-        if (letter === 'DEAD') {
-            this.gameBoard.cheat(this.solution.join(""));
+        if (letter === 'DEAD') {            
+            this.gameBoard.showSolution(this.solution.join(""));
             return;
         }
 
