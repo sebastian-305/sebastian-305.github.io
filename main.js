@@ -184,10 +184,18 @@ class GameBoard {
         }
     }
 
-    handleGameWon() {
+    handleGameWon(solution) {
         if (LOGGER === "info") {
             console.log(`GameBoard.handleGameWon()`);
-        }/*I don't care*/
+        }
+        alert(`Du hast gewonnnen!\n Das gesuchte Worte war: ${solution}`);
+    }
+
+    handleGameLost(solution) {
+        if (LOGGER === "info") {
+            console.log(`GameBoard.handleGameLost()`);
+        }
+        alert(`Du hast leider alle Versuche aufgebraucht!\n Das gesuchte Worte war: ${solution}`);
     }
 
     handleWrongInput() {
@@ -397,15 +405,19 @@ class Game {
         this.gameBoard.setLetterColor(this.current_row, return_color);
 
         if (this.gameState === "won") {
-            this.gameBoard.handleGameWon();
+            this.gameBoard.handleGameWon(this.solution.join(""));
             return;
         }
 
-        this.current_row++;
+
         this.current_letter_index = 1;
         this.current_row_content = [];
-
         this.gameBoard.setUsedLetters(this.usedLetters);
+
+        if(++this.current_row>MAX_ROW){
+            this.gameBoard.handleGameLost(this.solution.join(""));
+            return;
+        };
 
     }
 
