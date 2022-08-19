@@ -62,7 +62,7 @@ let solution_word_array;
         "Drama",
         "S\u00E4bel",
         "Welle", "Silbe","Falke", "Kliff","aktiv","Weide", "Boden","Boxer", "Ruder", "Lasso","Strom","Bruch","Taiga","Ruine", "Nagel",
-"Paket", "Spiel", "Dings", "Besen", "Erl\u00f6s",  "loyal","Kr\u00E4he", "Modus","M\u00FChle" , "Stra\u00dfe", "Gef\u00E4\u00df"
+"Paket", "Spiel", "Dings", "Besen", "Erl\u00f6s",  "loyal","Kr\u00E4he", "Modus","M\u00FChle" , "Gef\u00E4\u00df", "Flei\u00df"
     );
 }
 
