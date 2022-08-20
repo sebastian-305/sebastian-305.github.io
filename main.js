@@ -398,6 +398,9 @@ class Game {
 
     //private
     checkRow() { //Vielleicht \u00DCbergabeparameter angeben, damit die Logik leichter nachvollziehbar ist. 
+        if (LOGGER === "info") {
+            console.log(`Game.checkRow()`);
+        }
         let solution = [...this.solution];
         let input_letter = "";
         let return_color = new Array(this.length_word).fill("grey");
@@ -444,8 +447,10 @@ class Game {
                     return_color[i] = "yellow";
                     delete solution[solution.indexOf(input_letter)];
                 }
-
-                console.log(`row: ${this.current_row} i: ${i} return_color[i-1] ${return_color[i]} input_letter ${input_letter}`);
+                if (LOGGER === "info") {
+                    console.log(`row: ${this.current_row} i: ${i} return_color[i-1] ${return_color[i]} input_letter ${input_letter}`);
+                }
+               
             }
         }
 
