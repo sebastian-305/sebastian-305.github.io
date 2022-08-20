@@ -406,7 +406,7 @@ class Game {
         let return_color = new Array(this.length_word).fill("grey");
 
         //Wort zu kurz
-        if (this.current_letter_index < this.length_word) {
+        if (this.current_letter_index <= this.length_word) {
             this.gameBoard.handleShortInput(this.current_row_content);
             return;
         }
