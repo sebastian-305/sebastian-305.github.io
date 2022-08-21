@@ -80,21 +80,29 @@
 		.keyboard_letter {
 			background-color: #f5f5f5;
 			display: table-cell;
-			width: 37px;
+			width: 36px;
+			height: 36px;
+			vertical-align:middle;
 			text-align: center;
 			border: 2px solid #ecffed;
+			outline: 1px dotted lightseagreen;
+			
+		}
+
+		.keyboard_letter:hover {
+			cursor:pointer;
 		}
 
 		.keyboard_special {
-			width: 48px;
+			width: 76px;
 		}
 
 		#keyboard {
 			display: table;
 			table-layout: fixed;
-			font-size: 19px;
+			font-size: 18px;
 			font-weight: bold;
-			font-family: san-serif;
+			font-family: arial;
 			border: 1px solid black;
 			margin-top: 8px;
 		}
@@ -119,6 +127,10 @@
 			background-color: #e6b703;
 			/*background-color: yellow;*/
 		}
+
+		/*.grey:hover {
+			cursor:default;
+		}*/
 	</style>
 </head>
 
@@ -186,43 +198,41 @@
 
 		<div id="keyboard">
 			<div class="key_row" id="key_top">
-				<div id="Q" class="keyboard_letter">Q</div>
-				<div id="W" class="keyboard_letter">W</div>
-				<div id="E" class="keyboard_letter">E</div>
-				<div id="R" class="keyboard_letter">R</div>
-				<div id="T" class="keyboard_letter">T</div>
-				<div id="Z" class="keyboard_letter">Z</div>
-				<div id="U" class="keyboard_letter">U</div>
-				<div id="I" class="keyboard_letter">I</div>
-				<div id="O" class="keyboard_letter">O</div>
-				<div id="P" class="keyboard_letter">P</div>
-				<div id="Ü" class="keyboard_letter">Ü</div>
+				<div id="Q" class="keyboard_letter" onclick="clickLetter('Q')">Q</div>
+				<div id="W" class="keyboard_letter" onclick="clickLetter('W')">W</div>
+				<div id="E" class="keyboard_letter" onclick="clickLetter('E')">E</div>
+				<div id="R" class="keyboard_letter" onclick="clickLetter('R')">R</div>
+				<div id="T" class="keyboard_letter" onclick="clickLetter('T')">T</div>
+				<div id="Z" class="keyboard_letter" onclick="clickLetter('Z')">Z</div>
+				<div id="U" class="keyboard_letter" onclick="clickLetter('U')">U</div>
+				<div id="I" class="keyboard_letter" onclick="clickLetter('I')">I</div>
+				<div id="O" class="keyboard_letter" onclick="clickLetter('O')">O</div>
+				<div id="P" class="keyboard_letter" onclick="clickLetter('P')">P</div>
+				<div id="Ü" class="keyboard_letter" onclick="clickLetter('Ü')">Ü</div>
 			</div>
 			<div class="key_row" id="key_mid">
-				<div id="A" class="keyboard_letter">A</div>
-				<div id="S" class="keyboard_letter">S</div>
-				<div id="D" class="keyboard_letter">D</div>
-				<div id="F" class="keyboard_letter">F</div>
-				<div id="G" class="keyboard_letter">G</div>
-				<div id="H" class="keyboard_letter">H</div>
-				<div id="J" class="keyboard_letter">J</div>
-				<div id="K" class="keyboard_letter">K</div>
-				<div id="L" class="keyboard_letter">L</div>
-				<div id="Ö" class="keyboard_letter">Ö</div>
-				<div id="Ä" class="keyboard_letter">Ä</div>
+				<div id="A" class="keyboard_letter" onclick="clickLetter('A')">A</div>
+				<div id="S" class="keyboard_letter" onclick="clickLetter('S')">S</div>
+				<div id="D" class="keyboard_letter" onclick="clickLetter('D')">D</div>
+				<div id="F" class="keyboard_letter" onclick="clickLetter('F')">F</div>
+				<div id="G" class="keyboard_letter" onclick="clickLetter('G')">G</div>
+				<div id="H" class="keyboard_letter" onclick="clickLetter('H')">H</div>
+				<div id="J" class="keyboard_letter" onclick="clickLetter('J')">J</div>
+				<div id="K" class="keyboard_letter" onclick="clickLetter('K')">K</div>
+				<div id="L" class="keyboard_letter" onclick="clickLetter('L')">L</div>
+				<div id="Ö" class="keyboard_letter" onclick="clickLetter('Ö')">Ö</div>
+				<div id="Ä" class="keyboard_letter" onclick="clickLetter('Ä')">Ä</div>
 			</div>
 			<div class="key_row" id="key_bot">
-				<div id="" class="keyboard_letter">?</div>
-				<div id="" class="keyboard_letter">?</div>
-				<div id="Y" class="keyboard_letter">Y</div>
-				<div id="X" class="keyboard_letter">X</div>
-				<div id="C" class="keyboard_letter">C</div>
-				<div id="V" class="keyboard_letter">V</div>
-				<div id="B" class="keyboard_letter">B</div>
-				<div id="N" class="keyboard_letter">N</div>
-				<div id="M" class="keyboard_letter">M</div>
-				<div id="" class="keyboard_letter">?</div>
-				<div id="" class="keyboard_letter">?</div>
+				<div id="BSP" class="keyboard_letter keyboard_special" onclick="clickLetter('BACKSPACE')">&#8592;</div>
+				<div id="Y" class="keyboard_letter" onclick="clickLetter('Y')">Y</div>
+				<div id="X" class="keyboard_letter" onclick="clickLetter('X')">X</div>
+				<div id="C" class="keyboard_letter" onclick="clickLetter('C')">C</div>
+				<div id="V" class="keyboard_letter" onclick="clickLetter('V')">V</div>
+				<div id="B" class="keyboard_letter" onclick="clickLetter('B')">B</div>
+				<div id="N" class="keyboard_letter" onclick="clickLetter('N')">N</div>
+				<div id="M" class="keyboard_letter" onclick="clickLetter('M')">M</div>
+				<div id="ETR" class="keyboard_letter keyboard_special" onclick="clickLetter('ENTER')">Enter &#8626;</div>
 			</div>
 		</div>
 

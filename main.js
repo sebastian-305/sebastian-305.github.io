@@ -542,5 +542,9 @@ class Game {
 
         MyGame.inputSingleLetter(name);
     }, false);
+
+    function clickLetter(letter){
+        MyGame.inputSingleLetter(letter);
+    }
 }
 
