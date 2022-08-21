@@ -3,16 +3,18 @@
 <head>
 
 	<style type="text/css">
+
+
 		body {
 			background-color: #ecffed;
 		}
 
 		#game_wrapper {
 			/*border: 1px dashed black;*/
-			width: 260px;
+			width: 450px;
 			margin: auto;
 			min-height: 40px;
-			background: #f7f7e7;
+			/*background: #f7f7e7;*/
 
 
 		}
@@ -41,6 +43,7 @@
 			border-spacing: 0px;
 			border: 3px solid black;
 			background-color: #fbfbfb;
+			margin: auto;
 		}
 
 		#gaming_table p {
@@ -60,35 +63,36 @@
 			font-size: 25;
 			font-weight: bolder;
 			font-family: 'Courier New', Courier, monospace;
-			width: 50px;
-			height: 50px;
+			width: 55px;
+			height: 60px;
 			margin: 0px;
 			padding: 5px;
-			outline: 1px solid rgb(255, 210, 126);
+			outline: 1px solid rgb(201, 201, 201);
+			min-width:40px;
 		}
 
 
 
 		.orange {
-			background-color: rgb(255, 244, 230);
+			background-color: rgb(244, 207, 160);
 		}
 
 		.keyboard_letter {
 			background-color: #f5f5f5;
 			display: table-cell;
-			width: 22px;
+			width: 37px;
 			text-align: center;
 			border: 2px solid #ecffed;
 		}
 
 		.keyboard_special {
-			width: 35px;
+			width: 48px;
 		}
 
 		#keyboard {
 			display: table;
 			table-layout: fixed;
-			font-size: 12px;
+			font-size: 19px;
 			font-weight: bold;
 			font-family: san-serif;
 			border: 1px solid black;
@@ -96,16 +100,24 @@
 		}
 
 		.green {
-			background-color: lightgreen;
+			color:white;
+			background-color:#46b200;
+			/*background-color: green;*/
 		}
 
-		.grey {
+		.lightgrey {
+			color:white;
 			background-color: lightgrey;
-
+		}
+		.grey{
+			color:white;
+			background-color:grey;
 		}
 
 		.yellow {
-			background-color: lightyellow;
+			color:white;
+			background-color: #e6b703;
+			/*background-color: yellow;*/
 		}
 	</style>
 </head>
@@ -174,44 +186,43 @@
 
 		<div id="keyboard">
 			<div class="key_row" id="key_top">
-				<div class="keyboard_letter">Q</div>
-				<div class="keyboard_letter">W</div>
-				<div class="keyboard_letter">E</div>
-				<div class="keyboard_letter">R</div>
-				<div class="keyboard_letter">T</div>
-				<div class="keyboard_letter">Z</div>
-				<div class="keyboard_letter">U</div>
-				<div class="keyboard_letter">I</div>
-				<div class="keyboard_letter">O</div>
-				<div class="keyboard_letter">P</div>
-				<div class="keyboard_letter">Ü</div>
+				<div id="Q" class="keyboard_letter">Q</div>
+				<div id="W" class="keyboard_letter">W</div>
+				<div id="E" class="keyboard_letter">E</div>
+				<div id="R" class="keyboard_letter">R</div>
+				<div id="T" class="keyboard_letter">T</div>
+				<div id="Z" class="keyboard_letter">Z</div>
+				<div id="U" class="keyboard_letter">U</div>
+				<div id="I" class="keyboard_letter">I</div>
+				<div id="O" class="keyboard_letter">O</div>
+				<div id="P" class="keyboard_letter">P</div>
+				<div id="Ü" class="keyboard_letter">Ü</div>
 			</div>
 			<div class="key_row" id="key_mid">
-				<div class="keyboard_letter">A</div>
-				<div class="keyboard_letter">S</div>
-				<div class="keyboard_letter">D</div>
-				<div class="keyboard_letter">F</div>
-				<div class="keyboard_letter">G</div>
-				<div class="keyboard_letter">H</div>
-				<div class="keyboard_letter">J</div>
-				<div class="keyboard_letter">K</div>
-				<div class="keyboard_letter">L</div>
-				<div class="keyboard_letter">Ö</div>
-				<div class="keyboard_letter">Ä</div>
+				<div id="A" class="keyboard_letter">A</div>
+				<div id="S" class="keyboard_letter">S</div>
+				<div id="D" class="keyboard_letter">D</div>
+				<div id="F" class="keyboard_letter">F</div>
+				<div id="G" class="keyboard_letter">G</div>
+				<div id="H" class="keyboard_letter">H</div>
+				<div id="J" class="keyboard_letter">J</div>
+				<div id="K" class="keyboard_letter">K</div>
+				<div id="L" class="keyboard_letter">L</div>
+				<div id="Ö" class="keyboard_letter">Ö</div>
+				<div id="Ä" class="keyboard_letter">Ä</div>
 			</div>
 			<div class="key_row" id="key_bot">
-				<div class="keyboard_letter">?</div>
-				<div class="keyboard_letter">?</div>
-				<div class="keyboard_letter">Y</div>
-				<div class="keyboard_letter">X</div>
-				<div class="keyboard_letter">C</div>
-				<div class="keyboard_letter">V</div>
-				<div class="keyboard_letter">B</div>
-				<div class="keyboard_letter">N</div>
-				<div class="keyboard_letter">M</div>
-				<div class="keyboard_letter">?</div>
-				<div class="keyboard_letter">?</div>
-
+				<div id="" class="keyboard_letter">?</div>
+				<div id="" class="keyboard_letter">?</div>
+				<div id="Y" class="keyboard_letter">Y</div>
+				<div id="X" class="keyboard_letter">X</div>
+				<div id="C" class="keyboard_letter">C</div>
+				<div id="V" class="keyboard_letter">V</div>
+				<div id="B" class="keyboard_letter">B</div>
+				<div id="N" class="keyboard_letter">N</div>
+				<div id="M" class="keyboard_letter">M</div>
+				<div id="" class="keyboard_letter">?</div>
+				<div id="" class="keyboard_letter">?</div>
 			</div>
 		</div>
 
