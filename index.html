@@ -3,8 +3,6 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
-
-
 		body {
 			background-color: #ecffed;
 		}
@@ -68,7 +66,7 @@
 			margin: 0px;
 			padding: 5px;
 			outline: 1px solid rgb(201, 201, 201);
-			min-width:40px;
+			min-width: 40px;
 		}
 
 
@@ -82,15 +80,15 @@
 			display: table-cell;
 			width: 36px;
 			height: 56px;
-			vertical-align:middle;
+			vertical-align: middle;
 			text-align: center;
 			border: 2px solid #ecffed;
 			outline: 1px dotted lightseagreen;
-			
+
 		}
 
 		.keyboard_letter:hover {
-			cursor:pointer;
+			cursor: pointer;
 		}
 
 		.keyboard_special {
@@ -108,29 +106,72 @@
 		}
 
 		.green {
-			color:white;
-			background-color:#46b200;
+			color: white;
+			background-color: #46b200;
 			/*background-color: green;*/
 		}
 
 		.lightgrey {
-			color:white;
+			color: white;
 			background-color: lightgrey;
 		}
-		.grey{
-			color:white;
-			background-color:grey;
+
+		.grey {
+			color: white;
+			background-color: grey;
 		}
 
 		.yellow {
-			color:white;
+			color: white;
 			background-color: #e6b703;
 			/*background-color: yellow;*/
 		}
 
-		/*.grey:hover {
-			cursor:default;
-		}*/
+		@media only screen and (max-width: 450px) {
+
+			/* For mobile phones: */
+			[class*="col-"] {
+				width: 100%;
+			}
+
+			#game_wrapper {
+				width: 100%;
+				min-height: 40px;
+			}
+
+
+			#gaming_table p {
+				width: 30px;
+				height: 30px;
+			}
+
+			#gaming_table tr td {
+				font-size: 20pt;
+				width: 35px;
+				height: 40px;
+				padding: 2px;
+				min-width: 30px;
+			}
+
+			.keyboard_letter {
+				width: 30px;
+				height: 40px;
+				border: 1px solid #ecffed;
+
+			}
+
+			.keyboard_special {
+				width: 18%;
+			}
+
+			#keyboard {
+				font-size: 11pt;
+				margin-top: 6px;
+				width:100%;
+			
+			}
+
+		}
 	</style>
 </head>
 
@@ -232,7 +273,8 @@
 				<div id="B" class="keyboard_letter" onclick="clickLetter('B')">B</div>
 				<div id="N" class="keyboard_letter" onclick="clickLetter('N')">N</div>
 				<div id="M" class="keyboard_letter" onclick="clickLetter('M')">M</div>
-				<div id="ETR" class="keyboard_letter keyboard_special" onclick="clickLetter('ENTER')">Enter &#8626;</div>
+				<div id="ETR" class="keyboard_letter keyboard_special" onclick="clickLetter('ENTER')">Enter &#8626;
+				</div>
 			</div>
 		</div>
 
