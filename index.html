@@ -16,11 +16,13 @@
 
 
 		}
+
 		#game_wrapper h1 {
 			text-align: center;
 		}
 
 		#usedLetters {
+			display: none;
 			height: 100px;
 			padding: 5px;
 			border: 1px solid grey;
@@ -65,6 +67,34 @@
 			outline: 1px solid rgb(255, 210, 126);
 		}
 
+
+
+		.orange {
+			background-color: rgb(255, 244, 230);
+		}
+
+		.keyboard_letter {
+			background-color: #f5f5f5;
+			display: table-cell;
+			width: 22px;
+			text-align: center;
+			border: 2px solid #ecffed;
+		}
+
+		.keyboard_special {
+			width: 35px;
+		}
+
+		#keyboard {
+			display: table;
+			table-layout: fixed;
+			font-size: 12px;
+			font-weight: bold;
+			font-family: san-serif;
+			border: 1px solid black;
+			margin-top: 8px;
+		}
+
 		.green {
 			background-color: lightgreen;
 		}
@@ -77,19 +107,15 @@
 		.yellow {
 			background-color: lightyellow;
 		}
-
-		.orange {
-			background-color: rgb(255, 244, 230);
-		}
 	</style>
 </head>
 
 <body>
-	
+
 	<div id="game_wrapper">
 		<p>Sebastian präsentiert: </p>
 		<h1>Wordle</h1>
-		
+
 		<table id="gaming_table">
 
 			<tr id="try1">
@@ -142,10 +168,52 @@
 			</tr>
 		</table>
 		<div id="usedLetters">
-			Nicht vorhandene Buchstaben: <br/>
+			Nicht vorhandene Buchstaben: <br />
 
 		</div>
 
+		<div id="keyboard">
+			<div class="key_row" id="key_top">
+				<div class="keyboard_letter">Q</div>
+				<div class="keyboard_letter">W</div>
+				<div class="keyboard_letter">E</div>
+				<div class="keyboard_letter">R</div>
+				<div class="keyboard_letter">T</div>
+				<div class="keyboard_letter">Z</div>
+				<div class="keyboard_letter">U</div>
+				<div class="keyboard_letter">I</div>
+				<div class="keyboard_letter">O</div>
+				<div class="keyboard_letter">P</div>
+				<div class="keyboard_letter">Ü</div>
+			</div>
+			<div class="key_row" id="key_mid">
+				<div class="keyboard_letter">A</div>
+				<div class="keyboard_letter">S</div>
+				<div class="keyboard_letter">D</div>
+				<div class="keyboard_letter">F</div>
+				<div class="keyboard_letter">G</div>
+				<div class="keyboard_letter">H</div>
+				<div class="keyboard_letter">J</div>
+				<div class="keyboard_letter">K</div>
+				<div class="keyboard_letter">L</div>
+				<div class="keyboard_letter">Ö</div>
+				<div class="keyboard_letter">Ä</div>
+			</div>
+			<div class="key_row" id="key_bot">
+				<div class="keyboard_letter">?</div>
+				<div class="keyboard_letter">?</div>
+				<div class="keyboard_letter">Y</div>
+				<div class="keyboard_letter">X</div>
+				<div class="keyboard_letter">C</div>
+				<div class="keyboard_letter">V</div>
+				<div class="keyboard_letter">B</div>
+				<div class="keyboard_letter">N</div>
+				<div class="keyboard_letter">M</div>
+				<div class="keyboard_letter">?</div>
+				<div class="keyboard_letter">?</div>
+
+			</div>
+		</div>
 
 
 
