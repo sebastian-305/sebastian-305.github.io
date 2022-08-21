@@ -469,7 +469,7 @@ class Game {
             }
 
         }
-        if (solution.join("") === "") {
+        if (this.greenLetters.size === this.length_word) {
             this.gameState = "won";
         }
 
