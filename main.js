@@ -1,7 +1,7 @@
 
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
-const LOGGER = "info";
+const LOGGER = "off; //"info";
  
 let dict_words
 {
@@ -471,7 +471,7 @@ class Game {
 
         }
         if(LOGGER === "info"){
-            console.log(`checking if won: green Letters: ${this.greenLetters}, green Letter size ${this.greenLetters.Letters.size} length word: ${this.length.word}`);
+            console.log(`checking if won: green Letters: ${this.greenLetters}, green Letter size ${this.greenLetters.size} length word: ${this.length.word}`);
         }
 
         if (this.greenLetters.size === this.length_word) {
