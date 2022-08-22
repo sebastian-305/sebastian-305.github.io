@@ -1,4 +1,4 @@
-
+//Ver 1.6.5
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = "off"; //"info";
@@ -471,7 +471,7 @@ class Game {
 
         }
         if(LOGGER === "info"){
-            console.log(`checking if won: green Letters: ${this.greenLetters}, green Letter size ${this.greenLetters.size} length word: ${this.length.word}`);
+            console.log(`checking if won: green Letters: ${this.greenLetters}, green Letter size ${this.greenLetters.size} length word: ${this.length_word}`);
         }
 
         if (this.greenLetters.size === this.length_word) {
