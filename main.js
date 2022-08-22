@@ -13,7 +13,7 @@ let solution_word_array;
     solution_word_array = new Array(
         "aktiv",
         "Audio",
-        "Bahai",
+       // "Bahai", //Wort zu schwer
         "Basis",
         "Beere",
         "Besen",
@@ -469,6 +469,10 @@ class Game {
             }
 
         }
+        if(logger === "info"){
+            console.log(`checking if won: green Letters: ${this.greenLetters}, green Letter size ${this.greenLetters.Letters.size} length word: ${this.length.word}`);
+        }
+
         if (this.greenLetters.size === this.length_word) {
             this.gameState = "won";
         }
@@ -489,7 +493,7 @@ class Game {
         if (++this.current_row > MAX_ROW) {
             this.gameBoard.handleGameLost(this.solution.join(""));
             return;
-        };
+        }
 
     }
 
