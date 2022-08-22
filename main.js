@@ -1,7 +1,7 @@
 
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
-const LOGGER = "off; //"info";
+let LOGGER = "off; //"info";
  
 let dict_words
 {
