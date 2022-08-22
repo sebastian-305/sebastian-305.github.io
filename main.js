@@ -545,8 +545,9 @@ class Game {
             console.log(`Event \'keyup\' ${event}->${name}`);
         }
 
-        if(name == "End"){
+        if(name == "End"){            
             LOGGER = (LOGGER === "off") ? "info" : "off";
+            console.log(`Logger level: ${LOGGER}`);
         }else{
             MyGame.inputSingleLetter(name);
         }
