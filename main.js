@@ -474,7 +474,7 @@ class Game {
             console.log(`checking if won: green Letters: ${this.greenLetters}, green Letter size ${this.greenLetters.size} length word: ${this.length_word}`);
         }
 
-        if (this.greenLetters.size === this.length_word) {
+        if (this.solution.join("") === this.current_row_content.join("")) {
             this.gameState = "won";
         }
 
