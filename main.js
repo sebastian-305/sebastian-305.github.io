@@ -469,7 +469,7 @@ class Game {
             }
 
         }
-        if(logger === "info"){
+        if(LOGGER === "info"){
             console.log(`checking if won: green Letters: ${this.greenLetters}, green Letter size ${this.greenLetters.Letters.size} length word: ${this.length.word}`);
         }
 
