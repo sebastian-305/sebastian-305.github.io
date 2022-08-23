@@ -1,4 +1,4 @@
-//Ver 1.6.7
+//Ver 1.6.7.1
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = "off"; //"info";
@@ -29,7 +29,8 @@ let solution_word_array;
         "Buche",
         "Busch",
         "Clown",
-        "D\u00f6ner",
+       /* "D\u00f6ner",*/
+        "Daune",
         "Drama",
         "Drang",
         "Ebene",
@@ -57,6 +58,7 @@ let solution_word_array;
         "Kajak",
         "Kampf",
         "Kanne",
+        "Karte",
         "Katze",
         "Kerze",
         "Klick",
@@ -95,7 +97,10 @@ let solution_word_array;
         "Pizza",
         "Platz",
         "Pumpe",
+        "Quarz",
         "Qualm",
+        "Quirl",
+        "Quote",
         "Rache",
         "recht",
         "Reich",
@@ -112,6 +117,7 @@ let solution_word_array;
         "Serie",
         "Sicht",
         "Silbe",
+        "Sonde",
         "Spiel",
         "Sport",
         "Strom",
@@ -119,6 +125,7 @@ let solution_word_array;
         "Sturz",
         "Szene",
         "Taiga",
+        "Tanne",
         "Thema",
         "Tonne",
         "Troll",
