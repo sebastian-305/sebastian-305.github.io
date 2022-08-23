@@ -70,7 +70,6 @@ let solution_word_array;
         "hupen",
         "Hüter",
         "Ideal",
-        "Idiot",
         "Imker",
         "immer",
         "Index",
