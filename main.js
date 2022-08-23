@@ -1,4 +1,4 @@
-//Ver 1.6.6
+//Ver 1.6.7
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = "off"; //"info";
@@ -43,6 +43,7 @@ let solution_word_array;
         "Fisch",
         "Folge",
         "Geist",
+        "Genie",
         "Gnade",
         "Hilfe",
         "Hitze",
@@ -76,6 +77,7 @@ let solution_word_array;
         "M\u00FChle",
         "Macht",
         "Messe",
+        "Milbe",
         "Minze",
         "Modus",
         "Mumie",
@@ -83,6 +85,7 @@ let solution_word_array;
         "Nagel",
         "Onkel",
         "Opium",
+        "Orbit",
         "Ozean",
         "Paket",
         "Party",
@@ -110,6 +113,7 @@ let solution_word_array;
         "Sicht",
         "Silbe",
         "Spiel",
+        "Sport",
         "Strom",
         "Stufe",
         "Sturz",
@@ -117,12 +121,15 @@ let solution_word_array;
         "Taiga",
         "Thema",
         "Tonne",
+        "Troll",
         "trotz",
         "Walze",
         "Wanze",
+        "Warze",
         "Weide",
         "Weise",
         "Welle",
+        "wider",
         "Zügel",
         "Zunge",
         "Zwang",
