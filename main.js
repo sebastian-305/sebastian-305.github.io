@@ -1,4 +1,4 @@
-//Ver 1.6.7.2
+//Ver 1.6.7.3
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = "off"; //"info";
@@ -70,6 +70,7 @@ let solution_word_array;
         "Kr\u00E4he",
         "Kraft",
         "krank",
+        "Kranz",
         "Kreis",
         "Lachs",
         "Lasso",
@@ -133,6 +134,7 @@ let solution_word_array;
         "Tanne",
         "Thema",
         "Tonne",
+        "Trick",
         "Troll",
         "trotz",
         "Walze",
