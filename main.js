@@ -1,4 +1,4 @@
-//Ver 1.6.7.1
+//Ver 1.6.7.2
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = "off"; //"info";
@@ -19,6 +19,7 @@ let solution_word_array;
         "Beere",
         "Besen",
         "Bezug",
+        "Birke",
         "Blick",
         "Boden",
         "Bogen",
@@ -35,6 +36,7 @@ let solution_word_array;
         "Drang",
         "Ebene",
         "Enkel",
+        "Engel",
         "Enzym",
         "Erl\u00f6s",
         "Ernte",
@@ -43,6 +45,7 @@ let solution_word_array;
         "Ferne",
         "Fisch",
         "Folge",
+        "Gabel",
         "Geist",
         "Genie",
         "Gnade",
@@ -81,6 +84,7 @@ let solution_word_array;
         "Messe",
         "Milbe",
         "Minze",
+        "Mitte",
         "Modus",
         "Mumie",
         "n\u00f6tig",
@@ -119,6 +123,7 @@ let solution_word_array;
         "Silbe",
         "Sonde",
         "Spiel",
+        "Stock",
         "Sport",
         "Strom",
         "Stufe",
@@ -137,7 +142,7 @@ let solution_word_array;
         "Weise",
         "Welle",
         "wider",
-        "Zügel",
+        "Z\u00FCgel",
         "Zunge",
         "Zwang",
         "Zweig"
