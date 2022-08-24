@@ -1,4 +1,4 @@
-//Ver 1.6.7.5
+//Ver 1.6.7.5.fix
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = "off"; //"info";
@@ -191,7 +191,7 @@ let solution_word_array;
         "Vokal",
         "Video",
         "Virus",
-        "Villa"
+        "Villa",
         "Visum",
         "Walze",
         "Wanze",
