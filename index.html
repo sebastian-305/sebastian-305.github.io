@@ -127,7 +127,8 @@
     <select name="Damen" id="DamenSelect" onchange="updateFieldWithOtherSolution();">
         <option>0,12,23,29,34,46,49,59</option>
     </select>
-    <div class="button unselectable" name="rotieren" title="Spielfeld rotieren" onclick="updateFieldWithOtherSolution('rotate')">
+    <div class="button unselectable" name="rotieren" title="Spielfeld rotieren"
+        onclick="updateFieldWithOtherSolution('rotate')">
         <span> &#11118;</span>
     </div>
     <div class="button unselectable" name="horizontal spiegeln" title="Spielfeld horizontal spiegeln"
@@ -253,10 +254,10 @@
 
                     if (solution2d[y_index][x_index]) //Wenn das Feld 'true' ist, steht eine Dame darauf und wir färben es mit der CSS Klasse queen
                     {
-                        rowStringAsHtmlCode += "<div class='field queen'>"
+                        rowStringAsHtmlCode += "<div class='field queen unselectable'>"
                     }
                     else {
-                        rowStringAsHtmlCode += "<div class='field'>"
+                        rowStringAsHtmlCode += "<div class='field unselectable'>"
                     }
                     rowStringAsHtmlCode += counter;
                     rowStringAsHtmlCode += "</div>";
@@ -440,10 +441,8 @@
             });
             return newSolution.sort((a, b) => { return a - b; });
         }
-
     </script>
-    <!--JAVASCRIPT CODE ENDE! -- >
-</body >
+    <!--JAVASCRIPT CODE ENDE! -->
+</body>
 
-
-</html >
+</html>
