@@ -1,14 +1,14 @@
 
-<pre>
-<code>
+&lt;pre>
+&lt;code>
     
 
-<html>
+&lt;html>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Damenproblem</title>
-    <style type="text/css">
+&lt;head>
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    &lt;title>Damenproblem&lt;/title>
+    &lt;style type="text/css">
         div {
             outline: 1px solid black;
         }
@@ -71,8 +71,8 @@
             -ms-user-select: none;
             user-select: none;
         }
-    </style>
-    <script>
+    &lt;/style>
+    &lt;script>
         /* Nice stack overflow code to compare Arrays*/
         //Source: https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript#14853974
 
@@ -89,7 +89,7 @@
             if (this.length != array.length)
                 return false;
 
-            for (var i = 0, l = this.length; i < l; i++) {
+            for (var i = 0, l = this.length; i &lt; l; i++) {
                 // Check if we have nested arrays
                 if (this[i] instanceof Array && array[i] instanceof Array) {
                     // recurse into the nested arrays
@@ -106,52 +106,52 @@
         // Hide method from for-in loops
         Object.defineProperty(Array.prototype, "equals", { enumerable: false });
             /* End of stack overflow code*/
-    </script>
-</head>
+    &lt;/script>
+&lt;/head>
 
-<body>
+&lt;body>
 
-    <br>
-    <h1>Das Damenproblem </h1>
-    <br>
-    <label for="Spielfeld">Seitenlänge des Spielfeldes</label>
-    <select name="Spielfeld" id="BoardSizeSelect" onchange="updateAll()">
-        <option value="1">1</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option selected value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-    </select>
+    &lt;br>
+    &lt;h1>Das Damenproblem &lt;/h1>
+    &lt;br>
+    &lt;label for="Spielfeld">Seitenlänge des Spielfeldes&lt;/label>
+    &lt;select name="Spielfeld" id="BoardSizeSelect" onchange="updateAll()">
+        &lt;option value="1">1&lt;/option>
+        &lt;option value="4">4&lt;/option>
+        &lt;option value="5">5&lt;/option>
+        &lt;option value="6">6&lt;/option>
+        &lt;option value="7">7&lt;/option>
+        &lt;option selected value="8">8&lt;/option>
+        &lt;option value="9">9&lt;/option>
+        &lt;option value="10">10&lt;/option>
+        &lt;option value="11">11&lt;/option>
+    &lt;/select>
 
-    <br>
-    <label for="Damen">Lösung auswählen:</label>
-    <select name="Damen" id="DamenSelect" onchange="updateFieldWithOtherSolution();">
-        <option>0,12,23,29,34,46,49,59</option>
-    </select>
-    <div class="button unselectable" name="rotieren" title="Spielfeld rotieren"
+    &lt;br>
+    &lt;label for="Damen">Lösung auswählen:&lt;/label>
+    &lt;select name="Damen" id="DamenSelect" onchange="updateFieldWithOtherSolution();">
+        &lt;option>0,12,23,29,34,46,49,59&lt;/option>
+    &lt;/select>
+    &lt;div class="button unselectable" name="rotieren" title="Spielfeld rotieren"
         onclick="updateFieldWithOtherSolution('rotate')">
-        <span> &#11118;</span>
-    </div>
-    <div class="button unselectable" name="horizontal spiegeln" title="Spielfeld horizontal spiegeln"
-        onclick="updateFieldWithOtherSolution('flipH')"><span> &#8646; </span></div>
-    <div class="button unselectable" name="vertikal spiegeln" title="Spielfeld vertikal spiegeln"
-        onclick="updateFieldWithOtherSolution('flipV')"><span> &#8645; </span></div>
-    <br>
-    <label for="uniqueSoltions">Eindeutige Lösungen: </label> <span id="uniqueSoltions">0</span>
-    <br>
-    <label for="totalSolutions">Lösungen insgesamt: </label> <span id="totalSolutions">0</span>
-    <br>
-    <br>
-    <div id="wrapper">
+        &lt;span> &#11118;&lt;/span>
+    &lt;/div>
+    &lt;div class="button unselectable" name="horizontal spiegeln" title="Spielfeld horizontal spiegeln"
+        onclick="updateFieldWithOtherSolution('flipH')">&lt;span> &#8646; &lt;/span>&lt;/div>
+    &lt;div class="button unselectable" name="vertikal spiegeln" title="Spielfeld vertikal spiegeln"
+        onclick="updateFieldWithOtherSolution('flipV')">&lt;span> &#8645; &lt;/span>&lt;/div>
+    &lt;br>
+    &lt;label for="uniqueSoltions">Eindeutige Lösungen: &lt;/label> &lt;span id="uniqueSoltions">0&lt;/span>
+    &lt;br>
+    &lt;label for="totalSolutions">Lösungen insgesamt: &lt;/label> &lt;span id="totalSolutions">0&lt;/span>
+    &lt;br>
+    &lt;br>
+    &lt;div id="wrapper">
 
 
-    </div>
-    <!-- JAVASCRIPT CODE HIER! -->
-    <script>
+    &lt;/div>
+    &lt;!-- JAVASCRIPT CODE HIER! -->
+    &lt;script>
 
         let queenProblemProperties = {
             'fieldSize': 8,
@@ -185,9 +185,9 @@
             dropDownMenu.innerHTML = "";
 
             for (let elements of allSolutionsArray) {
-                menuItemStringAsHtmlCode = "<option >"
+                menuItemStringAsHtmlCode = "&lt;option >"
                 menuItemStringAsHtmlCode += elements
-                menuItemStringAsHtmlCode += "</option>"
+                menuItemStringAsHtmlCode += "&lt;/option>"
                 dropDownMenu.innerHTML += menuItemStringAsHtmlCode;
             }
         }
@@ -252,24 +252,24 @@
             target.innerHTML = ""; //Wir setzen das Spielfeld zurück
 
             for (let y_index in solution2d) {
-                rowStringAsHtmlCode = "<div>"; //Neue Zeile
+                rowStringAsHtmlCode = "&lt;div>"; //Neue Zeile
 
                 for (let x_index in solution2d[y_index]) //Alle Felder einer Reihe setzen
                 {
 
                     if (solution2d[y_index][x_index]) //Wenn das Feld 'true' ist, steht eine Dame darauf und wir färben es mit der CSS Klasse queen
                     {
-                        rowStringAsHtmlCode += "<div class='field queen unselectable'>"
+                        rowStringAsHtmlCode += "&lt;div class='field queen unselectable'>"
                     }
                     else {
-                        rowStringAsHtmlCode += "<div class='field unselectable'>"
+                        rowStringAsHtmlCode += "&lt;div class='field unselectable'>"
                     }
                     rowStringAsHtmlCode += counter;
-                    rowStringAsHtmlCode += "</div>";
+                    rowStringAsHtmlCode += "&lt;/div>";
                     counter++
                 }
 
-                rowStringAsHtmlCode += "</div>";
+                rowStringAsHtmlCode += "&lt;/div>";
                 target.innerHTML += rowStringAsHtmlCode; //Zeile Zeichnen
             }
 
@@ -280,7 +280,7 @@
             {
                 let solution2d = new Array(queenProblemProperties.fieldSize);
 
-                for (let i = 0; i < queenProblemProperties.fieldSize; ++i) {
+                for (let i = 0; i &lt; queenProblemProperties.fieldSize; ++i) {
                     solution2d[i] = new Array(queenProblemProperties.fieldSize)
                     solution2d[i].fill(false); //Alle Werte standardmäßig auf "false" setzen, auch wird dadurch der Array als Boolean Array initialisiert
                 }
@@ -302,7 +302,7 @@
                 return false;
             }
 
-            for (let currentlyInvestigatedQueen = startCheckingCurrentQueenFromHere; currentlyInvestigatedQueen < (queenProblemProperties.fieldSize * queenProblemProperties.fieldSize); currentlyInvestigatedQueen++) //Wir probieren alle Felder aus, ob die Felder zu einer Lösung führen
+            for (let currentlyInvestigatedQueen = startCheckingCurrentQueenFromHere; currentlyInvestigatedQueen &lt; (queenProblemProperties.fieldSize * queenProblemProperties.fieldSize); currentlyInvestigatedQueen++) //Wir probieren alle Felder aus, ob die Felder zu einer Lösung führen
             {
                 if (checkCollisions(arrayOfLegitQueens, currentlyInvestigatedQueen)) //Wenn es eine Kollision gibt, können wir den Rest der Schleife überspringen
                 {
@@ -362,7 +362,7 @@
                 //In Javascript kann man Funktionen in anderen Funktionen deklarieren.
                 function checkDiagonalCollisions(currentLegitQueen, currentlyInvestigatedQueen) //Diagonal auf Kollisionen überprüfen
                 {
-                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize <= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck >= currentLegitQueen; currentFieldToCheck -= (queenProblemProperties.fieldSize + 1)) //Nach links oben
+                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize &lt;= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck >= currentLegitQueen; currentFieldToCheck -= (queenProblemProperties.fieldSize + 1)) //Nach links oben
                     {
                         if (currentFieldToCheck === currentLegitQueen) {
                             return true;
@@ -376,14 +376,14 @@
                         }
                     }
 
-                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize <= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck <= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize - 1)) //Nach links unten
+                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize &lt;= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck &lt;= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize - 1)) //Nach links unten
                     {
                         if (currentFieldToCheck === currentLegitQueen) {
                             return true;
                         }
                     }
 
-                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize >= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck <= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize + 1)) //Nach rechts unten
+                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize >= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck &lt;= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize + 1)) //Nach rechts unten
                     {
                         if (currentFieldToCheck === currentLegitQueen) {
                             return true;
@@ -400,7 +400,7 @@
                 // console.log(`checking ${solutionCandidate} with ${solution}`);
 
 
-                for (let i = 1; i < 5; i++) {
+                for (let i = 1; i &lt; 5; i++) {
                     // console.log(`checking ${rotateLeft90(solutionCandidate, i)} with ${solution}`);
                     if (rotateLeft90degree(solutionCandidate, i).equals(solution)) {
                         return true;
@@ -422,7 +422,7 @@
 
             let newSolution = [...solution];
 
-            for (let i = 0; i < flipCounter; i++) {
+            for (let i = 0; i &lt; flipCounter; i++) {
                 newSolution.forEach((currentValue, index) => {
                     newSolution[index] = currentValue + queenProblemProperties.fieldSize * queenProblemProperties.fieldSize - queenProblemProperties.fieldSize - (queenProblemProperties.fieldSize + 1) * currentValue + (queenProblemProperties.fieldSize * queenProblemProperties.fieldSize + 1) * Math.floor(currentValue / queenProblemProperties.fieldSize);
                 });
@@ -446,10 +446,10 @@
             });
             return newSolution.sort((a, b) => { return a - b; });
         }
-    </script>
-    <!--JAVASCRIPT CODE ENDE! -->
-</body>
+    &lt;/script>
+    &lt;!--JAVASCRIPT CODE ENDE! -->
+&lt;/body>
 
-</html>
-</code>
-</pre>
+&lt;/html>
+&lt;/code>
+&lt;/pre>
