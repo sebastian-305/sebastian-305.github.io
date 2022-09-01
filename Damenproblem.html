@@ -53,9 +53,23 @@
             background-color: grey;
             cursor: pointer;
         }
+
+        .unselectable {
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+
+            /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+            -ms-user-select: none;
+            user-select: none;
+        }
     </style>
     <script>
-        /* Nice stackOverflow code*/
+        /* Nice stack overflow code to compare Arrays*/
+        //Source: https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript#14853974
 
         // Warn if overriding existing method
         if (Array.prototype.equals)
@@ -86,7 +100,7 @@
         }
         // Hide method from for-in loops
         Object.defineProperty(Array.prototype, "equals", { enumerable: false });
-            /* End of stackOverflow code*/
+            /* End of stack overflow code*/
     </script>
 </head>
 
@@ -113,12 +127,13 @@
     <select name="Damen" id="DamenSelect" onchange="updateFieldWithOtherSolution();">
         <option>0,12,23,29,34,46,49,59</option>
     </select>
-    <div class="button" name="rotieren" title="Spielfeld rotieren" onclick="updateFieldWithOtherSolution('rotate')">
+    <div class="button unselectable" name="rotieren" title="Spielfeld rotieren"
+        onclick="updateFieldWithOtherSolution('rotate')">
         <span> &#11118;</span>
     </div>
-    <div class="button" name="horizontal spiegeln" title="Spielfeld horizontal spiegeln"
+    <div class="button unselectable" name="horizontal spiegeln" title="Spielfeld horizontal spiegeln"
         onclick="updateFieldWithOtherSolution('flipH')"><span> &#8646; </span></div>
-    <div class="button" name="vertikal spiegeln" title="Spielfeld vertikal spiegeln"
+    <div class="button unselectable" name="vertikal spiegeln" title="Spielfeld vertikal spiegeln"
         onclick="updateFieldWithOtherSolution('flipV')"><span> &#8645; </span></div>
     <br>
     <label for="uniqueSoltions">Eindeutige Lösungen: </label> <span id="uniqueSoltions">0</span>
@@ -139,8 +154,8 @@
             'solutionsFound': 0,
             'totalSolutionsFound': 0,
             'allSolutionsArray': [],
-            'flipH': false,
-            'flipV': false,
+            'flipHorizontal': false,
+            'flipVertical': false,
             'rotation': 1,
             'currentDisplayedSolution': []
         };
@@ -151,8 +166,7 @@
 
         fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen
 
-        console.log(`Iterationen ${queenProblemProperties.iterator}`); //Nicht so wichtig
-
+        console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
 
 
         /************************************************************************************************/
@@ -181,21 +195,21 @@
                     let dropDownMenu = document.getElementById('DamenSelect');
                     let selectedIndexOfDropDownMenu = dropDownMenu.selectedIndex;
                     queenProblemProperties.currentDisplayedSolution = [...queenProblemProperties.allSolutionsArray[selectedIndexOfDropDownMenu]]
-                    queenProblemProperties.flipV = false;
-                    queenProblemProperties.flipH = false;
+                    queenProblemProperties.flipVertical = false;
+                    queenProblemProperties.flipHorizontal = false;
                     queenProblemProperties.rotation = 1;
                     break;
                 case 'flipV':
-                    queenProblemProperties.flipV = !queenProblemProperties.flipV;
+                    queenProblemProperties.flipVertical = !queenProblemProperties.flipVertical;
                     queenProblemProperties.currentDisplayedSolution = [...flipVertical(queenProblemProperties.currentDisplayedSolution)];
                     break;
                 case 'flipH':
-                    queenProblemProperties.flipH = !queenProblemProperties.flipH;
+                    queenProblemProperties.flipHorizontal = !queenProblemProperties.flipHorizontal;
                     queenProblemProperties.currentDisplayedSolution = [...flipHorizontal(queenProblemProperties.currentDisplayedSolution)];
                     break;
                 case 'rotate':
                     queenProblemProperties.rotation = (queenProblemProperties.rotation === 1) ? 4 : queenProblemProperties.rotation - 1;
-                    queenProblemProperties.currentDisplayedSolution = [...rotateLeft90(queenProblemProperties.currentDisplayedSolution, 3)];
+                    queenProblemProperties.currentDisplayedSolution = [...rotateLeft90degree(queenProblemProperties.currentDisplayedSolution, 3)];
                     break;
             }
             drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution);
@@ -208,8 +222,8 @@
                 'solutionsFound': 0,
                 'totalSolutionsFound': 0,
                 'allSolutionsArray': [],
-                'flipH': false,
-                'flipV': false,
+                'flipHorizontal': false,
+                'flipVertical': false,
                 'rotation': 1,
                 'currentDisplayedSolution': []
             };
@@ -217,11 +231,13 @@
             queenProblemProperties.fieldSize = Number(document.getElementById('BoardSizeSelect').value);
 
             calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray);
+            console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
+
             fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
 
             drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
-
         }
+
         function drawSolutionAsHtml(solution1d) //Spielfeld mit der jeweiligen Lösung in das HTML übertragen
         {
             let solution2d = convertSolutionFrom1dIn2dArrayWithFlags(solution1d)
@@ -238,10 +254,10 @@
 
                     if (solution2d[y_index][x_index]) //Wenn das Feld 'true' ist, steht eine Dame darauf und wir färben es mit der CSS Klasse queen
                     {
-                        rowStringAsHtmlCode += "<div class='field queen'>"
+                        rowStringAsHtmlCode += "<div class='field queen unselectable'>"
                     }
                     else {
-                        rowStringAsHtmlCode += "<div class='field'>"
+                        rowStringAsHtmlCode += "<div class='field unselectable'>"
                     }
                     rowStringAsHtmlCode += counter;
                     rowStringAsHtmlCode += "</div>";
@@ -283,8 +299,6 @@
 
             for (let currentlyInvestigatedQueen = startCheckingCurrentQueenFromHere; currentlyInvestigatedQueen < (queenProblemProperties.fieldSize * queenProblemProperties.fieldSize); currentlyInvestigatedQueen++) //Wir probieren alle Felder aus, ob die Felder zu einer Lösung führen
             {
-
-
                 if (checkCollisions(arrayOfLegitQueens, currentlyInvestigatedQueen)) //Wenn es eine Kollision gibt, können wir den Rest der Schleife überspringen
                 {
                     continue;
@@ -301,7 +315,6 @@
                         queenProblemProperties.solutionsFound++;
                     }
                     arrayOfLegitQueens.pop();
-
                     continue; //Weitersuchen
                 }
 
@@ -384,13 +397,13 @@
 
                 for (let i = 1; i < 5; i++) {
                     // console.log(`checking ${rotateLeft90(solutionCandidate, i)} with ${solution}`);
-                    if (rotateLeft90(solutionCandidate, i).equals(solution)) {
+                    if (rotateLeft90degree(solutionCandidate, i).equals(solution)) {
                         return true;
                     }
-                    if (flipHorizontal(rotateLeft90(solutionCandidate, i)).equals(solution)) {
+                    if (flipHorizontal(rotateLeft90degree(solutionCandidate, i)).equals(solution)) {
                         return true;
                     }
-                    if (flipVertical(rotateLeft90(solutionCandidate, i)).equals(solution)) {
+                    if (flipVertical(rotateLeft90degree(solutionCandidate, i)).equals(solution)) {
                         return true;
                     }
                 }
@@ -400,40 +413,36 @@
             return false;
         }
 
-        function rotateLeft90(solution, flipCounter = 1) {
+        function rotateLeft90degree(solution, flipCounter = 1) {
 
-            let newSolution1 = [...solution];
-            let newSolution2 = [...solution];
+            let newSolution = [...solution];
 
             for (let i = 0; i < flipCounter; i++) {
-                newSolution1.forEach((currentValue, index) => {
-                    newSolution2[index] = currentValue + queenProblemProperties.fieldSize * queenProblemProperties.fieldSize - queenProblemProperties.fieldSize - (queenProblemProperties.fieldSize + 1) * currentValue + (queenProblemProperties.fieldSize * queenProblemProperties.fieldSize + 1) * Math.floor(currentValue / queenProblemProperties.fieldSize)
+                newSolution.forEach((currentValue, index) => {
+                    newSolution[index] = currentValue + queenProblemProperties.fieldSize * queenProblemProperties.fieldSize - queenProblemProperties.fieldSize - (queenProblemProperties.fieldSize + 1) * currentValue + (queenProblemProperties.fieldSize * queenProblemProperties.fieldSize + 1) * Math.floor(currentValue / queenProblemProperties.fieldSize);
                 });
-                newSolution1 = [...newSolution2];
             }
-            return newSolution1.sort((a, b) => { return a - b; });
+            return newSolution.sort((a, b) => { return a - b; });
         }
 
-        function flipHorizontal(solution) {
-            let newSolution = [...solution];
-            solution.forEach((currentValue, index) => {
+        function flipHorizontal(solution1d) {
+            let newSolution = [...solution1d];
+            solution1d.forEach((currentValue, index) => {
                 newSolution[index] = queenProblemProperties.fieldSize * (Math.floor(currentValue / queenProblemProperties.fieldSize) + 1) - 1 - currentValue % queenProblemProperties.fieldSize;
             });
             return newSolution.sort((a, b) => { return a - b; });
         }
 
-        function flipVertical(solution) {
-            let newSolution = [...solution];
+        function flipVertical(solution1d) {
+            let newSolution = [...solution1d];
 
-            solution.forEach((currentValue, index) => {
+            solution1d.forEach((currentValue, index) => {
                 newSolution[index] = queenProblemProperties.fieldSize * queenProblemProperties.fieldSize + queenProblemProperties.fieldSize - currentValue - 2 * ((queenProblemProperties.fieldSize * queenProblemProperties.fieldSize - (currentValue + 1)) % queenProblemProperties.fieldSize) - 2;
             });
             return newSolution.sort((a, b) => { return a - b; });
         }
-
     </script>
-    <!--JAVASCRIPT CODE ENDE! -- >
-</body >
+    <!--JAVASCRIPT CODE ENDE! -->
+</body>
 
-
-</html >
+</html>
