@@ -1,453 +1,453 @@
 <html>
-<br>    <body>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;<body>
 <br>
 <br>&lt;html>
 <br>
 <br>&lt;head>
-<br>    &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<br>    &lt;title>Damenproblem&lt;/title>
-<br>    &lt;style type="text/css">
-<br>        div {
-<br>            outline: 1px solid black;
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;meta &nbsp;http-equiv="Content-Type" &nbsp;content="text/html; &nbsp;charset=UTF-8">
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;title>Damenproblem&lt;/title>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;style &nbsp;type="text/css">
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;outline: &nbsp;1px &nbsp;solid &nbsp;black;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 <br>
-<br>        .field {
-<br>            display: table-cell;
-<br>            width: 50px;
-<br>            height: 50px;
-<br>            text-align: center;
-<br>            vertical-align: middle;
-<br>            font-size: 18pt;
-<br>            background-color: #EFEFEF
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.field &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: &nbsp;table-cell;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: &nbsp;50px;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: &nbsp;50px;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;text-align: &nbsp;center;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;vertical-align: &nbsp;middle;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: &nbsp;18pt;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: &nbsp;#EFEFEF
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 <br>
-<br>        .queen {
-<br>            background-color: brown;
-<br>            color: white;
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.queen &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: &nbsp;brown;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: &nbsp;white;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 <br>
-<br>        #wrapper {
-<br>            display: table;
-<br>            table-layout: fixed;
-<br>            /*width: 400px;
-<br>            height: 400px;*/
-<br>            outline: 2px solid black;
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#wrapper &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: &nbsp;table;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;table-layout: &nbsp;fixed;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/*width: &nbsp;400px;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: &nbsp;400px;*/
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;outline: &nbsp;2px &nbsp;solid &nbsp;black;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 <br>
-<br>        button {
-<br>            height: 30px;
-<br>            width: 30px;
-<br>            font-size: 10pt;
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;button &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: &nbsp;30px;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: &nbsp;30px;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: &nbsp;10pt;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 <br>
-<br>        .button {
-<br>            display: inline-block;
-<br>            height: 30px;
-<br>            width: 30px;
-<br>            font-size: 15pt;
-<br>            text-align: center;
-<br>            vertical-align: middle;
-<br>            background-color: EFEFEF;
-<br>            border-radius: 10px;
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.button &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display: &nbsp;inline-block;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: &nbsp;30px;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: &nbsp;30px;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;font-size: &nbsp;15pt;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;text-align: &nbsp;center;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;vertical-align: &nbsp;middle;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: &nbsp;EFEFEF;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: &nbsp;10px;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 <br>
-<br>        .button:hover {
-<br>            color: white;
-<br>            background-color: grey;
-<br>            cursor: pointer;
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.button:hover &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: &nbsp;white;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: &nbsp;grey;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cursor: &nbsp;pointer;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 <br>
-<br>        .unselectable {
-<br>            -moz-user-select: -moz-none;
-<br>            -khtml-user-select: none;
-<br>            -webkit-user-select: none;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.unselectable &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-moz-user-select: &nbsp;-moz-none;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-khtml-user-select: &nbsp;none;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-webkit-user-select: &nbsp;none;
 <br>
-<br>            /*
-<br>     Introduced in IE 10.
-<br>     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-<br>   */
-<br>            -ms-user-select: none;
-<br>            user-select: none;
-<br>        }
-<br>    &lt;/style>
-<br>    &lt;script>
-<br>        /* Nice stack overflow code to compare Arrays*/
-<br>        //Source: https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript#14853974
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/*
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Introduced &nbsp;in &nbsp;IE &nbsp;10.
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;See &nbsp;http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+<br> &nbsp; &nbsp; &nbsp;*/
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-ms-user-select: &nbsp;none;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;user-select: &nbsp;none;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;/style>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;script>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* &nbsp;Nice &nbsp;stack &nbsp;overflow &nbsp;code &nbsp;to &nbsp;compare &nbsp;Arrays*/
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Source: &nbsp;https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript#14853974
 <br>
-<br>        // Warn if overriding existing method
-<br>        if (Array.prototype.equals)
-<br>            console.warn("Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there's a framework conflict or you've got double inclusions in your code.");
-<br>        // attach the .equals method to Array's prototype to call it on any array
-<br>        Array.prototype.equals = function (array) {
-<br>            // if the other array is a falsy value, return
-<br>            if (!array)
-<br>                return false;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;Warn &nbsp;if &nbsp;overriding &nbsp;existing &nbsp;method
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(Array.prototype.equals)
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.warn("Overriding &nbsp;existing &nbsp;Array.prototype.equals. &nbsp;Possible &nbsp;causes: &nbsp;New &nbsp;API &nbsp;defines &nbsp;the &nbsp;method, &nbsp;there's &nbsp;a &nbsp;framework &nbsp;conflict &nbsp;or &nbsp;you've &nbsp;got &nbsp;double &nbsp;inclusions &nbsp;in &nbsp;your &nbsp;code.");
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;attach &nbsp;the &nbsp;.equals &nbsp;method &nbsp;to &nbsp;Array's &nbsp;prototype &nbsp;to &nbsp;call &nbsp;it &nbsp;on &nbsp;any &nbsp;array
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Array.prototype.equals &nbsp;= &nbsp;function &nbsp;(array) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;if &nbsp;the &nbsp;other &nbsp;array &nbsp;is &nbsp;a &nbsp;falsy &nbsp;value, &nbsp;return
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(!array)
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;false;
 <br>
-<br>            // compare lengths - can save a lot of time 
-<br>            if (this.length != array.length)
-<br>                return false;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;compare &nbsp;lengths &nbsp;- &nbsp;can &nbsp;save &nbsp;a &nbsp;lot &nbsp;of &nbsp;time &nbsp;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(this.length &nbsp;!= &nbsp;array.length)
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;false;
 <br>
-<br>            for (var i = 0, l = this.length; i &lt; l; i++) {
-<br>                // Check if we have nested arrays
-<br>                if (this[i] instanceof Array && array[i] instanceof Array) {
-<br>                    // recurse into the nested arrays
-<br>                    if (!this[i].equals(array[i]))
-<br>                        return false;
-<br>                }
-<br>                else if (this[i] != array[i]) {
-<br>                    // Warning - two different object instances will never be equal: {x:20} != {x:20}
-<br>                    return false;
-<br>                }
-<br>            }
-<br>            return true;
-<br>        }
-<br>        // Hide method from for-in loops
-<br>        Object.defineProperty(Array.prototype, "equals", { enumerable: false });
-<br>            /* End of stack overflow code*/
-<br>    &lt;/script>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(var &nbsp;i &nbsp;= &nbsp;0, &nbsp;l &nbsp;= &nbsp;this.length; &nbsp;i &nbsp;&lt; &nbsp;l; &nbsp;i++) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;Check &nbsp;if &nbsp;we &nbsp;have &nbsp;nested &nbsp;arrays
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(this[i] &nbsp;instanceof &nbsp;Array &nbsp;&& &nbsp;array[i] &nbsp;instanceof &nbsp;Array) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;recurse &nbsp;into &nbsp;the &nbsp;nested &nbsp;arrays
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(!this[i].equals(array[i]))
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;false;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else &nbsp;if &nbsp;(this[i] &nbsp;!= &nbsp;array[i]) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;Warning &nbsp;- &nbsp;two &nbsp;different &nbsp;object &nbsp;instances &nbsp;will &nbsp;never &nbsp;be &nbsp;equal: &nbsp;{x:20} &nbsp;!= &nbsp;{x:20}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;false;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;Hide &nbsp;method &nbsp;from &nbsp;for-in &nbsp;loops
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Object.defineProperty(Array.prototype, &nbsp;"equals", &nbsp;{ &nbsp;enumerable: &nbsp;false &nbsp;});
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* &nbsp;End &nbsp;of &nbsp;stack &nbsp;overflow &nbsp;code*/
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;/script>
 <br>&lt;/head>
 <br>
 <br>&lt;body>
 <br>
-<br>    &lt;br>
-<br>    &lt;h1>Das Damenproblem &lt;/h1>
-<br>    &lt;br>
-<br>    &lt;label for="Spielfeld">Seitenlänge des Spielfeldes&lt;/label>
-<br>    &lt;select name="Spielfeld" id="BoardSizeSelect" onchange="updateAll()">
-<br>        &lt;option value="1">1&lt;/option>
-<br>        &lt;option value="4">4&lt;/option>
-<br>        &lt;option value="5">5&lt;/option>
-<br>        &lt;option value="6">6&lt;/option>
-<br>        &lt;option value="7">7&lt;/option>
-<br>        &lt;option selected value="8">8&lt;/option>
-<br>        &lt;option value="9">9&lt;/option>
-<br>        &lt;option value="10">10&lt;/option>
-<br>        &lt;option value="11">11&lt;/option>
-<br>    &lt;/select>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;h1>Das &nbsp;Damenproblem &nbsp;&lt;/h1>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;label &nbsp;for="Spielfeld">Seitenlänge &nbsp;des &nbsp;Spielfeldes&lt;/label>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;select &nbsp;name="Spielfeld" &nbsp;id="BoardSizeSelect" &nbsp;onchange="updateAll()">
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option &nbsp;value="1">1&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option &nbsp;value="4">4&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option &nbsp;value="5">5&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option &nbsp;value="6">6&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option &nbsp;value="7">7&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option &nbsp;selected &nbsp;value="8">8&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option &nbsp;value="9">9&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option &nbsp;value="10">10&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option &nbsp;value="11">11&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;/select>
 <br>
-<br>    &lt;br>
-<br>    &lt;label for="Damen">Lösung auswählen:&lt;/label>
-<br>    &lt;select name="Damen" id="DamenSelect" onchange="updateFieldWithOtherSolution();">
-<br>        &lt;option>0,12,23,29,34,46,49,59&lt;/option>
-<br>    &lt;/select>
-<br>    &lt;div class="button unselectable" name="rotieren" title="Spielfeld rotieren"
-<br>        onclick="updateFieldWithOtherSolution('rotate')">
-<br>        &lt;span> &#11118;&lt;/span>
-<br>    &lt;/div>
-<br>    &lt;div class="button unselectable" name="horizontal spiegeln" title="Spielfeld horizontal spiegeln"
-<br>        onclick="updateFieldWithOtherSolution('flipH')">&lt;span> &#8646; &lt;/span>&lt;/div>
-<br>    &lt;div class="button unselectable" name="vertikal spiegeln" title="Spielfeld vertikal spiegeln"
-<br>        onclick="updateFieldWithOtherSolution('flipV')">&lt;span> &#8645; &lt;/span>&lt;/div>
-<br>    &lt;br>
-<br>    &lt;label for="uniqueSoltions">Eindeutige Lösungen: &lt;/label> &lt;span id="uniqueSoltions">0&lt;/span>
-<br>    &lt;br>
-<br>    &lt;label for="totalSolutions">Lösungen insgesamt: &lt;/label> &lt;span id="totalSolutions">0&lt;/span>
-<br>    &lt;br>
-<br>    &lt;br>
-<br>    &lt;div id="wrapper">
-<br>
-<br>
-<br>    &lt;/div>
-<br>    &lt;!-- JAVASCRIPT CODE HIER! -->
-<br>    &lt;script>
-<br>
-<br>        let queenProblemProperties = {
-<br>            'fieldSize': 8,
-<br>            'iterator': 0,
-<br>            'solutionsFound': 0,
-<br>            'totalSolutionsFound': 0,
-<br>            'allSolutionsArray': [],
-<br>            'flipHorizontal': false,
-<br>            'flipVertical': false,
-<br>            'rotation': 1,
-<br>            'currentDisplayedSolution': []
-<br>        };
-<br>
-<br>        calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray); //Lösungen berechnen
-<br>
-<br>        drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]); //Feld zeichnen mit erster Lösung
-<br>
-<br>        fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen
-<br>
-<br>        console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;label &nbsp;for="Damen">Lösung &nbsp;auswählen:&lt;/label>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;select &nbsp;name="Damen" &nbsp;id="DamenSelect" &nbsp;onchange="updateFieldWithOtherSolution();">
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option>0,12,23,29,34,46,49,59&lt;/option>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;/select>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;div &nbsp;class="button &nbsp;unselectable" &nbsp;name="rotieren" &nbsp;title="Spielfeld &nbsp;rotieren"
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;onclick="updateFieldWithOtherSolution('rotate')">
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;span> &nbsp;&#11118;&lt;/span>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;div &nbsp;class="button &nbsp;unselectable" &nbsp;name="horizontal &nbsp;spiegeln" &nbsp;title="Spielfeld &nbsp;horizontal &nbsp;spiegeln"
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;onclick="updateFieldWithOtherSolution('flipH')">&lt;span> &nbsp;&#8646; &nbsp;&lt;/span>&lt;/div>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;div &nbsp;class="button &nbsp;unselectable" &nbsp;name="vertikal &nbsp;spiegeln" &nbsp;title="Spielfeld &nbsp;vertikal &nbsp;spiegeln"
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;onclick="updateFieldWithOtherSolution('flipV')">&lt;span> &nbsp;&#8645; &nbsp;&lt;/span>&lt;/div>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;label &nbsp;for="uniqueSoltions">Eindeutige &nbsp;Lösungen: &nbsp;&lt;/label> &nbsp;&lt;span &nbsp;id="uniqueSoltions">0&lt;/span>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;label &nbsp;for="totalSolutions">Lösungen &nbsp;insgesamt: &nbsp;&lt;/label> &nbsp;&lt;span &nbsp;id="totalSolutions">0&lt;/span>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;div &nbsp;id="wrapper">
 <br>
 <br>
-<br>        /************************************************************************************************/
-<br>        /* FUNKTIONEN */
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;/div>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;!-- &nbsp;JAVASCRIPT &nbsp;CODE &nbsp;HIER! &nbsp;-->
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;script>
 <br>
-<br>        function fillDropDownWithSolutions(allSolutionsArray) //Drop Down Menü befüllen
-<br>        {
-<br>            let dropDownMenu = document.getElementById('DamenSelect');
-<br>            let menuItemStringAsHtmlCode;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;queenProblemProperties &nbsp;= &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'fieldSize': &nbsp;8,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'iterator': &nbsp;0,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'solutionsFound': &nbsp;0,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'totalSolutionsFound': &nbsp;0,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'allSolutionsArray': &nbsp;[],
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'flipHorizontal': &nbsp;false,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'flipVertical': &nbsp;false,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'rotation': &nbsp;1,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'currentDisplayedSolution': &nbsp;[]
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};
 <br>
-<br>            dropDownMenu.innerHTML = "";
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray); &nbsp;//Lösungen &nbsp;berechnen
 <br>
-<br>            for (let elements of allSolutionsArray) {
-<br>                menuItemStringAsHtmlCode = "&lt;option >"
-<br>                menuItemStringAsHtmlCode += elements
-<br>                menuItemStringAsHtmlCode += "&lt;/option>"
-<br>                dropDownMenu.innerHTML += menuItemStringAsHtmlCode;
-<br>            }
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution &nbsp;= &nbsp;queenProblemProperties.allSolutionsArray[0]); &nbsp;//Feld &nbsp;zeichnen &nbsp;mit &nbsp;erster &nbsp;Lösung
 <br>
-<br>        function updateFieldWithOtherSolution(state = 'reset') //Funktion wird beim Ändern des Drop Down Menüs aufgerufen
-<br>        {
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); &nbsp;//Drop &nbsp;Down &nbsp;Menü &nbsp;befüllen
 <br>
-<br>            switch (state) {
-<br>                case 'reset':
-<br>                    let dropDownMenu = document.getElementById('DamenSelect');
-<br>                    let selectedIndexOfDropDownMenu = dropDownMenu.selectedIndex;
-<br>                    queenProblemProperties.currentDisplayedSolution = [...queenProblemProperties.allSolutionsArray[selectedIndexOfDropDownMenu]]
-<br>                    queenProblemProperties.flipVertical = false;
-<br>                    queenProblemProperties.flipHorizontal = false;
-<br>                    queenProblemProperties.rotation = 1;
-<br>                    break;
-<br>                case 'flipV':
-<br>                    queenProblemProperties.flipVertical = !queenProblemProperties.flipVertical;
-<br>                    queenProblemProperties.currentDisplayedSolution = [...flipVertical(queenProblemProperties.currentDisplayedSolution)];
-<br>                    break;
-<br>                case 'flipH':
-<br>                    queenProblemProperties.flipHorizontal = !queenProblemProperties.flipHorizontal;
-<br>                    queenProblemProperties.currentDisplayedSolution = [...flipHorizontal(queenProblemProperties.currentDisplayedSolution)];
-<br>                    break;
-<br>                case 'rotate':
-<br>                    queenProblemProperties.rotation = (queenProblemProperties.rotation === 1) ? 4 : queenProblemProperties.rotation - 1;
-<br>                    queenProblemProperties.currentDisplayedSolution = [...rotateLeft90degree(queenProblemProperties.currentDisplayedSolution, 3)];
-<br>                    break;
-<br>            }
-<br>            drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution);
-<br>        }
-<br>
-<br>        function updateAll() {
-<br>            queenProblemProperties = {
-<br>                'fieldSize': 8,
-<br>                'iterator': 0,
-<br>                'solutionsFound': 0,
-<br>                'totalSolutionsFound': 0,
-<br>                'allSolutionsArray': [],
-<br>                'flipHorizontal': false,
-<br>                'flipVertical': false,
-<br>                'rotation': 1,
-<br>                'currentDisplayedSolution': []
-<br>            };
-<br>
-<br>            queenProblemProperties.fieldSize = Number(document.getElementById('BoardSizeSelect').value);
-<br>
-<br>            calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray);
-<br>            console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
-<br>
-<br>            fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
-<br>
-<br>            drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
-<br>        }
-<br>
-<br>        function drawSolutionAsHtml(solution1d) //Spielfeld mit der jeweiligen Lösung in das HTML übertragen
-<br>        {
-<br>            let solution2d = convertSolutionFrom1dIn2dArrayWithFlags(solution1d)
-<br>            let counter = 0;
-<br>            let target = document.getElementById("wrapper");
-<br>            let rowStringAsHtmlCode; //Speichert HTML code, der dann in die Webseite geschrieben wird
-<br>            target.innerHTML = ""; //Wir setzen das Spielfeld zurück
-<br>
-<br>            for (let y_index in solution2d) {
-<br>                rowStringAsHtmlCode = "&lt;div>"; //Neue Zeile
-<br>
-<br>                for (let x_index in solution2d[y_index]) //Alle Felder einer Reihe setzen
-<br>                {
-<br>
-<br>                    if (solution2d[y_index][x_index]) //Wenn das Feld 'true' ist, steht eine Dame darauf und wir färben es mit der CSS Klasse queen
-<br>                    {
-<br>                        rowStringAsHtmlCode += "&lt;div class='field queen unselectable'>"
-<br>                    }
-<br>                    else {
-<br>                        rowStringAsHtmlCode += "&lt;div class='field unselectable'>"
-<br>                    }
-<br>                    rowStringAsHtmlCode += counter;
-<br>                    rowStringAsHtmlCode += "&lt;/div>";
-<br>                    counter++
-<br>                }
-<br>
-<br>                rowStringAsHtmlCode += "&lt;/div>";
-<br>                target.innerHTML += rowStringAsHtmlCode; //Zeile Zeichnen
-<br>            }
-<br>
-<br>            document.getElementById("uniqueSoltions").innerHTML = queenProblemProperties.solutionsFound;
-<br>            document.getElementById("totalSolutions").innerHTML = queenProblemProperties.totalSolutionsFound;
-<br>
-<br>            function convertSolutionFrom1dIn2dArrayWithFlags(solution1d) //Die jeweilige Lösung als einen 2-dimensionalen Boolean Array berechnen
-<br>            {
-<br>                let solution2d = new Array(queenProblemProperties.fieldSize);
-<br>
-<br>                for (let i = 0; i &lt; queenProblemProperties.fieldSize; ++i) {
-<br>                    solution2d[i] = new Array(queenProblemProperties.fieldSize)
-<br>                    solution2d[i].fill(false); //Alle Werte standardmäßig auf "false" setzen, auch wird dadurch der Array als Boolean Array initialisiert
-<br>                }
-<br>
-<br>                for (let queen of solution1d) {
-<br>                    solution2d[Math.floor(queen / queenProblemProperties.fieldSize)][queen % queenProblemProperties.fieldSize] = true; //Position der jeweiligen Dame in den 2-dimensionalen Array eintragen
-<br>                }
-<br>
-<br>                return solution2d;
-<br>            }
-<br>        }
-<br>
-<br>        function calculateSolutionsRecursive(saveSolutionsHere, arrayOfLegitQueens = [], startCheckingCurrentQueenFromHere = 0) //Rekursive Funtion um die Lösungen zu berechnen
-<br>        {
-<br>            queenProblemProperties.iterator++;
-<br>
-<br>            if (arrayOfLegitQueens[arrayOfLegitQueens.length - 1] > arrayOfLegitQueens.length * queenProblemProperties.fieldSize) // Unnötige Iterationen verwerfen
-<br>            {
-<br>                return false;
-<br>            }
-<br>
-<br>            for (let currentlyInvestigatedQueen = startCheckingCurrentQueenFromHere; currentlyInvestigatedQueen &lt; (queenProblemProperties.fieldSize * queenProblemProperties.fieldSize); currentlyInvestigatedQueen++) //Wir probieren alle Felder aus, ob die Felder zu einer Lösung führen
-<br>            {
-<br>                if (checkCollisions(arrayOfLegitQueens, currentlyInvestigatedQueen)) //Wenn es eine Kollision gibt, können wir den Rest der Schleife überspringen
-<br>                {
-<br>                    continue;
-<br>                }
-<br>
-<br>                arrayOfLegitQueens.push(currentlyInvestigatedQueen);
-<br>
-<br>                if (arrayOfLegitQueens.length === queenProblemProperties.fieldSize) //Eine Lösung gefunden!
-<br>                {
-<br>                    queenProblemProperties.totalSolutionsFound++;
-<br>
-<br>                    if (!checkIfSolutionExcists(saveSolutionsHere, arrayOfLegitQueens)) {
-<br>                        saveSolutionsHere.push([...arrayOfLegitQueens]); //Lösung speichern
-<br>                        queenProblemProperties.solutionsFound++;
-<br>                    }
-<br>                    arrayOfLegitQueens.pop();
-<br>                    continue; //Weitersuchen
-<br>                }
-<br>
-<br>                if (calculateSolutionsRecursive(saveSolutionsHere, arrayOfLegitQueens, currentlyInvestigatedQueen + 1)) //die jetzige Position der Dame passt soweit, jetzt können wir eine weitere Dame hinzufügen
-<br>                {
-<br>                    return true;
-<br>                }
-<br>                arrayOfLegitQueens.pop();
-<br>            }
-<br>            return;
-<br>
-<br>            //In Javascript kann man Funktionen in anderen Funktionen deklarieren.
-<br>            function checkCollisions(arrayOfLegitQueens, currentlyInvestigatedQueen) //Wir prüfen ob die jetztige Dame mit anderen Damen kolidiert
-<br>            {
-<br>
-<br>                if (arrayOfLegitQueens.length === 0) //Wenn es keine weiteren Damen gibt, kann es keine Kollisionen geben 
-<br>                {
-<br>                    return false;
-<br>                }
-<br>
-<br>                for (let currentLegitQueen of arrayOfLegitQueens) //Alle bisher gefundenen Damen überprüfen, ob diese mit der jetzigen Dame kolidieren
-<br>                {
-<br>                    if (Math.floor(currentLegitQueen / queenProblemProperties.fieldSize) === Math.floor(currentlyInvestigatedQueen / queenProblemProperties.fieldSize)) //Zeile testen
-<br>                    {
-<br>                        return true;
-<br>                    }
-<br>
-<br>                    if (currentLegitQueen % queenProblemProperties.fieldSize === currentlyInvestigatedQueen % queenProblemProperties.fieldSize) //Spalte testen
-<br>                    {
-<br>                        return true;
-<br>                    }
-<br>
-<br>                    if (checkDiagonalCollisions(currentLegitQueen, currentlyInvestigatedQueen)) //Diagonal ist komplizierter, darum wurde das auf eine eigene Funktion ausgelagert
-<br>                    {
-<br>                        return true;
-<br>                    }
-<br>                }
-<br>                return false;
-<br>
-<br>                //In Javascript kann man Funktionen in anderen Funktionen deklarieren.
-<br>                function checkDiagonalCollisions(currentLegitQueen, currentlyInvestigatedQueen) //Diagonal auf Kollisionen überprüfen
-<br>                {
-<br>                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize &lt;= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck >= currentLegitQueen; currentFieldToCheck -= (queenProblemProperties.fieldSize + 1)) //Nach links oben
-<br>                    {
-<br>                        if (currentFieldToCheck === currentLegitQueen) {
-<br>                            return true;
-<br>                        }
-<br>                    }
-<br>
-<br>                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize >= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck >= currentLegitQueen; currentFieldToCheck -= (queenProblemProperties.fieldSize - 1)) //Nach rechts oben
-<br>                    {
-<br>                        if (currentFieldToCheck === currentLegitQueen) {
-<br>                            return true;
-<br>                        }
-<br>                    }
-<br>
-<br>                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize &lt;= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck &lt;= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize - 1)) //Nach links unten
-<br>                    {
-<br>                        if (currentFieldToCheck === currentLegitQueen) {
-<br>                            return true;
-<br>                        }
-<br>                    }
-<br>
-<br>                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize >= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck &lt;= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize + 1)) //Nach rechts unten
-<br>                    {
-<br>                        if (currentFieldToCheck === currentLegitQueen) {
-<br>                            return true;
-<br>                        }
-<br>                    }
-<br>                    return false; //Keine Kollision gefunden
-<br>                }
-<br>            }
-<br>        }
-<br>
-<br>        function checkIfSolutionExcists(foundSolutions, solutionCandidate) {
-<br>
-<br>            for (let solution of foundSolutions) {
-<br>                // console.log(`checking ${solutionCandidate} with ${solution}`);
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log(`Iterationen &nbsp;der &nbsp;Hauptfunktion: &nbsp;${queenProblemProperties.iterator}`); &nbsp;//Nicht &nbsp;so &nbsp;wichtig
 <br>
 <br>
-<br>                for (let i = 1; i &lt; 5; i++) {
-<br>                    // console.log(`checking ${rotateLeft90(solutionCandidate, i)} with ${solution}`);
-<br>                    if (rotateLeft90degree(solutionCandidate, i).equals(solution)) {
-<br>                        return true;
-<br>                    }
-<br>                    if (flipHorizontal(rotateLeft90degree(solutionCandidate, i)).equals(solution)) {
-<br>                        return true;
-<br>                    }
-<br>                    if (flipVertical(rotateLeft90degree(solutionCandidate, i)).equals(solution)) {
-<br>                        return true;
-<br>                    }
-<br>                }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/************************************************************************************************/
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* &nbsp;FUNKTIONEN &nbsp;*/
 <br>
-<br>            }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;fillDropDownWithSolutions(allSolutionsArray) &nbsp;//Drop &nbsp;Down &nbsp;Menü &nbsp;befüllen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;dropDownMenu &nbsp;= &nbsp;document.getElementById('DamenSelect');
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;menuItemStringAsHtmlCode;
 <br>
-<br>            return false;
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;dropDownMenu.innerHTML &nbsp;= &nbsp;"";
 <br>
-<br>        function rotateLeft90degree(solution, flipCounter = 1) {
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;elements &nbsp;of &nbsp;allSolutionsArray) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;menuItemStringAsHtmlCode &nbsp;= &nbsp;"&lt;option &nbsp;>"
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;menuItemStringAsHtmlCode &nbsp;+= &nbsp;elements
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;menuItemStringAsHtmlCode &nbsp;+= &nbsp;"&lt;/option>"
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;dropDownMenu.innerHTML &nbsp;+= &nbsp;menuItemStringAsHtmlCode;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 <br>
-<br>            let newSolution = [...solution];
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;updateFieldWithOtherSolution(state &nbsp;= &nbsp;'reset') &nbsp;//Funktion &nbsp;wird &nbsp;beim &nbsp;Ändern &nbsp;des &nbsp;Drop &nbsp;Down &nbsp;Menüs &nbsp;aufgerufen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
 <br>
-<br>            for (let i = 0; i &lt; flipCounter; i++) {
-<br>                newSolution.forEach((currentValue, index) => {
-<br>                    newSolution[index] = currentValue + queenProblemProperties.fieldSize * queenProblemProperties.fieldSize - queenProblemProperties.fieldSize - (queenProblemProperties.fieldSize + 1) * currentValue + (queenProblemProperties.fieldSize * queenProblemProperties.fieldSize + 1) * Math.floor(currentValue / queenProblemProperties.fieldSize);
-<br>                });
-<br>            }
-<br>            return newSolution.sort((a, b) => { return a - b; });
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;switch &nbsp;(state) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case &nbsp;'reset':
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;dropDownMenu &nbsp;= &nbsp;document.getElementById('DamenSelect');
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;selectedIndexOfDropDownMenu &nbsp;= &nbsp;dropDownMenu.selectedIndex;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.currentDisplayedSolution &nbsp;= &nbsp;[...queenProblemProperties.allSolutionsArray[selectedIndexOfDropDownMenu]]
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.flipVertical &nbsp;= &nbsp;false;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.flipHorizontal &nbsp;= &nbsp;false;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.rotation &nbsp;= &nbsp;1;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case &nbsp;'flipV':
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.flipVertical &nbsp;= &nbsp;!queenProblemProperties.flipVertical;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.currentDisplayedSolution &nbsp;= &nbsp;[...flipVertical(queenProblemProperties.currentDisplayedSolution)];
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case &nbsp;'flipH':
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.flipHorizontal &nbsp;= &nbsp;!queenProblemProperties.flipHorizontal;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.currentDisplayedSolution &nbsp;= &nbsp;[...flipHorizontal(queenProblemProperties.currentDisplayedSolution)];
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case &nbsp;'rotate':
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.rotation &nbsp;= &nbsp;(queenProblemProperties.rotation &nbsp;=== &nbsp;1) &nbsp;? &nbsp;4 &nbsp;: &nbsp;queenProblemProperties.rotation &nbsp;- &nbsp;1;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.currentDisplayedSolution &nbsp;= &nbsp;[...rotateLeft90degree(queenProblemProperties.currentDisplayedSolution, &nbsp;3)];
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution);
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 <br>
-<br>        function flipHorizontal(solution1d) {
-<br>            let newSolution = [...solution1d];
-<br>            solution1d.forEach((currentValue, index) => {
-<br>                newSolution[index] = queenProblemProperties.fieldSize * (Math.floor(currentValue / queenProblemProperties.fieldSize) + 1) - 1 - currentValue % queenProblemProperties.fieldSize;
-<br>            });
-<br>            return newSolution.sort((a, b) => { return a - b; });
-<br>        }
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;updateAll() &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties &nbsp;= &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'fieldSize': &nbsp;8,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'iterator': &nbsp;0,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'solutionsFound': &nbsp;0,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'totalSolutionsFound': &nbsp;0,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'allSolutionsArray': &nbsp;[],
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'flipHorizontal': &nbsp;false,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'flipVertical': &nbsp;false,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'rotation': &nbsp;1,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'currentDisplayedSolution': &nbsp;[]
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};
 <br>
-<br>        function flipVertical(solution1d) {
-<br>            let newSolution = [...solution1d];
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.fieldSize &nbsp;= &nbsp;Number(document.getElementById('BoardSizeSelect').value);
 <br>
-<br>            solution1d.forEach((currentValue, index) => {
-<br>                newSolution[index] = queenProblemProperties.fieldSize * queenProblemProperties.fieldSize + queenProblemProperties.fieldSize - currentValue - 2 * ((queenProblemProperties.fieldSize * queenProblemProperties.fieldSize - (currentValue + 1)) % queenProblemProperties.fieldSize) - 2;
-<br>            });
-<br>            return newSolution.sort((a, b) => { return a - b; });
-<br>        }
-<br>    &lt;/script>
-<br>    &lt;!--JAVASCRIPT CODE ENDE! -->
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray);
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log(`Iterationen &nbsp;der &nbsp;Hauptfunktion: &nbsp;${queenProblemProperties.iterator}`); &nbsp;//Nicht &nbsp;so &nbsp;wichtig
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); &nbsp;//Drop &nbsp;Down &nbsp;Menü &nbsp;befüllen &nbsp;
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution &nbsp;= &nbsp;queenProblemProperties.allSolutionsArray[0]);
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;drawSolutionAsHtml(solution1d) &nbsp;//Spielfeld &nbsp;mit &nbsp;der &nbsp;jeweiligen &nbsp;Lösung &nbsp;in &nbsp;das &nbsp;HTML &nbsp;übertragen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;solution2d &nbsp;= &nbsp;convertSolutionFrom1dIn2dArrayWithFlags(solution1d)
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;counter &nbsp;= &nbsp;0;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;target &nbsp;= &nbsp;document.getElementById("wrapper");
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;rowStringAsHtmlCode; &nbsp;//Speichert &nbsp;HTML &nbsp;code, &nbsp;der &nbsp;dann &nbsp;in &nbsp;die &nbsp;Webseite &nbsp;geschrieben &nbsp;wird
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;target.innerHTML &nbsp;= &nbsp;""; &nbsp;//Wir &nbsp;setzen &nbsp;das &nbsp;Spielfeld &nbsp;zurück
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;y_index &nbsp;in &nbsp;solution2d) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rowStringAsHtmlCode &nbsp;= &nbsp;"&lt;div>"; &nbsp;//Neue &nbsp;Zeile
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;x_index &nbsp;in &nbsp;solution2d[y_index]) &nbsp;//Alle &nbsp;Felder &nbsp;einer &nbsp;Reihe &nbsp;setzen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(solution2d[y_index][x_index]) &nbsp;//Wenn &nbsp;das &nbsp;Feld &nbsp;'true' &nbsp;ist, &nbsp;steht &nbsp;eine &nbsp;Dame &nbsp;darauf &nbsp;und &nbsp;wir &nbsp;färben &nbsp;es &nbsp;mit &nbsp;der &nbsp;CSS &nbsp;Klasse &nbsp;queen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rowStringAsHtmlCode &nbsp;+= &nbsp;"&lt;div &nbsp;class='field &nbsp;queen &nbsp;unselectable'>"
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rowStringAsHtmlCode &nbsp;+= &nbsp;"&lt;div &nbsp;class='field &nbsp;unselectable'>"
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rowStringAsHtmlCode &nbsp;+= &nbsp;counter;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rowStringAsHtmlCode &nbsp;+= &nbsp;"&lt;/div>";
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;counter++
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rowStringAsHtmlCode &nbsp;+= &nbsp;"&lt;/div>";
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;target.innerHTML &nbsp;+= &nbsp;rowStringAsHtmlCode; &nbsp;//Zeile &nbsp;Zeichnen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.getElementById("uniqueSoltions").innerHTML &nbsp;= &nbsp;queenProblemProperties.solutionsFound;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.getElementById("totalSolutions").innerHTML &nbsp;= &nbsp;queenProblemProperties.totalSolutionsFound;
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;convertSolutionFrom1dIn2dArrayWithFlags(solution1d) &nbsp;//Die &nbsp;jeweilige &nbsp;Lösung &nbsp;als &nbsp;einen &nbsp;2-dimensionalen &nbsp;Boolean &nbsp;Array &nbsp;berechnen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;solution2d &nbsp;= &nbsp;new &nbsp;Array(queenProblemProperties.fieldSize);
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;i &nbsp;= &nbsp;0; &nbsp;i &nbsp;&lt; &nbsp;queenProblemProperties.fieldSize; &nbsp;++i) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;solution2d[i] &nbsp;= &nbsp;new &nbsp;Array(queenProblemProperties.fieldSize)
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;solution2d[i].fill(false); &nbsp;//Alle &nbsp;Werte &nbsp;standardmäßig &nbsp;auf &nbsp;"false" &nbsp;setzen, &nbsp;auch &nbsp;wird &nbsp;dadurch &nbsp;der &nbsp;Array &nbsp;als &nbsp;Boolean &nbsp;Array &nbsp;initialisiert
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;queen &nbsp;of &nbsp;solution1d) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;solution2d[Math.floor(queen &nbsp;/ &nbsp;queenProblemProperties.fieldSize)][queen &nbsp;% &nbsp;queenProblemProperties.fieldSize] &nbsp;= &nbsp;true; &nbsp;//Position &nbsp;der &nbsp;jeweiligen &nbsp;Dame &nbsp;in &nbsp;den &nbsp;2-dimensionalen &nbsp;Array &nbsp;eintragen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;solution2d;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;calculateSolutionsRecursive(saveSolutionsHere, &nbsp;arrayOfLegitQueens &nbsp;= &nbsp;[], &nbsp;startCheckingCurrentQueenFromHere &nbsp;= &nbsp;0) &nbsp;//Rekursive &nbsp;Funtion &nbsp;um &nbsp;die &nbsp;Lösungen &nbsp;zu &nbsp;berechnen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.iterator++;
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(arrayOfLegitQueens[arrayOfLegitQueens.length &nbsp;- &nbsp;1] &nbsp;> &nbsp;arrayOfLegitQueens.length &nbsp;* &nbsp;queenProblemProperties.fieldSize) &nbsp;// &nbsp;Unnötige &nbsp;Iterationen &nbsp;verwerfen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;false;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;currentlyInvestigatedQueen &nbsp;= &nbsp;startCheckingCurrentQueenFromHere; &nbsp;currentlyInvestigatedQueen &nbsp;&lt; &nbsp;(queenProblemProperties.fieldSize &nbsp;* &nbsp;queenProblemProperties.fieldSize); &nbsp;currentlyInvestigatedQueen++) &nbsp;//Wir &nbsp;probieren &nbsp;alle &nbsp;Felder &nbsp;aus, &nbsp;ob &nbsp;die &nbsp;Felder &nbsp;zu &nbsp;einer &nbsp;Lösung &nbsp;führen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(checkCollisions(arrayOfLegitQueens, &nbsp;currentlyInvestigatedQueen)) &nbsp;//Wenn &nbsp;es &nbsp;eine &nbsp;Kollision &nbsp;gibt, &nbsp;können &nbsp;wir &nbsp;den &nbsp;Rest &nbsp;der &nbsp;Schleife &nbsp;überspringen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;continue;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arrayOfLegitQueens.push(currentlyInvestigatedQueen);
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(arrayOfLegitQueens.length &nbsp;=== &nbsp;queenProblemProperties.fieldSize) &nbsp;//Eine &nbsp;Lösung &nbsp;gefunden!
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.totalSolutionsFound++;
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(!checkIfSolutionExcists(saveSolutionsHere, &nbsp;arrayOfLegitQueens)) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;saveSolutionsHere.push([...arrayOfLegitQueens]); &nbsp;//Lösung &nbsp;speichern
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;queenProblemProperties.solutionsFound++;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arrayOfLegitQueens.pop();
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;continue; &nbsp;//Weitersuchen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(calculateSolutionsRecursive(saveSolutionsHere, &nbsp;arrayOfLegitQueens, &nbsp;currentlyInvestigatedQueen &nbsp;+ &nbsp;1)) &nbsp;//die &nbsp;jetzige &nbsp;Position &nbsp;der &nbsp;Dame &nbsp;passt &nbsp;soweit, &nbsp;jetzt &nbsp;können &nbsp;wir &nbsp;eine &nbsp;weitere &nbsp;Dame &nbsp;hinzufügen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arrayOfLegitQueens.pop();
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//In &nbsp;Javascript &nbsp;kann &nbsp;man &nbsp;Funktionen &nbsp;in &nbsp;anderen &nbsp;Funktionen &nbsp;deklarieren.
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;checkCollisions(arrayOfLegitQueens, &nbsp;currentlyInvestigatedQueen) &nbsp;//Wir &nbsp;prüfen &nbsp;ob &nbsp;die &nbsp;jetztige &nbsp;Dame &nbsp;mit &nbsp;anderen &nbsp;Damen &nbsp;kolidiert
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(arrayOfLegitQueens.length &nbsp;=== &nbsp;0) &nbsp;//Wenn &nbsp;es &nbsp;keine &nbsp;weiteren &nbsp;Damen &nbsp;gibt, &nbsp;kann &nbsp;es &nbsp;keine &nbsp;Kollisionen &nbsp;geben &nbsp;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;false;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;currentLegitQueen &nbsp;of &nbsp;arrayOfLegitQueens) &nbsp;//Alle &nbsp;bisher &nbsp;gefundenen &nbsp;Damen &nbsp;überprüfen, &nbsp;ob &nbsp;diese &nbsp;mit &nbsp;der &nbsp;jetzigen &nbsp;Dame &nbsp;kolidieren
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(Math.floor(currentLegitQueen &nbsp;/ &nbsp;queenProblemProperties.fieldSize) &nbsp;=== &nbsp;Math.floor(currentlyInvestigatedQueen &nbsp;/ &nbsp;queenProblemProperties.fieldSize)) &nbsp;//Zeile &nbsp;testen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(currentLegitQueen &nbsp;% &nbsp;queenProblemProperties.fieldSize &nbsp;=== &nbsp;currentlyInvestigatedQueen &nbsp;% &nbsp;queenProblemProperties.fieldSize) &nbsp;//Spalte &nbsp;testen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(checkDiagonalCollisions(currentLegitQueen, &nbsp;currentlyInvestigatedQueen)) &nbsp;//Diagonal &nbsp;ist &nbsp;komplizierter, &nbsp;darum &nbsp;wurde &nbsp;das &nbsp;auf &nbsp;eine &nbsp;eigene &nbsp;Funktion &nbsp;ausgelagert
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;false;
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//In &nbsp;Javascript &nbsp;kann &nbsp;man &nbsp;Funktionen &nbsp;in &nbsp;anderen &nbsp;Funktionen &nbsp;deklarieren.
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;checkDiagonalCollisions(currentLegitQueen, &nbsp;currentlyInvestigatedQueen) &nbsp;//Diagonal &nbsp;auf &nbsp;Kollisionen &nbsp;überprüfen
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;currentFieldToCheck &nbsp;= &nbsp;currentlyInvestigatedQueen; &nbsp;currentFieldToCheck &nbsp;% &nbsp;queenProblemProperties.fieldSize &nbsp;&lt;= &nbsp;currentlyInvestigatedQueen &nbsp;% &nbsp;queenProblemProperties.fieldSize &nbsp;&& &nbsp;currentFieldToCheck &nbsp;>= &nbsp;currentLegitQueen; &nbsp;currentFieldToCheck &nbsp;-= &nbsp;(queenProblemProperties.fieldSize &nbsp;+ &nbsp;1)) &nbsp;//Nach &nbsp;links &nbsp;oben
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(currentFieldToCheck &nbsp;=== &nbsp;currentLegitQueen) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;currentFieldToCheck &nbsp;= &nbsp;currentlyInvestigatedQueen; &nbsp;currentFieldToCheck &nbsp;% &nbsp;queenProblemProperties.fieldSize &nbsp;>= &nbsp;currentlyInvestigatedQueen &nbsp;% &nbsp;queenProblemProperties.fieldSize &nbsp;&& &nbsp;currentFieldToCheck &nbsp;>= &nbsp;currentLegitQueen; &nbsp;currentFieldToCheck &nbsp;-= &nbsp;(queenProblemProperties.fieldSize &nbsp;- &nbsp;1)) &nbsp;//Nach &nbsp;rechts &nbsp;oben
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(currentFieldToCheck &nbsp;=== &nbsp;currentLegitQueen) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;currentFieldToCheck &nbsp;= &nbsp;currentlyInvestigatedQueen; &nbsp;currentFieldToCheck &nbsp;% &nbsp;queenProblemProperties.fieldSize &nbsp;&lt;= &nbsp;currentlyInvestigatedQueen &nbsp;% &nbsp;queenProblemProperties.fieldSize &nbsp;&& &nbsp;currentFieldToCheck &nbsp;&lt;= &nbsp;currentLegitQueen; &nbsp;currentFieldToCheck &nbsp;+= &nbsp;(queenProblemProperties.fieldSize &nbsp;- &nbsp;1)) &nbsp;//Nach &nbsp;links &nbsp;unten
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(currentFieldToCheck &nbsp;=== &nbsp;currentLegitQueen) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;currentFieldToCheck &nbsp;= &nbsp;currentlyInvestigatedQueen; &nbsp;currentFieldToCheck &nbsp;% &nbsp;queenProblemProperties.fieldSize &nbsp;>= &nbsp;currentlyInvestigatedQueen &nbsp;% &nbsp;queenProblemProperties.fieldSize &nbsp;&& &nbsp;currentFieldToCheck &nbsp;&lt;= &nbsp;currentLegitQueen; &nbsp;currentFieldToCheck &nbsp;+= &nbsp;(queenProblemProperties.fieldSize &nbsp;+ &nbsp;1)) &nbsp;//Nach &nbsp;rechts &nbsp;unten
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(currentFieldToCheck &nbsp;=== &nbsp;currentLegitQueen) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;false; &nbsp;//Keine &nbsp;Kollision &nbsp;gefunden
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;checkIfSolutionExcists(foundSolutions, &nbsp;solutionCandidate) &nbsp;{
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;solution &nbsp;of &nbsp;foundSolutions) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;console.log(`checking &nbsp;${solutionCandidate} &nbsp;with &nbsp;${solution}`);
+<br>
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;i &nbsp;= &nbsp;1; &nbsp;i &nbsp;&lt; &nbsp;5; &nbsp;i++) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;console.log(`checking &nbsp;${rotateLeft90(solutionCandidate, &nbsp;i)} &nbsp;with &nbsp;${solution}`);
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(rotateLeft90degree(solutionCandidate, &nbsp;i).equals(solution)) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(flipHorizontal(rotateLeft90degree(solutionCandidate, &nbsp;i)).equals(solution)) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if &nbsp;(flipVertical(rotateLeft90degree(solutionCandidate, &nbsp;i)).equals(solution)) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;true;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;false;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;rotateLeft90degree(solution, &nbsp;flipCounter &nbsp;= &nbsp;1) &nbsp;{
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;newSolution &nbsp;= &nbsp;[...solution];
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for &nbsp;(let &nbsp;i &nbsp;= &nbsp;0; &nbsp;i &nbsp;&lt; &nbsp;flipCounter; &nbsp;i++) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;newSolution.forEach((currentValue, &nbsp;index) &nbsp;=> &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;newSolution[index] &nbsp;= &nbsp;currentValue &nbsp;+ &nbsp;queenProblemProperties.fieldSize &nbsp;* &nbsp;queenProblemProperties.fieldSize &nbsp;- &nbsp;queenProblemProperties.fieldSize &nbsp;- &nbsp;(queenProblemProperties.fieldSize &nbsp;+ &nbsp;1) &nbsp;* &nbsp;currentValue &nbsp;+ &nbsp;(queenProblemProperties.fieldSize &nbsp;* &nbsp;queenProblemProperties.fieldSize &nbsp;+ &nbsp;1) &nbsp;* &nbsp;Math.floor(currentValue &nbsp;/ &nbsp;queenProblemProperties.fieldSize);
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;});
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;newSolution.sort((a, &nbsp;b) &nbsp;=> &nbsp;{ &nbsp;return &nbsp;a &nbsp;- &nbsp;b; &nbsp;});
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;flipHorizontal(solution1d) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;newSolution &nbsp;= &nbsp;[...solution1d];
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;solution1d.forEach((currentValue, &nbsp;index) &nbsp;=> &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;newSolution[index] &nbsp;= &nbsp;queenProblemProperties.fieldSize &nbsp;* &nbsp;(Math.floor(currentValue &nbsp;/ &nbsp;queenProblemProperties.fieldSize) &nbsp;+ &nbsp;1) &nbsp;- &nbsp;1 &nbsp;- &nbsp;currentValue &nbsp;% &nbsp;queenProblemProperties.fieldSize;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;});
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;newSolution.sort((a, &nbsp;b) &nbsp;=> &nbsp;{ &nbsp;return &nbsp;a &nbsp;- &nbsp;b; &nbsp;});
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;function &nbsp;flipVertical(solution1d) &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;let &nbsp;newSolution &nbsp;= &nbsp;[...solution1d];
+<br>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;solution1d.forEach((currentValue, &nbsp;index) &nbsp;=> &nbsp;{
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;newSolution[index] &nbsp;= &nbsp;queenProblemProperties.fieldSize &nbsp;* &nbsp;queenProblemProperties.fieldSize &nbsp;+ &nbsp;queenProblemProperties.fieldSize &nbsp;- &nbsp;currentValue &nbsp;- &nbsp;2 &nbsp;* &nbsp;((queenProblemProperties.fieldSize &nbsp;* &nbsp;queenProblemProperties.fieldSize &nbsp;- &nbsp;(currentValue &nbsp;+ &nbsp;1)) &nbsp;% &nbsp;queenProblemProperties.fieldSize) &nbsp;- &nbsp;2;
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;});
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return &nbsp;newSolution.sort((a, &nbsp;b) &nbsp;=> &nbsp;{ &nbsp;return &nbsp;a &nbsp;- &nbsp;b; &nbsp;});
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;/script>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;&lt;!--JAVASCRIPT &nbsp;CODE &nbsp;ENDE! &nbsp;-->
 <br>&lt;/body>
 <br>
 <br>&lt;/html>
-<br>    </body>
-<br>    </html>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;</body>
+<br> &nbsp; &nbsp; &nbsp; &nbsp;</html>
