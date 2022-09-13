@@ -2,6 +2,11 @@
 body {
     background-color: #ecffed;
 }
+#version{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
 #game_wrapper {
     /*border: 1px dashed black;*/
