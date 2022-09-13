@@ -1,4 +1,4 @@
-//Ver 1.6.7.6
+//Ver 1.6.7.7
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = "off"; //"info";
