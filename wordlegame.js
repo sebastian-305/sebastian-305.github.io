@@ -228,7 +228,7 @@ class Game {
             console.log(`Game.inputSingleLetter: ${letter}`);
         }
         /*
-                if (this.gameState === "won") {
+                if (this.gameState === "finished") {
                     return;
                 }
         */
@@ -252,7 +252,7 @@ class Game {
         }
 
         if (letter === 'ENTER') {
-            if (this.gameState === "won" || this.current_row > MAX_ROW) {
+            if (this.gameState === "finished") {
                 if (++this.restart >= 1) {
                     location.reload();
                     this.newGame(LENGTH_WORD, solution_word_array);
@@ -353,10 +353,6 @@ class Game {
             console.log(`checking if won: green Letters: ${this.greenLetters}, green Letter size ${this.greenLetters.size} length word: ${this.length_word}`);
         }
 
-        if (this.solution.join("") === this.current_row_content.join("")) {
-            this.gameState = "won";
-        }
-
         //Buchstaben einf\u00E4rben
         this.gameBoard.setLetterColor(this.current_row, return_color);
         this.updateKeyboardColor(this.greyLetters, this.yellowLetters, this.greenLetters);
@@ -365,12 +361,14 @@ class Game {
         this.gameBoard.setUsedLetters(this.usedLetters);
 
 
-        if (this.gameState === "won") {
+        if (this.solution.join("") === this.current_row_content.join("")) {
+            this.gameState = "finished";
             this.gameBoard.handleGameWon(this.solution.join(""));
             return;
         }
 
         if (++this.current_row > MAX_ROW) {
+            this.gameState = "finished";
             this.gameBoard.handleGameLost(this.solution.join(""));
             return;
         }
@@ -427,10 +425,9 @@ class Game {
         if (name == "End") {
             LOGGER = (LOGGER === "off") ? "info" : "off";
             console.log(`Logger level: ${LOGGER}`);
-        } else {
+        } else if(MyGame.gameState !== "finished" || name === 'ENTER' || name === 'DEAD' ) {
             MyGame.inputSingleLetter(name);
         }
-
 
     }, false);
 
@@ -644,7 +641,6 @@ let solutions;
         "Zweig"
     );
     }
-
 return solutions;
 }
 
