@@ -1,4 +1,4 @@
-//Ver 1.6.7.9
+//Ver 1.6.8.0
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = "off"; //"info";
@@ -357,15 +357,18 @@ class Game {
         this.gameBoard.setLetterColor(this.current_row, return_color);
         this.updateKeyboardColor(this.greyLetters, this.yellowLetters, this.greenLetters);
         this.current_letter_index = 1;
-        this.current_row_content = [];
+        
         this.gameBoard.setUsedLetters(this.usedLetters);
 
 
         if (this.solution.join("") === this.current_row_content.join("")) {
             this.gameState = "finished";
             this.gameBoard.handleGameWon(this.solution.join(""));
+            this.current_row_content = [];
             return;
         }
+
+        this.current_row_content = [];
 
         if (++this.current_row > MAX_ROW) {
             this.gameState = "finished";
