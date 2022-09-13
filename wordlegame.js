@@ -425,7 +425,7 @@ class Game {
         if (name == "End") {
             LOGGER = (LOGGER === "off") ? "info" : "off";
             console.log(`Logger level: ${LOGGER}`);
-        } else if(MyGame.gameState !== "finished" || name === 'ENTER' || name === 'DEAD' ) {
+        } else if(MyGame.gameState !== "finished" || name === 'Enter' || name === 'Dead' ) {
             MyGame.inputSingleLetter(name);
         }
 
