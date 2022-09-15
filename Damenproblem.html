@@ -140,6 +140,7 @@
     <label for="uniqueSoltions">Eindeutige Lösungen: </label> <span id="uniqueSoltions">0</span>
     <br>
     <label for="totalSolutions">Lösungen insgesamt: </label> <span id="totalSolutions">0</span>
+    <p>Ladezeit: <span id="loadTime">0 ms</span></p>
     <br>
     <br>
     <div id="wrapper">
@@ -150,6 +151,7 @@
     <script>
 
         let queenProblemProperties = {
+            'startTime': 0,
             'fieldSize': 8,
             'iterator': 0,
             'solutionsFound': 0,
@@ -160,6 +162,10 @@
             'rotation': 1,
             'currentDisplayedSolution': []
         };
+
+        queenProblemProperties.startTime = new Date().getTime();
+
+        
 
         calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray); //Lösungen berechnen
 
@@ -218,6 +224,7 @@
 
         function updateAll() {
             queenProblemProperties = {
+                'startTime': 0,
                 'fieldSize': 8,
                 'iterator': 0,
                 'solutionsFound': 0,
@@ -228,6 +235,8 @@
                 'rotation': 1,
                 'currentDisplayedSolution': []
             };
+
+            queenProblemProperties.startTime = new Date().getTime();
 
             queenProblemProperties.fieldSize = Number(document.getElementById('BoardSizeSelect').value);
 
@@ -271,6 +280,8 @@
 
             document.getElementById("uniqueSoltions").innerHTML = queenProblemProperties.solutionsFound;
             document.getElementById("totalSolutions").innerHTML = queenProblemProperties.totalSolutionsFound;
+            let loadTime = new Date().getTime() - queenProblemProperties.startTime;
+            document.getElementById("loadTime").innerHTML = `${Math.floor(loadTime/1000)} s ${loadTime%1000} ms`;
 
             function convertSolutionFrom1dIn2dArrayWithFlags(solution1d) //Die jeweilige Lösung als einen 2-dimensionalen Boolean Array berechnen
             {
