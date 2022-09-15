@@ -192,6 +192,9 @@
                 menuItemStringAsHtmlCode += "</option>"
                 dropDownMenu.innerHTML += menuItemStringAsHtmlCode;
             }
+
+            let loadTime = new Date().getTime() - queenProblemProperties.startTime;
+            document.getElementById("loadTime").innerHTML = `${Math.floor(loadTime/1000)} s ${loadTime%1000} ms`;
         }
 
         function updateFieldWithOtherSolution(state = 'reset') //Funktion wird beim Ändern des Drop Down Menüs aufgerufen
@@ -280,8 +283,7 @@
 
             document.getElementById("uniqueSoltions").innerHTML = queenProblemProperties.solutionsFound;
             document.getElementById("totalSolutions").innerHTML = queenProblemProperties.totalSolutionsFound;
-            let loadTime = new Date().getTime() - queenProblemProperties.startTime;
-            document.getElementById("loadTime").innerHTML = `${Math.floor(loadTime/1000)} s ${loadTime%1000} ms`;
+  
 
             function convertSolutionFrom1dIn2dArrayWithFlags(solution1d) //Die jeweilige Lösung als einen 2-dimensionalen Boolean Array berechnen
             {
