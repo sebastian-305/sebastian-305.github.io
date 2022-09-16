@@ -151,6 +151,7 @@
     </div>
     <br>
     <br>
+    <img id="loadingGif" src="images/Loadingsome.gif" alt="Loading" width="300" height="300">
     <div id="wrapper">
 
 
@@ -172,6 +173,7 @@
             'currentDisplayedSolution': []
         };
 
+        let loadingGif = document.querySelector("#loadingGif");
         queenProblemProperties.startTime = new Date().getTime();
 
         calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray); //Lösungen berechnen
@@ -233,6 +235,19 @@
         }
 
         function updateAll() {
+
+            let currentBoard = document.querySelector("#wrapper").innerHTML;
+            loadingGif.style.display = 'inline';
+            document.querySelector("#wrapper").innerHTML = "";
+
+            if (!confirm( "This task may take several seconds. Do you wish to continue?" ) ) {
+                document.querySelector("#wrapper").innerHTML = currentBoard;
+                loadingGif.style.display = 'none';
+                return;
+            }
+
+            window.setTimeout(()=>{console.log("Timeout over")},100); 
+
             queenProblemProperties = {
                 'startTime': 0,
                 'fieldSize': 8,
@@ -248,10 +263,13 @@
             };
 
             queenProblemProperties.startTime = new Date().getTime();
+            
+            loadingGif.style.display = 'inline';
+            document.querySelector("#wrapper").innerHTML = "";
 
             queenProblemProperties.fieldSize = Number(document.getElementById('BoardSizeSelect').value);
             queenProblemProperties.calcuationMethod = document.getElementById('CalcMethodSelect').value;
-            console.log(`Calc Method: ${queenProblemProperties.calcuationMethod}`);
+           // console.log(`Calc Method: ${queenProblemProperties.calcuationMethod}`);
 
             if (queenProblemProperties.calcuationMethod === 'rek') {
                 calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray);
@@ -260,7 +278,7 @@
                 calculateSolutionsInLoop(queenProblemProperties.allSolutionsArray);
             }
 
-            console.table(queenProblemProperties.allSolutionsArray);
+            console.table(queenProblemProperties.allSolutionsArray); 
             fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
 
             drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
@@ -273,6 +291,8 @@
             let target = document.getElementById("wrapper");
             let rowStringAsHtmlCode; //Speichert HTML code, der dann in die Webseite geschrieben wird
             target.innerHTML = ""; //Wir setzen das Spielfeld zurück
+
+            loadingGif.style.display = 'none';
 
             for (let y_index in solution2d) {
                 rowStringAsHtmlCode = "<div>"; //Neue Zeile
@@ -367,16 +387,16 @@
             do {
                 pointer = 0;
                 currentSolution = convertSoltionInConsecutiveNumbers([...calculationArray]);
-                
-                if (!checkCollisionQueenArray(currentSolution)) {
-                    queenProblemProperties.totalSolutionsFound++;
-                    if (!checkIfSolutionExcists(saveSolutionsHere, currentSolution)) {
-                         saveSolutionsHere.push([...currentSolution]); //Lösung speichern
-                        queenProblemProperties.solutionsFound++;
-                       // console.log(currentSolution);
+
+                if (!checkCollisonRowForLoopfunction(calculationArray)) {
+                    if (!checkCollisionQueenArray([...currentSolution])) {
+                        queenProblemProperties.totalSolutionsFound++;
+                        if (!checkIfSolutionExcists(saveSolutionsHere, currentSolution)) {
+                            saveSolutionsHere.push([...currentSolution]); //Lösung speichern
+                            queenProblemProperties.solutionsFound++;
+                        }
                     }
                 }
-
 
                 while (++calculationArray[pointer] === queenProblemProperties.fieldSize) {
                     calculationArray[pointer] = 0;
@@ -402,9 +422,12 @@
         function checkCollisionQueenArray(queenArray) {
             collision = false;
             let tempArray;
-            for (let index in queenArray) {
+            for (let index = 0; index < queenArray.length; ++index) {
+                if (index === queenArray.length - 1) {
+                    break;
+                }
                 tempArray = [...queenArray]
-                tempArray.splice(index, 1);
+                tempArray.splice(0, index + 1);
                 if (checkCollisions(tempArray, queenArray[index])) {
                     return true;
                 }
@@ -472,10 +495,10 @@
             }
         }
 
-        function checkCollisonRowForLoopfunction(queens){
-            for(let i = 0; i < queens.length; ++i){
-                for(let j = i+1; j < queens.length; ++j){
-                    if(queens[i]===queens[j]){
+        function checkCollisonRowForLoopfunction(queens) {
+            for (let i = 0; i < queens.length; ++i) {
+                for (let j = i + 1; j < queens.length; ++j) {
+                    if (queens[i] === queens[j]) {
                         return true;
                     }
                 }

@@ -1,0 +1,29 @@
+<html>
+<style type="text/css">
+    #gif {}
+</style>
+
+<body>
+    <img id="gif" src="images/Loadingsome.gif" />
+    <div id="test"></div>
+    <script>
+
+        function start() {
+            document.querySelector("#gif").style.display = "none";
+            element = document.querySelector("#test");
+
+            element.innerHTML = "eins";
+            console.log(element.innerHTML);
+            element.innerHTML = "";
+            document.querySelector("#gif").style.display = "block";
+            document.querySelector("#gif").style.display = "none";
+            console.log(element.innerHTML);
+            element.innerHTML = "drei";
+            console.log(element.innerHTML);
+            element.innerHTML = "vier";
+            console.log(element.innerHTML);
+        }
+    </script>
+</body>
+
+</html>
