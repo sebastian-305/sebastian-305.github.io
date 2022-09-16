@@ -5,6 +5,11 @@
     <title>Damenproblem</title>
     <link rel="icon" type="image/x-icon" href="./icons/crown.ico">
     <style type="text/css">
+        #beschriftung {
+            border: 0px;
+            outline: none;
+        }
+
         div {
             outline: 1px solid black;
         }
@@ -32,11 +37,7 @@
             outline: 2px solid black;
         }
 
-        button {
-            height: 30px;
-            width: 30px;
-            font-size: 10pt;
-        }
+        button {}
 
         .button {
             display: inline-block;
@@ -106,41 +107,48 @@
 </head>
 
 <body>
+    <div id="beschriftung">
+        <br>
+        <h1>Das Damenproblem</h1>
+        <br>
+        <label for="Spielfeld">Seitenlänge des Spielfeldes</label>
+        <select name="Spielfeld" id="BoardSizeSelect">
+            <option value="1">1</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option selected value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+        </select>
+        <label>Berechnungsart:</label>
+        <select name="Berechnungsart" id="CalcMethodSelect">
+            <option value="rek">rekursive Funktion</option>
+            <option value="loop">Schleifenfunktion</option>
+        </select>
+        <button onclick="updateAll()">berechnen</button>
 
-    <br>
-    <h1>Das Damenproblem </h1>
-    <br>
-    <label for="Spielfeld">Seitenlänge des Spielfeldes</label>
-    <select name="Spielfeld" id="BoardSizeSelect" onchange="updateAll()">
-        <option value="1">1</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option selected value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-    </select>
-
-    <br>
-    <label for="Damen">Lösung auswählen:</label>
-    <select name="Damen" id="DamenSelect" onchange="updateFieldWithOtherSolution();">
-        <option>0,12,23,29,34,46,49,59</option>
-    </select>
-    <div class="button unselectable" name="rotieren" title="Spielfeld rotieren"
-        onclick="updateFieldWithOtherSolution('rotate')">
-        <span> &#11118;</span>
+        <br>
+        <label for="Damen">Lösung auswählen:</label>
+        <select name="Damen" id="DamenSelect" onchange="updateFieldWithOtherSolution();">
+            <option>0,12,23,29,34,46,49,59</option>
+        </select>
+        <div class="button unselectable" name="rotieren" title="Spielfeld rotieren"
+            onclick="updateFieldWithOtherSolution('rotate')">
+            <span> &#11118;</span>
+        </div>
+        <div class="button unselectable" name="horizontal spiegeln" title="Spielfeld horizontal spiegeln"
+            onclick="updateFieldWithOtherSolution('flipH')"><span> &#8646; </span></div>
+        <div class="button unselectable" name="vertikal spiegeln" title="Spielfeld vertikal spiegeln"
+            onclick="updateFieldWithOtherSolution('flipV')"><span> &#8645; </span></div>
+        <br>
+        <label for="uniqueSoltions">Eindeutige Lösungen: </label> <span id="uniqueSoltions">0</span>
+        <br>
+        <label for="totalSolutions">Lösungen insgesamt: </label> <span id="totalSolutions">0</span>
+        <p>Ladezeit: <span id="loadTime">0 ms</span></p>
     </div>
-    <div class="button unselectable" name="horizontal spiegeln" title="Spielfeld horizontal spiegeln"
-        onclick="updateFieldWithOtherSolution('flipH')"><span> &#8646; </span></div>
-    <div class="button unselectable" name="vertikal spiegeln" title="Spielfeld vertikal spiegeln"
-        onclick="updateFieldWithOtherSolution('flipV')"><span> &#8645; </span></div>
-    <br>
-    <label for="uniqueSoltions">Eindeutige Lösungen: </label> <span id="uniqueSoltions">0</span>
-    <br>
-    <label for="totalSolutions">Lösungen insgesamt: </label> <span id="totalSolutions">0</span>
-    <p>Ladezeit: <span id="loadTime">0 ms</span></p>
     <br>
     <br>
     <div id="wrapper">
@@ -153,6 +161,7 @@
         let queenProblemProperties = {
             'startTime': 0,
             'fieldSize': 8,
+            'calcuationMethod': 'rek',
             'iterator': 0,
             'solutionsFound': 0,
             'totalSolutionsFound': 0,
@@ -165,15 +174,13 @@
 
         queenProblemProperties.startTime = new Date().getTime();
 
-        
-
         calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray); //Lösungen berechnen
 
         drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]); //Feld zeichnen mit erster Lösung
 
         fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen
 
-        console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
+        //console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
 
 
         /************************************************************************************************/
@@ -194,7 +201,7 @@
             }
 
             let loadTime = new Date().getTime() - queenProblemProperties.startTime;
-            document.getElementById("loadTime").innerHTML = `${Math.floor(loadTime/1000)} s ${loadTime%1000} ms`;
+            document.getElementById("loadTime").innerHTML = `${Math.floor(loadTime / 1000)} s ${loadTime % 1000} ms`;
         }
 
         function updateFieldWithOtherSolution(state = 'reset') //Funktion wird beim Ändern des Drop Down Menüs aufgerufen
@@ -229,6 +236,7 @@
             queenProblemProperties = {
                 'startTime': 0,
                 'fieldSize': 8,
+                'calcuationMethod': 'rek',
                 'iterator': 0,
                 'solutionsFound': 0,
                 'totalSolutionsFound': 0,
@@ -242,10 +250,17 @@
             queenProblemProperties.startTime = new Date().getTime();
 
             queenProblemProperties.fieldSize = Number(document.getElementById('BoardSizeSelect').value);
+            queenProblemProperties.calcuationMethod = document.getElementById('CalcMethodSelect').value;
+            console.log(`Calc Method: ${queenProblemProperties.calcuationMethod}`);
 
-            calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray);
-            console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
+            if (queenProblemProperties.calcuationMethod === 'rek') {
+                calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray);
+                console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
+            } else {
+                calculateSolutionsInLoop(queenProblemProperties.allSolutionsArray);
+            }
 
+            console.table(queenProblemProperties.allSolutionsArray);
             fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
 
             drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
@@ -283,7 +298,7 @@
 
             document.getElementById("uniqueSoltions").innerHTML = queenProblemProperties.solutionsFound;
             document.getElementById("totalSolutions").innerHTML = queenProblemProperties.totalSolutionsFound;
-  
+
 
             function convertSolutionFrom1dIn2dArrayWithFlags(solution1d) //Die jeweilige Lösung als einen 2-dimensionalen Boolean Array berechnen
             {
@@ -339,68 +354,133 @@
                 arrayOfLegitQueens.pop();
             }
             return;
+        }
 
-            //In Javascript kann man Funktionen in anderen Funktionen deklarieren.
-            function checkCollisions(arrayOfLegitQueens, currentlyInvestigatedQueen) //Wir prüfen ob die jetztige Dame mit anderen Damen kolidiert
-            {
+        function calculateSolutionsInLoop(saveSolutionsHere) {
 
-                if (arrayOfLegitQueens.length === 0) //Wenn es keine weiteren Damen gibt, kann es keine Kollisionen geben 
-                {
-                    return false;
-                }
+            let calculationArray = new Array(queenProblemProperties.fieldSize);
+            calculationArray.fill(0);
+            let pointer = 0;
+            let finished = false;
+            let currentSolution;
 
-                for (let currentLegitQueen of arrayOfLegitQueens) //Alle bisher gefundenen Damen überprüfen, ob diese mit der jetzigen Dame kolidieren
-                {
-                    if (Math.floor(currentLegitQueen / queenProblemProperties.fieldSize) === Math.floor(currentlyInvestigatedQueen / queenProblemProperties.fieldSize)) //Zeile testen
-                    {
-                        return true;
-                    }
-
-                    if (currentLegitQueen % queenProblemProperties.fieldSize === currentlyInvestigatedQueen % queenProblemProperties.fieldSize) //Spalte testen
-                    {
-                        return true;
-                    }
-
-                    if (checkDiagonalCollisions(currentLegitQueen, currentlyInvestigatedQueen)) //Diagonal ist komplizierter, darum wurde das auf eine eigene Funktion ausgelagert
-                    {
-                        return true;
+            do {
+                pointer = 0;
+                currentSolution = convertSoltionInConsecutiveNumbers([...calculationArray]);
+                
+                if (!checkCollisionQueenArray(currentSolution)) {
+                    queenProblemProperties.totalSolutionsFound++;
+                    if (!checkIfSolutionExcists(saveSolutionsHere, currentSolution)) {
+                         saveSolutionsHere.push([...currentSolution]); //Lösung speichern
+                        queenProblemProperties.solutionsFound++;
+                       // console.log(currentSolution);
                     }
                 }
-                return false;
 
-                //In Javascript kann man Funktionen in anderen Funktionen deklarieren.
-                function checkDiagonalCollisions(currentLegitQueen, currentlyInvestigatedQueen) //Diagonal auf Kollisionen überprüfen
-                {
-                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize <= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck >= currentLegitQueen; currentFieldToCheck -= (queenProblemProperties.fieldSize + 1)) //Nach links oben
-                    {
-                        if (currentFieldToCheck === currentLegitQueen) {
-                            return true;
-                        }
-                    }
 
-                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize >= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck >= currentLegitQueen; currentFieldToCheck -= (queenProblemProperties.fieldSize - 1)) //Nach rechts oben
-                    {
-                        if (currentFieldToCheck === currentLegitQueen) {
-                            return true;
-                        }
-                    }
+                while (++calculationArray[pointer] === queenProblemProperties.fieldSize) {
+                    calculationArray[pointer] = 0;
+                    ++pointer;
 
-                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize <= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck <= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize - 1)) //Nach links unten
-                    {
-                        if (currentFieldToCheck === currentLegitQueen) {
-                            return true;
-                        }
+                    if (pointer === queenProblemProperties.fieldSize) {
+                        finished = true;
+                        break;
                     }
-
-                    for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize >= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck <= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize + 1)) //Nach rechts unten
-                    {
-                        if (currentFieldToCheck === currentLegitQueen) {
-                            return true;
-                        }
-                    }
-                    return false; //Keine Kollision gefunden
                 }
             }
+            while (!finished)
+
+
+
+
+            function convertSoltionInConsecutiveNumbers(solution = []) {
+                solution.forEach(function (cur, index, arr) { arr[index] = cur + index * arr.length });
+                return solution;
+            }
+        }
+
+        function checkCollisionQueenArray(queenArray) {
+            collision = false;
+            let tempArray;
+            for (let index in queenArray) {
+                tempArray = [...queenArray]
+                tempArray.splice(index, 1);
+                if (checkCollisions(tempArray, queenArray[index])) {
+                    return true;
+                }
+            }
+            return collision;
+        }
+
+        function checkCollisions(arrayOfLegitQueens, currentlyInvestigatedQueen) //Wir prüfen ob die jetztige Dame mit anderen Damen kolidiert
+        {
+
+            if (arrayOfLegitQueens.length === 0) //Wenn es keine weiteren Damen gibt, kann es keine Kollisionen geben 
+            {
+                return false;
+            }
+
+            for (let currentLegitQueen of arrayOfLegitQueens) //Alle bisher gefundenen Damen überprüfen, ob diese mit der jetzigen Dame kolidieren
+            {
+                if (Math.floor(currentLegitQueen / queenProblemProperties.fieldSize) === Math.floor(currentlyInvestigatedQueen / queenProblemProperties.fieldSize)) //Zeile testen
+                {
+                    return true;
+                }
+
+                if (currentLegitQueen % queenProblemProperties.fieldSize === currentlyInvestigatedQueen % queenProblemProperties.fieldSize) //Spalte testen
+                {
+                    return true;
+                }
+
+                if (checkDiagonalCollisions(currentLegitQueen, currentlyInvestigatedQueen)) //Diagonal ist komplizierter, darum wurde das auf eine eigene Funktion ausgelagert
+                {
+                    return true;
+                }
+            }
+            return false;
+
+            function checkDiagonalCollisions(currentLegitQueen, currentlyInvestigatedQueen) //Diagonal auf Kollisionen überprüfen
+            {
+                for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize <= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck >= currentLegitQueen; currentFieldToCheck -= (queenProblemProperties.fieldSize + 1)) //Nach links oben
+                {
+                    if (currentFieldToCheck === currentLegitQueen) {
+                        return true;
+                    }
+                }
+
+                for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize >= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck >= currentLegitQueen; currentFieldToCheck -= (queenProblemProperties.fieldSize - 1)) //Nach rechts oben
+                {
+                    if (currentFieldToCheck === currentLegitQueen) {
+                        return true;
+                    }
+                }
+
+                for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize <= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck <= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize - 1)) //Nach links unten
+                {
+                    if (currentFieldToCheck === currentLegitQueen) {
+                        return true;
+                    }
+                }
+
+                for (let currentFieldToCheck = currentlyInvestigatedQueen; currentFieldToCheck % queenProblemProperties.fieldSize >= currentlyInvestigatedQueen % queenProblemProperties.fieldSize && currentFieldToCheck <= currentLegitQueen; currentFieldToCheck += (queenProblemProperties.fieldSize + 1)) //Nach rechts unten
+                {
+                    if (currentFieldToCheck === currentLegitQueen) {
+                        return true;
+                    }
+                }
+                return false; //Keine Kollision gefunden
+            }
+        }
+
+        function checkCollisonRowForLoopfunction(queens){
+            for(let i = 0; i < queens.length; ++i){
+                for(let j = i+1; j < queens.length; ++j){
+                    if(queens[i]===queens[j]){
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         function checkIfSolutionExcists(foundSolutions, solutionCandidate) {
@@ -455,6 +535,9 @@
             });
             return newSolution.sort((a, b) => { return a - b; });
         }
+
+
+
     </script>
     <!--JAVASCRIPT CODE ENDE! -->
 </body>
