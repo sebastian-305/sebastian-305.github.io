@@ -129,7 +129,6 @@
             <option value="loop">Schleifenfunktion</option>
         </select>
         <button onclick="updateAll()">berechnen</button>
-
         <br>
         <label for="Damen">Lösung auswählen:</label>
         <select name="Damen" id="DamenSelect" onchange="updateFieldWithOtherSolution();">
@@ -153,12 +152,9 @@
     <br>
     <img id="loadingGif" src="images/Loadingsome.gif" alt="Loading" width="300" height="300">
     <div id="wrapper">
-
-
     </div>
     <!-- JAVASCRIPT CODE HIER! -->
     <script>
-
         let queenProblemProperties = {
             'startTime': 0,
             'fieldSize': 8,
@@ -208,12 +204,11 @@
 
         function updateFieldWithOtherSolution(state = 'reset') //Funktion wird beim Ändern des Drop Down Menüs aufgerufen
         {
-
             switch (state) {
                 case 'reset':
                     let dropDownMenu = document.getElementById('DamenSelect');
                     let selectedIndexOfDropDownMenu = dropDownMenu.selectedIndex;
-                    queenProblemProperties.currentDisplayedSolution = [...queenProblemProperties.allSolutionsArray[selectedIndexOfDropDownMenu]]
+                    queenProblemProperties.currentDisplayedSolution = [...queenProblemProperties.allSolutionsArray[selectedIndexOfDropDownMenu]];
                     queenProblemProperties.flipVertical = false;
                     queenProblemProperties.flipHorizontal = false;
                     queenProblemProperties.rotation = 1;
@@ -240,13 +235,13 @@
             loadingGif.style.display = 'inline';
             document.querySelector("#wrapper").innerHTML = "";
 
-            if (!confirm( "This task may take several seconds. Do you wish to continue?" ) ) {
+            if (!confirm("This task may take several seconds. Do you wish to continue?")) {
                 document.querySelector("#wrapper").innerHTML = currentBoard;
                 loadingGif.style.display = 'none';
                 return;
             }
 
-            window.setTimeout(()=>{console.log("Timeout over")},100); 
+            window.setTimeout(() => { console.log("Timeout over") }, 100);
 
             queenProblemProperties = {
                 'startTime': 0,
@@ -263,13 +258,16 @@
             };
 
             queenProblemProperties.startTime = new Date().getTime();
-            
+
             loadingGif.style.display = 'inline';
             document.querySelector("#wrapper").innerHTML = "";
 
             queenProblemProperties.fieldSize = Number(document.getElementById('BoardSizeSelect').value);
             queenProblemProperties.calcuationMethod = document.getElementById('CalcMethodSelect').value;
-           // console.log(`Calc Method: ${queenProblemProperties.calcuationMethod}`);
+            // console.log(`Calc Method: ${queenProblemProperties.calcuationMethod}`);
+
+            document.addEventListener('DOMContentLoaded', (event) => {
+  //the event occurred
 
 
             if (queenProblemProperties.calcuationMethod === 'rek') {
@@ -279,10 +277,11 @@
                 calculateSolutionsInLoop(queenProblemProperties.allSolutionsArray);
             }
 
-            console.table(queenProblemProperties.allSolutionsArray); 
+            console.table(queenProblemProperties.allSolutionsArray);
             fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
 
             drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
+        })
         }
 
         function drawSolutionAsHtml(solution1d) //Spielfeld mit der jeweiligen Lösung in das HTML übertragen
