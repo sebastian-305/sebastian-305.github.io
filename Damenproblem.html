@@ -37,8 +37,6 @@
             outline: 2px solid black;
         }
 
-        button {}
-
         .button {
             display: inline-block;
             height: 30px;
@@ -241,8 +239,6 @@
                 return;
             }
 
-            window.setTimeout(() => { console.log("Timeout over") }, 100);
-
             queenProblemProperties = {
                 'startTime': 0,
                 'fieldSize': 8,
@@ -258,30 +254,25 @@
             };
 
             queenProblemProperties.startTime = new Date().getTime();
-
             loadingGif.style.display = 'inline';
             document.querySelector("#wrapper").innerHTML = "";
 
-            queenProblemProperties.fieldSize = Number(document.getElementById('BoardSizeSelect').value);
-            queenProblemProperties.calcuationMethod = document.getElementById('CalcMethodSelect').value;
-            // console.log(`Calc Method: ${queenProblemProperties.calcuationMethod}`);
+            window.setTimeout(() => {
+                queenProblemProperties.fieldSize = Number(document.getElementById('BoardSizeSelect').value);
+                queenProblemProperties.calcuationMethod = document.getElementById('CalcMethodSelect').value;
 
-            document.addEventListener('DOMContentLoaded', (event) => {
-  //the event occurred
+                if (queenProblemProperties.calcuationMethod === 'rek') {
+                    calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray);
+                    console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
+                } else {
+                    calculateSolutionsInLoop(queenProblemProperties.allSolutionsArray);
+                }
 
+                //  console.table(queenProblemProperties.allSolutionsArray);
+                fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
 
-            if (queenProblemProperties.calcuationMethod === 'rek') {
-                calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray);
-                console.log(`Iterationen der Hauptfunktion: ${queenProblemProperties.iterator}`); //Nicht so wichtig
-            } else {
-                calculateSolutionsInLoop(queenProblemProperties.allSolutionsArray);
-            }
-
-            console.table(queenProblemProperties.allSolutionsArray);
-            fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
-
-            drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
-        })
+                drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
+            }, 500);
         }
 
         function drawSolutionAsHtml(solution1d) //Spielfeld mit der jeweiligen Lösung in das HTML übertragen
@@ -558,8 +549,6 @@
             });
             return newSolution.sort((a, b) => { return a - b; });
         }
-
-
 
     </script>
     <!--JAVASCRIPT CODE ENDE! -->
