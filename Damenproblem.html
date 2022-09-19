@@ -195,9 +195,6 @@
                 menuItemStringAsHtmlCode += "</option>"
                 dropDownMenu.innerHTML += menuItemStringAsHtmlCode;
             }
-
-            let loadTime = new Date().getTime() - queenProblemProperties.startTime;
-            document.getElementById("loadTime").innerHTML = `${Math.floor(loadTime / 1000)} s ${loadTime % 1000} ms`;
         }
 
         function updateFieldWithOtherSolution(state = 'reset') //Funktion wird beim Ändern des Drop Down Menüs aufgerufen
@@ -229,37 +226,44 @@
 
         function updateAll() {
 
-            let currentBoard = document.querySelector("#wrapper").innerHTML;
-            loadingGif.style.display = 'inline';
-            document.querySelector("#wrapper").innerHTML = "";
+            let tempFieldSize, tempStartTime, tempCalcMethod, loadTime;
 
-            if (!confirm("This task may take several seconds. Do you wish to continue?")) {
-                document.querySelector("#wrapper").innerHTML = currentBoard;
-                loadingGif.style.display = 'none';
-                return;
+            tempStartTime = new Date().getTime();
+            tempFieldSize = Number(document.getElementById('BoardSizeSelect').value);
+            tempCalcMethod = document.getElementById('CalcMethodSelect').value;
+
+            if (tempFieldSize > 6 && tempCalcMethod === 'loop' || tempFieldSize > 7) {
+                if (!confirm("Die Berechnung kann einige Zeit andauern. Möchten Sie die Berechnung starten?")) {
+                    return;
+                }
+                loadingGif.style.display = 'inline';
+                document.querySelector("#wrapper").innerHTML = "";
+                window.setTimeout(updateAllFunctionLogic, 500);
+            }
+            else {
+                updateAllFunctionLogic();
             }
 
-            queenProblemProperties = {
-                'startTime': 0,
-                'fieldSize': 8,
-                'calcuationMethod': 'rek',
-                'iterator': 0,
-                'solutionsFound': 0,
-                'totalSolutionsFound': 0,
-                'allSolutionsArray': [],
-                'flipHorizontal': false,
-                'flipVertical': false,
-                'rotation': 1,
-                'currentDisplayedSolution': []
-            };
+            function updateAllFunctionLogic()
+            {
+                
+                queenProblemProperties = {
+                    'startTime': 0,
+                    'fieldSize': 8,
+                    'calcuationMethod': 'rek',
+                    'iterator': 0,
+                    'solutionsFound': 0,
+                    'totalSolutionsFound': 0,
+                    'allSolutionsArray': [],
+                    'flipHorizontal': false,
+                    'flipVertical': false,
+                    'rotation': 1,
+                    'currentDisplayedSolution': []
+                };
+                queenProblemProperties.startTime = tempStartTime;
 
-            queenProblemProperties.startTime = new Date().getTime();
-            loadingGif.style.display = 'inline';
-            document.querySelector("#wrapper").innerHTML = "";
-
-            window.setTimeout(() => {
-                queenProblemProperties.fieldSize = Number(document.getElementById('BoardSizeSelect').value);
-                queenProblemProperties.calcuationMethod = document.getElementById('CalcMethodSelect').value;
+                queenProblemProperties.fieldSize = tempFieldSize;
+                queenProblemProperties.calcuationMethod = tempCalcMethod;
 
                 if (queenProblemProperties.calcuationMethod === 'rek') {
                     calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray);
@@ -268,11 +272,14 @@
                     calculateSolutionsInLoop(queenProblemProperties.allSolutionsArray);
                 }
 
+                loadTime = new Date().getTime() - queenProblemProperties.startTime;
+                document.getElementById("loadTime").innerHTML = `${Math.floor(loadTime / 1000)} s ${loadTime % 1000} ms`;
+
                 //  console.table(queenProblemProperties.allSolutionsArray);
                 fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
 
                 drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
-            }, 500);
+            }
         }
 
         function drawSolutionAsHtml(solution1d) //Spielfeld mit der jeweiligen Lösung in das HTML übertragen
