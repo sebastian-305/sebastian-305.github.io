@@ -226,9 +226,8 @@
 
         function updateAll() {
 
-            let tempFieldSize, tempStartTime, tempCalcMethod, loadTime;
+            let tempFieldSize, tempCalcMethod, loadTime;
 
-            tempStartTime = new Date().getTime();
             tempFieldSize = Number(document.getElementById('BoardSizeSelect').value);
             tempCalcMethod = document.getElementById('CalcMethodSelect').value;
 
@@ -238,7 +237,7 @@
                 }
                 loadingGif.style.display = 'inline';
                 document.querySelector("#wrapper").innerHTML = "";
-                window.setTimeout(updateAllFunctionLogic, 500);
+                window.setTimeout(updateAllFunctionLogic, 5);
             }
             else {
                 updateAllFunctionLogic();
@@ -246,7 +245,6 @@
 
             function updateAllFunctionLogic()
             {
-                
                 queenProblemProperties = {
                     'startTime': 0,
                     'fieldSize': 8,
@@ -260,7 +258,7 @@
                     'rotation': 1,
                     'currentDisplayedSolution': []
                 };
-                queenProblemProperties.startTime = tempStartTime;
+                queenProblemProperties.startTime = new Date().getTime();;
 
                 queenProblemProperties.fieldSize = tempFieldSize;
                 queenProblemProperties.calcuationMethod = tempCalcMethod;
@@ -275,9 +273,7 @@
                 loadTime = new Date().getTime() - queenProblemProperties.startTime;
                 document.getElementById("loadTime").innerHTML = `${Math.floor(loadTime / 1000)} s ${loadTime % 1000} ms`;
 
-                //  console.table(queenProblemProperties.allSolutionsArray);
                 fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
-
                 drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
             }
         }
