@@ -3,30 +3,13 @@ setVersion('1.6.8.0');
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = 'off'; //"info";
-
-let dict_words = setDict();
-
-let solution_word_array = setSolutions();
+const dict_words = setDict();
+const solution_word_array = setSolutions();
 
 class GameBoard {
     /******************************
      *    -----Properties-----
-     * DomObject canvas {Obj}
-     * String[] rowColor
-     * Number length_word
-     *
      *    -----Methods-----
-     * void constructor(Object)
-     * void newGame()
-     * void setLetterColor(Number, String[])
-     * void writeLetter(char)
-     * string getCurrentRowCanvas()
-     * void handleUnknownWord()
-     * void removeLetter(Number, Number))
-     * void resetRowColors(Number, ?String)
-     * void handleWrongInput()
-     * void handleShortInput(String)
-     *
      ******************************/
 
     constructor(obj) {
@@ -174,23 +157,7 @@ class GameBoard {
 class Game {
     /******************************
      *    -----Properties-----
-     * String[] solution words
-     * Gameboard gameBoard {Obj}
-     * String[] dictionary
-     * char[] solution
-     * String gameState
-     * Number current_row
-     * Number current_letter_index
-     * char[] current_row_content
-     * String length_word
-     *
      *    -----Methods-----
-     * void constructior(String[], Obj, String[])
-     * void newGame()
-     * void checkRow()
-     * void inputSingleLetter(String)
-     * String[] setUpDictionary(Number, String[])
-     *
      ******************************/
 
     constructor(solution_words, gameBoard, dict_words) {
@@ -471,7 +438,8 @@ class Game {
     }
 }
 
-/*START MAIN LOGIC*/ {
+/*START MAIN LOGIC*/
+(function () {
     const element = this.document;
 
     let Board = new GameBoard(element);
@@ -504,8 +472,9 @@ class Game {
     function clickLetter(letter) {
         MyGame.inputSingleLetter(letter);
     }
-}
+})();
 
+/*Setup Helper Functions */
 function setSolutions() {
     let solutions;
     {
