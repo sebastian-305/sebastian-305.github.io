@@ -1,5 +1,5 @@
-//Ver 1.6.8.0
-setVersion('1.6.8.0');
+//Ver 1.6.8.1
+setVersion('1.6.8.1');
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = 'off'; //"info";
