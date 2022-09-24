@@ -1,5 +1,5 @@
 //Ver 1.6.8.1
-setVersion('1.6.8.1');
+setVersion('1.6.8.2');
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = 'off'; //"info";
@@ -439,7 +439,7 @@ class Game {
 }
 
 /*START MAIN LOGIC*/
-(function () {
+{
     const element = this.document;
 
     let Board = new GameBoard(element);
@@ -472,7 +472,7 @@ class Game {
     function clickLetter(letter) {
         MyGame.inputSingleLetter(letter);
     }
-})();
+}
 
 /*Setup Helper Functions */
 function setSolutions() {
