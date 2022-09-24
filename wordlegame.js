@@ -1,4 +1,4 @@
-//Ver 1.6.8.1
+//Ver 1.6.8.2
 setVersion('1.6.8.2');
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
