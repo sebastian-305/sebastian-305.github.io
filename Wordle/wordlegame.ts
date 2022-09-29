@@ -1,5 +1,5 @@
 //Ver 2.0.0.0
-import {SetSolutions, SetDictionary} from './dictionary.js'
+import {setSolutions, setDict} from './dictionary.js';
 
 setVersion('2.0.0.0');
 const LENGTH_WORD = 5;
@@ -9,7 +9,6 @@ const dict_words = setDict();
 const solution_word_array = setSolutions();
 
 class GameBoard {
-
     canvas: object;
     current_row: number;
     current_letter_index: number;
@@ -444,7 +443,7 @@ class Game {
 
 /*START MAIN LOGIC*/
 {
-    const element = this.document;
+    const element = window.document;
 
     let Board = new GameBoard(element);
     let MyGame = new Game(solution_word_array, Board, dict_words);
@@ -479,7 +478,6 @@ class Game {
 }
 
 /*Setup Helper Functions */
-
 
 function setVersion(version) {
     document.getElementById('version').innerHTML = version;
