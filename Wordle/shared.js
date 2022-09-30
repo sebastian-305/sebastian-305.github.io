@@ -45,6 +45,7 @@ export class WordleGameInterface {
         }
         this._solution_words = solution_words;
         this._gameBoard = gameBoard;
+        this._full_dictionary = dict_words;
         this._dictionary = dict_words;
         this._solution = [];
         this._gameState = GameState.INITIALIZED;
@@ -53,9 +54,9 @@ export class WordleGameInterface {
         this._length_word = 0;
         this._current_row_content = [];
         this._restart = 0;
-        this._usedLetters = [];
-        this._greenLetters = [];
-        this._yellowLetters = [];
-        this._greyLetters = [];
+        this._usedLetters = new Set();
+        this._greenLetters = new Set();
+        this._yellowLetters = new Set();
+        this._greyLetters = new Set();
     }
 }

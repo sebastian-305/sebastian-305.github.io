@@ -84,6 +84,7 @@ export abstract class GameBoardInterface {
 export abstract class WordleGameInterface {
     protected _solution_words: string[];
     protected _gameBoard: GameBoardInterface;
+    protected _full_dictionary: string[];
     protected _dictionary: string[];
     protected _solution: string[];
     protected _gameState: GameState;
@@ -92,10 +93,10 @@ export abstract class WordleGameInterface {
     protected _length_word: number;
     protected _current_row_content: string[];
     protected _restart: number;
-    protected _usedLetters: string[];
-    protected _greenLetters: string[];
-    protected _yellowLetters: string[];
-    protected _greyLetters: string[];
+    protected _usedLetters: Set<string>;
+    protected _greenLetters: Set<string>;
+    protected _yellowLetters: Set<string>;
+    protected _greyLetters: Set<string>;
     protected _logger: SimpleLogger;
 
     constructor(
@@ -112,6 +113,7 @@ export abstract class WordleGameInterface {
         }
         this._solution_words = solution_words;
         this._gameBoard = gameBoard;
+        this._full_dictionary = dict_words;
         this._dictionary = dict_words;
         this._solution = [];
         this._gameState = GameState.INITIALIZED;
@@ -120,10 +122,10 @@ export abstract class WordleGameInterface {
         this._length_word = 0;
         this._current_row_content = [];
         this._restart = 0;
-        this._usedLetters = [];
-        this._greenLetters = [];
-        this._yellowLetters = [];
-        this._greyLetters = [];
+        this._usedLetters = new Set();
+        this._greenLetters = new Set();
+        this._yellowLetters = new Set();
+        this._greyLetters = new Set();
     }
 
     //public:
@@ -132,7 +134,7 @@ export abstract class WordleGameInterface {
         solution_words: string[],
     ): void;
 
-    public abstract inputSingleLetter(letter: string[]): void;
+    public abstract inputSingleLetter(letter: string): void;
 
     //private
     protected abstract checkRow(): void;
@@ -147,4 +149,6 @@ export abstract class WordleGameInterface {
         word_length: number,
         dict_words: string[],
     ): void;
+
+    protected abstract setUpSolution(): string[];
 }
