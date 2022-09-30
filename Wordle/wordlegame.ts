@@ -1,7 +1,7 @@
-//Ver 2.0.0.0
-import {setSolutions, setDict} from './dictionary.js';
+//Ver 2.0.0.1
+import { setDict, setSolutions } from './dictionary.js';
 
-setVersion('2.0.0.0');
+setVersion('2.0.0.1');
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = 'off'; //"info";
@@ -9,17 +9,18 @@ const dict_words = setDict();
 const solution_word_array = setSolutions();
 
 class GameBoard {
-    canvas: object;
+    canvas: HTMLElement;
     current_row: number;
     current_letter_index: number;
     rowColor: string[];
     currentRowContent: string[];
+    length_word: number;
     /******************************
      *    -----Properties-----
      *    -----Methods-----
      ******************************/
 
-    constructor(obj: Object) {
+    constructor(obj: HTMLElement) {
         if (LOGGER === 'info') {
             console.log(`GameBoard.constructor: ${obj}`);
         }
@@ -28,6 +29,7 @@ class GameBoard {
         this.current_letter_index = 1;
         this.rowColor = new Array(LENGTH_WORD); //!REFACTOR!!!!!
         this.currentRowContent = new Array();
+        this.length_word = 0;
     }
 
     newGame(length_word: number) {
@@ -41,7 +43,7 @@ class GameBoard {
         this.length_word = length_word;
     }
 
-    writeLetter(row, letter_index, try_letter) {
+    writeLetter(row: number, letter_index: number, try_letter: string) {
         if (LOGGER === 'info') {
             console.log(
                 `GameBoard.writeLetter: ${row}, ${letter_index}, ${try_letter}`,
@@ -49,45 +51,56 @@ class GameBoard {
         }
         let writeTarget = `#try${row}${letter_index}`;
         let elem = this.canvas.querySelector(writeTarget);
+        if (elem === null) {
+            return;
+        }
         this.currentRowContent.push(try_letter);
         elem.innerHTML = try_letter;
     }
 
-    removeLetter(row, letter_index) {
+    removeLetter(row: number, letter_index: number) {
         if (LOGGER === 'info') {
             console.log(`GameBoard.removeLetter ${row}, ${letter_index}`);
         }
         let writeTarget = `#try${row}${letter_index}`;
         let elem = this.canvas.querySelector(writeTarget);
+        if (elem === null) {
+            return;
+        }
         elem.innerHTML = '';
     }
 
-    setRowColors(row, colorClass = '') {
+    setRowColors(row: number, colorClass = '') {
+        let elem: HTMLElement | null;
         if (LOGGER === 'info') {
             console.log(`GameBoard.setRowColors ${row}, ${colorClass}`);
         }
         for (let i = 1; i <= LENGTH_WORD; i++) {
             //REFACTOR!!
             /*Maybe Add a little animation later */
-            this.canvas.querySelector(`#try${row}${i}`).className = colorClass;
+            elem = this.canvas.querySelector(`#try${row}${i}`);
+            if (elem === null) {
+                return;
+            }
+            elem.className = colorClass;
         }
     }
 
-    handleShortInput(current_word) {
+    handleShortInput(current_word: string) {
         if (LOGGER === 'info') {
             console.log(`GameBoard.handleShortInput: ${current_word}`);
         }
         alert(`This word is too short: ${current_word}`);
     }
 
-    handleUnknownWord(row, word) {
+    handleUnknownWord(row: number, word: string) {
         /* alert(`Unbekanntes Wort: ${word} row: ${row}`); */ this.setRowColors(
             row,
             'orange',
         );
     }
 
-    setLetterColor(row, color) {
+    setLetterColor(row: number, color: string) {
         if (LOGGER === 'info') {
             console.log(`GameBoard.setLetterColor ${row}, ${color}`);
         }

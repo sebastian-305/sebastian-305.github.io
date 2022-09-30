@@ -1,6 +1,6 @@
-//Ver 2.0.0.0
-import { setSolutions, setDict } from './dictionary.js';
-setVersion('2.0.0.0');
+//Ver 2.0.0.1
+import { setDict, setSolutions } from './dictionary.js';
+setVersion('2.0.0.1');
 const LENGTH_WORD = 5;
 const MAX_ROW = 6;
 let LOGGER = 'off'; //"info";
@@ -20,6 +20,7 @@ class GameBoard {
         this.current_letter_index = 1;
         this.rowColor = new Array(LENGTH_WORD); //!REFACTOR!!!!!
         this.currentRowContent = new Array();
+        this.length_word = 0;
     }
     newGame(length_word) {
         if (LOGGER === 'info') {
@@ -36,6 +37,9 @@ class GameBoard {
         }
         let writeTarget = `#try${row}${letter_index}`;
         let elem = this.canvas.querySelector(writeTarget);
+        if (elem === null) {
+            return;
+        }
         this.currentRowContent.push(try_letter);
         elem.innerHTML = try_letter;
     }
@@ -45,16 +49,24 @@ class GameBoard {
         }
         let writeTarget = `#try${row}${letter_index}`;
         let elem = this.canvas.querySelector(writeTarget);
+        if (elem === null) {
+            return;
+        }
         elem.innerHTML = '';
     }
     setRowColors(row, colorClass = '') {
+        let elem;
         if (LOGGER === 'info') {
             console.log(`GameBoard.setRowColors ${row}, ${colorClass}`);
         }
         for (let i = 1; i <= LENGTH_WORD; i++) {
             //REFACTOR!!
             /*Maybe Add a little animation later */
-            this.canvas.querySelector(`#try${row}${i}`).className = colorClass;
+            elem = this.canvas.querySelector(`#try${row}${i}`);
+            if (elem === null) {
+                return;
+            }
+            elem.className = colorClass;
         }
     }
     handleShortInput(current_word) {
