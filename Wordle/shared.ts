@@ -60,7 +60,7 @@ export abstract class GameBoardInterface {
 
     abstract removeLetter(row: number, letter_index: number): void;
 
-    abstract setRowColors(row: number, colorClass: string): void;
+    abstract setRowColors(row: number, colorClass?: string): void;
 
     abstract handleShortInput(current_word: string): void;
 
@@ -78,7 +78,7 @@ export abstract class GameBoardInterface {
 
     abstract showSolution(solution: string): void;
 
-    abstract setUsedLetters(usedLetters: string[]): void; //TODO DO I NEED THIS?
+    abstract setUsedLetters(usedLetters: Set<string>): void; //TODO DO I NEED THIS?
 }
 
 export abstract class WordleGameInterface {
@@ -100,7 +100,6 @@ export abstract class WordleGameInterface {
     protected _logger: SimpleLogger;
 
     constructor(
-        solution_words: string[],
         gameBoard: GameBoardInterface,
         dict_words: string[],
         logger: SimpleLogger,
@@ -111,7 +110,7 @@ export abstract class WordleGameInterface {
                 `Game.constuctor: *solution_words*, ${gameBoard}, *dict_words`,
             );
         }
-        this._solution_words = solution_words;
+        this._solution_words = [];
         this._gameBoard = gameBoard;
         this._full_dictionary = dict_words;
         this._dictionary = dict_words;
@@ -140,9 +139,9 @@ export abstract class WordleGameInterface {
     protected abstract checkRow(): void;
 
     protected abstract updateKeyboardColor(
-        greyLetters: string[],
-        yellowLetters: string[],
-        greenLetters: string[],
+        greyLetters: Set<string>,
+        yellowLetters: Set<string>,
+        greenLetters: Set<string>,
     ): void;
 
     protected abstract setUpDictionary(

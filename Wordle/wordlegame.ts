@@ -1,20 +1,20 @@
+const MAX_ROW = 6; //TODO Dynamisch machen!
+
 import {
     GameBoardInterface,
     GameState,
     LoggerLevel,
-    MaybeHTMLElement,
     WordleGameInterface,
     SimpleLogger,
 } from './shared';
 
 export class WordleGame extends WordleGameInterface {
     constructor(
-        solution_words: string[],
         gameBoard: GameBoardInterface,
         dict_words: string[],
         logger: SimpleLogger,
     ) {
-        super(solution_words, gameBoard, dict_words, logger);
+        super(gameBoard, dict_words, logger);
     }
 
     //public:
@@ -28,7 +28,8 @@ export class WordleGame extends WordleGameInterface {
             this._length_word,
             this._full_dictionary,
         );
-        this._solution = setUpSolution();
+        this._solution_words = solution_words;
+        this._solution = this.setUpSolution();
         this._gameState = GameState.ONGOING;
         this._gameBoard.newGame(length_word);
         this._current_row_content = [];
@@ -153,7 +154,7 @@ export class WordleGame extends WordleGameInterface {
 
         //Wort zu kurz
         if (this._current_letter_index <= this._length_word) {
-            this._gameBoard.handleShortInput(this._current_row_content);
+            this._gameBoard.handleShortInput(this._current_row_content.join());
             return;
         }
 
@@ -168,13 +169,13 @@ export class WordleGame extends WordleGameInterface {
                 this._current_row,
                 this._current_row_content.join(''),
             );
-            this._gameState = 'unmapped';
+            this._gameState = GameState.UNMAPPED;
             return;
         }
 
         //Gr\u00FCne Buchstaben
         for (let i = 0; i < this._length_word; i++) {
-            input_letter = this._current_row_content[i];
+            input_letter = String(this._current_row_content[i]);
             this._greyLetters.add(input_letter);
             this._usedLetters.add(input_letter);
 
@@ -186,7 +187,7 @@ export class WordleGame extends WordleGameInterface {
 
         //Gelbe Buchstaben
         for (let i = 0; i < this._length_word; i++) {
-            input_letter = this._current_row_content[i];
+            input_letter = String(this._current_row_content[i]);
 
             if (return_color[i] === 'green') {
                 this._usedLetters.delete(input_letter);
@@ -236,16 +237,16 @@ export class WordleGame extends WordleGameInterface {
         this._current_row_content = [];
 
         if (++this._current_row > MAX_ROW) {
-            this._gameState = 'finished';
+            this._gameState = GameState.FINISHED;
             this._gameBoard.handleGameLost(this._solution.join(''));
             return;
         }
     }
 
     updateKeyboardColor(
-        greyLetters: string[],
-        yellowLetters: string[],
-        greenLetters: string[],
+        greyLetters: Set<string>,
+        yellowLetters: Set<string>,
+        greenLetters: Set<string>,
     ) {
         for (let element of greenLetters.values()) {
             this._gameBoard.setKeyboardLetterColor(element, 'green');
@@ -267,8 +268,9 @@ export class WordleGame extends WordleGameInterface {
         let wordsArray = new Array();
 
         for (let element in dict_words) {
-            if (dict_words[element].toUpperCase().length === word_length) {
-                wordsArray.push(dict_words[element].toUpperCase());
+            let current_word: string = String(dict_words[element]);
+            if (current_word.toUpperCase().length === word_length) {
+                wordsArray.push(current_word.toUpperCase());
             }
         }
 

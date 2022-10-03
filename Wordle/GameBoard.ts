@@ -49,7 +49,7 @@ export class GameBoard extends GameBoardInterface {
         elem.innerHTML = '';
     }
 
-    setRowColors(row: number, colorClass = '') {
+    setRowColors(row: number, colorClass: string = '') {
         if (this._logger.level >= LoggerLevel.INFO) {
             console.log(`GameBoard.setRowColors ${row}, ${colorClass}`);
         }
@@ -154,7 +154,7 @@ export class GameBoard extends GameBoardInterface {
     }
 
     setUsedLetters(
-        usedLetters: string[], //TODO DO I NEED THIS?
+        usedLetters: Set<string>, //TODO DO I NEED THIS?
     ) {
         let setString = 'Nicht vorhandene Buchstaben: <br/>';
         for (let element of usedLetters.values()) {
