@@ -76,6 +76,7 @@ export class GameBoard extends GameBoardInterface {
     handleUnknownWord(row: number, word?: string) {
         //Will be maybe used later
         /* alert(`Unbekanntes Wort: ${word} row: ${row}`); */
+        console.log(`Unbekanntes Wort ${word}`);
         this.setRowColors(row, 'orange');
     }
 

@@ -5,38 +5,42 @@ import {
     MaybeHTMLElement,
     SimpleLogger,
     GameBoardInterface,
+    GameState,
 } from './shared';
 import {GameBoard} from './GameBoard';
+import {WordleGame} from './WordleGame';
 
 setVersion('2.0.0.1');
 const LENGTH_WORD = 5;
-const MAX_ROW = 6;
-let LOGGER = 'off'; //"info";
 const dict_words = setDict();
 const solution_word_array = setSolutions();
+const logger = new SimpleLogger(LoggerLevel.OFF);
 
 /*START MAIN LOGIC*/
 {
     const element = window.document;
 
-    let Board: GameBoardInterface = new GameBoard(element);
-    let MyGame = new Game(solution_word_array, Board, dict_words);
+    let Board: GameBoardInterface = new GameBoard(element, logger);
+    let MyGame = new WordleGame(Board, dict_words, logger);
 
-    MyGame.newGame(LENGTH_WORD);
+    MyGame.newGame(LENGTH_WORD, solution_word_array);
 
     document.addEventListener(
         'keyup',
         (event) => {
             let name = event.key;
-            if (LOGGER === 'info') {
+            if (logger.level >= LoggerLevel.INFO) {
                 console.log(`Event \'keyup\' ${event}->${name}`);
             }
 
             if (name == 'End') {
-                LOGGER = LOGGER === 'off' ? 'info' : 'off';
-                console.log(`Logger level: ${LOGGER}`);
+                logger.level =
+                    logger.level === LoggerLevel.OFF
+                        ? LoggerLevel.INFO
+                        : LoggerLevel.OFF;
+                console.log(`Logger level: ${logger.level}`);
             } else if (
-                MyGame.gameState !== 'finished' ||
+                MyGame.gameState !== GameState.FINISHED ||
                 name === 'Enter' ||
                 name === 'Dead'
             ) {
@@ -45,14 +49,13 @@ const solution_word_array = setSolutions();
         },
         false,
     );
-
-    function clickLetter(letter) {
-        MyGame.inputSingleLetter(letter);
-    }
 }
 
 /*Setup Helper Functions */
 
-function setVersion(version) {
-    document.getElementById('version').innerHTML = version;
+function setVersion(version: string) {
+    let elem: MaybeHTMLElement = document.getElementById('version');
+    if (elem) {
+        elem.innerHTML = version;
+    }
 }

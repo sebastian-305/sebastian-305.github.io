@@ -135,6 +135,10 @@ export abstract class WordleGameInterface {
 
     public abstract inputSingleLetter(letter: string): void;
 
+    public get gameState() {
+        return this._gameState;
+    }
+
     //private
     protected abstract checkRow(): void;
 
