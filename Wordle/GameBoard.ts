@@ -3,7 +3,7 @@ import {
     MaybeHTMLElement,
     SimpleLogger,
     GameBoardInterface,
-} from './shared';
+} from './shared.js';
 
 export class GameBoard extends GameBoardInterface {
     constructor(obj: Document, logger: SimpleLogger) {

@@ -38,12 +38,12 @@ export class GameBoardInterface {
     }
 }
 export class WordleGameInterface {
-    constructor(solution_words, gameBoard, dict_words, logger) {
+    constructor(gameBoard, dict_words, logger) {
         this._logger = logger;
         if (this._logger.level >= LoggerLevel.INFO) {
             console.log(`Game.constuctor: *solution_words*, ${gameBoard}, *dict_words`);
         }
-        this._solution_words = solution_words;
+        this._solution_words = [];
         this._gameBoard = gameBoard;
         this._full_dictionary = dict_words;
         this._dictionary = dict_words;
@@ -58,5 +58,8 @@ export class WordleGameInterface {
         this._greenLetters = new Set();
         this._yellowLetters = new Set();
         this._greyLetters = new Set();
+    }
+    get gameState() {
+        return this._gameState;
     }
 }

@@ -1,4 +1,6 @@
-//Ver 2.0.0.1
+//Ver 2.1.0.0
+setVersion('2.1.0.0');
+
 import {setDict, setSolutions} from './dictionary.js';
 import {
     LoggerLevel,
@@ -6,11 +8,10 @@ import {
     SimpleLogger,
     GameBoardInterface,
     GameState,
-} from './shared';
-import {GameBoard} from './GameBoard';
-import {WordleGame} from './WordleGame';
+} from './shared.js';
+import {GameBoard} from './GameBoard.js';
+import {WordleGame} from './WordleGame.js';
 
-setVersion('2.0.0.1');
 const LENGTH_WORD = 5;
 const dict_words = setDict();
 const solution_word_array = setSolutions();
@@ -49,10 +50,13 @@ const logger = new SimpleLogger(LoggerLevel.OFF);
         },
         false,
     );
+
+    function clickLetter(letter: string) {
+        MyGame.inputSingleLetter(letter);
+    }
 }
 
 /*Setup Helper Functions */
-
 function setVersion(version: string) {
     let elem: MaybeHTMLElement = document.getElementById('version');
     if (elem) {

@@ -1,4 +1,4 @@
-import { LoggerLevel, GameBoardInterface, } from './shared';
+import { LoggerLevel, GameBoardInterface, } from './shared.js';
 export class GameBoard extends GameBoardInterface {
     constructor(obj, logger) {
         super(obj, logger);
@@ -59,6 +59,7 @@ export class GameBoard extends GameBoardInterface {
     handleUnknownWord(row, word) {
         //Will be maybe used later
         /* alert(`Unbekanntes Wort: ${word} row: ${row}`); */
+        console.log(`Unbekanntes Wort ${word}`);
         this.setRowColors(row, 'orange');
     }
     setLetterColor(row, color) {

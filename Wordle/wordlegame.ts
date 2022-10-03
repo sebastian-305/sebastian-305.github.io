@@ -6,7 +6,7 @@ import {
     LoggerLevel,
     WordleGameInterface,
     SimpleLogger,
-} from './shared';
+} from './shared.js';
 
 export class WordleGame extends WordleGameInterface {
     constructor(
