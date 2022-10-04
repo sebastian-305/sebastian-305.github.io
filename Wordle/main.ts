@@ -10,7 +10,7 @@ import {
     GameState,
 } from './shared.js';
 import {GameBoard} from './GameBoard.js';
-import {WordleGame} from './WordleGame.js';
+import {WordleGame} from './fWordleGame.js';
 
 const LENGTH_WORD = 5;
 const dict_words = setDict();
