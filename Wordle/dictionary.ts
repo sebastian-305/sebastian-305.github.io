@@ -2740,7 +2740,7 @@ export function setSolutions() {
             'Hotel',
             'Humor',
             'hupen',
-            'Hüter',
+            'H\u00FCter',
             'Ideal',
             'Imker',
             'immer',
