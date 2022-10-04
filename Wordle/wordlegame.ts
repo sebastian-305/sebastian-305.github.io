@@ -19,7 +19,6 @@ export class WordleGame extends WordleGameInterface {
 
     //public:
     newGame(length_word: number, solution_words: string[]) {
-        //excessive solution_words
         if (this._logger.level >= LoggerLevel.INFO) {
             console.log(`Game.newGame: ${length_word}, *solution_words*`);
         }
