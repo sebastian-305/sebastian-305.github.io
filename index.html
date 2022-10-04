@@ -15,6 +15,9 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif
    }
 
+   td:has(.icon){
+    text-align: center;
+   }
    .icon{
     width:40px;
     height:40px;
@@ -32,17 +35,118 @@
         color:red;
     }
 
-    #wrapper table, tr, td {
-        border:2px solid olive;
-        border-collapse: collapse;
-        font-size: 14pt;
-    }
+
 
     .icon:hover{
         background-color:rgba(150,150,255,0.1);
     }
 
     </style>
+
+<style type="text/css">
+    a {
+        margin: 0px;
+        padding: 0px;
+    }
+    table.blueTable {
+        border: 0px solid #1c6ea4;
+        background-color: #eeeeee;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+    }
+    table.blueTable td,
+    table.blueTable th {
+        border: 0px solid #aaaaaa;
+        padding: 0px;
+    }
+
+    table.blueTable tbody td {
+        font-size: 14pt;
+    }
+    table.blueTable thead {
+        background: #1c6ea4;
+        background: -moz-linear-gradient(
+            top,
+            #5592bb 0%,
+            #327cad 66%,
+            #1c6ea4 100%
+        );
+        background: -webkit-linear-gradient(
+            top,
+            #5592bb 0%,
+            #327cad 66%,
+            #1c6ea4 100%
+        );
+        background: linear-gradient(
+            to bottom,
+            #5592bb 0%,
+            #327cad 66%,
+            #1c6ea4 100%
+        );
+        border-bottom: 2px solid #444444;
+    }
+    table.blueTable thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #ffffff;
+        border-left: 2px solid #d0e4f5;
+        height: 89px;
+    }
+
+    table.blueTable thead th.first{
+        border-left: 2px none;
+        font-size:14pt;
+
+    }
+
+    table.blueTable thead th:first-child {
+        border-left: none;
+    }
+
+
+    table.blueTable tfoot td {
+        font-size: 14px;
+    }
+    table.blueTable tfoot .links {
+        text-align: right;
+    }
+    table.blueTable tfoot .links a {
+        display: inline-block;
+        background: #1c6ea4;
+        color: #ffffff;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
+    .headerTags {
+        width: 12%;
+        text-align: center;
+        white-space: nowrap;
+        transform: rotate(-70deg);
+    }
+    .headerTags p {
+        margin: 0 -999px; /* virtually reduce space needed on width to very little */
+        display: inline-block;
+    }
+    .headerTags p:before {
+        content: '';
+        width: 0;
+        padding-top: 110%;
+        /* takes width as reference, + 10% for faking some extra padding */
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    td:has(.icon){
+        text-align:center;
+    }
+    .icon{
+        width:36px;
+        height:36px;
+    }
+    table.bluetable .first td{
+        padding-top: 5px;
+    }</style>
 
 </head>
 
@@ -51,19 +155,87 @@
     <h1>Codingprojekte</h1>
     <p>von Sebastian Bogensperger</p>
     <br>
-   <table>
-
-    <tr><td><td>Programm</td><td>Code</td></tr>
-    <tr><td>&#9989</td><td><div class="linkdiv"><a href="./Wordle/Wordle.html">Wordle in Typescript (Javascript)</a></div></td><td>
-                            <a title="HTML" target="_blank" href="https://raw.githubusercontent.com/sebastian-305/sebastian-305.github.io/main/Wordle/Wordle.html"><img alt="HTML" class="icon" src="./icons/html.png"></a>
-                            <a title="CSS" target="_blank"  href="https://raw.githubusercontent.com/sebastian-305/sebastian-305.github.io/main/Wordle/wordlestyle.css"><img alt="CSS" class="icon" src="./icons/css.png"></a>
-                            <a title="JavaScript" target="_blank"  href="https://raw.githubusercontent.com/sebastian-305/sebastian-305.github.io/main/Wordle/wordlegame.js"><img alt="JavaScript" class="icon" src="./icons/js.png"></a>
-                            <a title="Typescript" target="_blank"  href="https://raw.githubusercontent.com/sebastian-305/sebastian-305.github.io/main/Wordle/wordlegame.js"><img alt="Typescript" class="icon" src="./icons/ts.png"></a>
-                        </td></tr>
-    <tr><td>&#9813</td><td><a href="./Damenproblem/Damenproblem.html">Damenproblem Javascript (rekursiv/Schleife)</a></td><td>
-        <a title="HTML" target="_blank" href="https://github.com/sebastian-305/sebastian-305.github.io/blame/main/Damenproblem.html"><img alt="HTML" class="icon" src="./icons/html.png"></a>
-    </td></tr>
-   </table>
+    <table class="blueTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th class="first">&emsp;Programm</th>
+                <th class="headerTags"><p>HTML</p></th>
+                <th class="headerTags">CSS</th>
+                <th class="headerTags">JavaScript</th>
+                <th class="headerTags">TypeScript</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="first">
+                <td>&#9989</td>
+                <td>Wordle in TypeScript (JavaScript)</td>
+                <td>
+                    <a
+                        title="HTML"
+                        target="_blank"
+                        href=""
+                        ><img
+                            alt="HTML"
+                            class="icon"
+                            src="../icons/html.png"
+                    /></a>
+                </td>
+                <td><a title="CSS" target="_blank"  href=""><img alt="CSS" class="icon" src="../icons/css.png"></a></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>&emsp;&ndash; main</td>
+                <td></td>
+                <td></td>
+                <td><a title="JavaScript" target="_blank"  href=""><img alt="JavaScript" class="icon" src="../icons/js.png"></a></td>
+                <td><a title="Typescript" target="_blank"  href=""><img alt="Typescript" class="icon" src="../icons/ts.png"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>&emsp;&ndash; shared</td>
+                <td></td>
+                <td></td>
+                <td><a title="JavaScript" target="_blank"  href=""><img alt="JavaScript" class="icon" src="../icons/js.png"></a></td>
+                <td><a title="Typescript" target="_blank"  href=""><img alt="Typescript" class="icon" src="../icons/ts.png"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>&emsp;&ndash; GameBoard</td>
+                <td></td>
+                <td></td>
+                <td><a title="JavaScript" target="_blank"  href=""><img alt="JavaScript" class="icon" src="../icons/js.png"></a></td>
+                <td><a title="Typescript" target="_blank"  href=""><img alt="Typescript" class="icon" src="../icons/ts.png"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>&emsp;&ndash; WordleGame</td>
+                <td></td>
+                <td></td>
+                <td><a title="JavaScript" target="_blank"  href=""><img alt="JavaScript" class="icon" src="../icons/js.png"></a></td>
+                <td><a title="Typescript" target="_blank"  href=""><img alt="Typescript" class="icon" src="../icons/ts.png"></td>
+            </tr>
+            <tr>
+                <td>&#9813</td>
+                <td>Damenproblem Javascript (rekursiv/Schleife)</td>
+                <td><a
+                    title="HTML"
+                    target="_blank"
+                    href=""
+                    ><img
+                        alt="HTML"
+                        class="icon"
+                        src="../icons/html.png"
+                /></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
 </div>
 </body>
 
