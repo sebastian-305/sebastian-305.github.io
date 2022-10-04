@@ -3,7 +3,7 @@ setVersion('2.1.0.0');
 import { setDict, setSolutions } from './dictionary.js';
 import { LoggerLevel, SimpleLogger, GameState, } from './shared.js';
 import { GameBoard } from './GameBoard.js';
-import { WordleGame } from './WordleGame.js';
+import { WordleGame } from './fWordleGame.js';
 const LENGTH_WORD = 5;
 const dict_words = setDict();
 const solution_word_array = setSolutions();
