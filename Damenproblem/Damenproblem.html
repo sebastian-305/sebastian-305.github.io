@@ -80,7 +80,7 @@
             if (!array)
                 return false;
 
-            // compare lengths - can save a lot of time 
+            // compare lengths - can save a lot of time
             if (this.length != array.length)
                 return false;
 
@@ -148,7 +148,7 @@
     </div>
     <br>
     <br>
-    <img id="loadingGif" src="images/Loadingsome.gif" alt="Loading" width="300" height="300">
+    <img id="loadingGif" src="../images/Loadingsome.gif" alt="Loading" width="300" height="300">
     <div id="wrapper">
     </div>
     <!-- JAVASCRIPT CODE HIER! -->
@@ -273,7 +273,7 @@
                 loadTime = new Date().getTime() - queenProblemProperties.startTime;
                 document.getElementById("loadTime").innerHTML = `${Math.floor(loadTime / 1000)} s ${loadTime % 1000} ms`;
 
-                fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen 
+                fillDropDownWithSolutions(queenProblemProperties.allSolutionsArray); //Drop Down Menü befüllen
                 drawSolutionAsHtml(queenProblemProperties.currentDisplayedSolution = queenProblemProperties.allSolutionsArray[0]);
             }
         }
@@ -432,7 +432,7 @@
         function checkCollisions(arrayOfLegitQueens, currentlyInvestigatedQueen) //Wir prüfen ob die jetztige Dame mit anderen Damen kolidiert
         {
 
-            if (arrayOfLegitQueens.length === 0) //Wenn es keine weiteren Damen gibt, kann es keine Kollisionen geben 
+            if (arrayOfLegitQueens.length === 0) //Wenn es keine weiteren Damen gibt, kann es keine Kollisionen geben
             {
                 return false;
             }
