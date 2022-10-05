@@ -32,7 +32,6 @@ export class GameBoardInterface {
         this._canvas = obj;
         this._current_row = 1;
         this._current_letter_index = 1;
-        // this._rowColor = [];
         this._currentRowContent = new Array();
         this._length_word = 0;
     }

@@ -165,7 +165,6 @@ export class WordleGame extends WordleGameInterface {
         this._gameBoard.setLetterColor(this._current_row, return_color);
         this.updateKeyboardColor(this._greyLetters, this._yellowLetters, this._greenLetters);
         this._current_letter_index = 1;
-        this._gameBoard.setUsedLetters(this._usedLetters);
         if (this._solution.join('') === this._current_row_content.join('')) {
             this._gameState = GameState.FINISHED;
             this._gameBoard.handleGameWon(this._solution.join(''));

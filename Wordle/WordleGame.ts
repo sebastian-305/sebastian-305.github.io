@@ -224,8 +224,6 @@ export class WordleGame extends WordleGameInterface {
         );
         this._current_letter_index = 1;
 
-        this._gameBoard.setUsedLetters(this._usedLetters);
-
         if (this._solution.join('') === this._current_row_content.join('')) {
             this._gameState = GameState.FINISHED;
             this._gameBoard.handleGameWon(this._solution.join(''));

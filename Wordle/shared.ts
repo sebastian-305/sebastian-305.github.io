@@ -32,7 +32,6 @@ export abstract class GameBoardInterface {
     protected _canvas: Document;
     protected _current_row: number;
     protected _current_letter_index: number;
-    // private _rowColor: string[];
     protected _currentRowContent: string[];
     protected _length_word: number;
     protected _logger: SimpleLogger;
@@ -45,7 +44,6 @@ export abstract class GameBoardInterface {
         this._canvas = obj;
         this._current_row = 1;
         this._current_letter_index = 1;
-        // this._rowColor = [];
         this._currentRowContent = new Array();
         this._length_word = 0;
     }
@@ -77,8 +75,6 @@ export abstract class GameBoardInterface {
     abstract handleWrongInput(): void;
 
     abstract showSolution(solution: string): void;
-
-    abstract setUsedLetters(usedLetters: Set<string>): void; //TODO DO I NEED THIS?
 }
 
 export abstract class WordleGameInterface {
