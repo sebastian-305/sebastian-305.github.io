@@ -16,15 +16,25 @@ export type MaybeHTMLElement = HTMLElement | null;
 
 export class SimpleLogger {
     private _level: LoggerLevel;
+    private _levelString: string[] = ['OFF', 'ERROR', 'WARNING', 'INFO'];
 
     constructor(initial_level: LoggerLevel = LoggerLevel.OFF) {
         this._level = initial_level;
     }
     public set level(lvl: LoggerLevel) {
+        if (lvl > 3) {
+            console.error('Logger Level ist zu hoch!');
+            this._level = LoggerLevel.INFO;
+            return;
+        }
         this._level = lvl;
     }
     public get level(): LoggerLevel {
         return this._level;
+    }
+
+    public get levelAsString(): string {
+        return String(this._levelString[this._level]);
     }
 
     public info(msg: string): void {

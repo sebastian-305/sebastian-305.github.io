@@ -1,5 +1,5 @@
-//Ver 2.2.0.0
-setVersion('2.2.0.0');
+//Ver 2.2.1.0
+setVersion('2.2.1.0');
 
 import {setDict, setSolutions} from './dictionary.js';
 import {
@@ -37,7 +37,7 @@ document.addEventListener(
                 logger.level === LoggerLevel.OFF
                     ? LoggerLevel.INFO
                     : LoggerLevel.OFF;
-            console.log(`Logger level: ${logger.level}`);
+            console.log(`Logger level: ${logger.levelAsString}`);
         } else if (
             MyGame.gameState !== GameState.FINISHED ||
             name === 'Enter' ||
