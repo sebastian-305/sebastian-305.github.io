@@ -3,7 +3,6 @@ const MAX_ROW = 6; //TODO Dynamisch machen!
 import {
     GameBoardInterface,
     GameState,
-    LoggerLevel,
     WordleGameInterface,
     SimpleLogger,
 } from './shared.js';
@@ -19,9 +18,8 @@ export class WordleGame extends WordleGameInterface {
 
     //public:
     newGame(length_word: number, solution_words: string[]) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`Game.newGame: ${length_word}, *solution_words*`);
-        }
+        this._logger.info(`Game.newGame: ${length_word}, *solution_words*`);
+
         this._length_word = length_word;
         this._dictionary = this.setUpDictionary(
             this._length_word,
@@ -40,9 +38,7 @@ export class WordleGame extends WordleGameInterface {
     }
 
     inputSingleLetter(letter: string): void {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`Game.inputSingleLetter: ${letter}`);
-        }
+        this._logger.info(`Game.inputSingleLetter: ${letter}`);
         /*
                 if (this.gameState === "finished") {
                     return;
@@ -144,9 +140,8 @@ export class WordleGame extends WordleGameInterface {
     //private
     checkRow() {
         //Vielleicht \u00DCbergabeparameter angeben, damit die Logik leichter nachvollziehbar ist.
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`Game.checkRow()`);
-        }
+        this._logger.info(`Game.checkRow()`);
+
         let solution = [...this._solution];
         let input_letter = '';
         let return_color = new Array(this._length_word).fill('grey');
@@ -203,17 +198,13 @@ export class WordleGame extends WordleGameInterface {
                 return_color[i] = 'yellow';
                 delete solution[solution.indexOf(input_letter)];
             }
-            if (this._logger.level >= LoggerLevel.INFO) {
-                console.log(
-                    `row: ${this._current_row} i: ${i} return_color[i-1] ${return_color[i]} input_letter ${input_letter}`,
-                );
-            }
-        }
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(
-                `checking if won: green Letters: ${this._greenLetters}, green Letter size ${this._greenLetters.size} length word: ${this._length_word}`,
+            this._logger.info(
+                `row: ${this._current_row} i: ${i} return_color[i-1] ${return_color[i]} input_letter ${input_letter}`,
             );
         }
+        this._logger.info(
+            `checking if won: green Letters: ${this._greenLetters}, green Letter size ${this._greenLetters.size} length word: ${this._length_word}`,
+        );
 
         //Buchstaben einf\u00E4rben
         this._gameBoard.setLetterColor(this._current_row, return_color);
@@ -245,6 +236,8 @@ export class WordleGame extends WordleGameInterface {
         yellowLetters: Set<string>,
         greenLetters: Set<string>,
     ) {
+        this._logger.info(`Game.updateKeyboardColor()`);
+
         for (let element of greenLetters.values()) {
             this._gameBoard.setKeyboardLetterColor(element, 'green');
         }
@@ -258,9 +251,7 @@ export class WordleGame extends WordleGameInterface {
     }
 
     setUpDictionary(word_length: number, dict_words: string[]) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`Game.setUpDictionary: ${word_length}, *dict_words*`);
-        }
+        this._logger.info(`Game.setUpDictionary: ${word_length}, *dict_words*`);
 
         let wordsArray = new Array();
 
@@ -275,6 +266,8 @@ export class WordleGame extends WordleGameInterface {
     }
 
     protected setUpSolution(): string[] {
+        this._logger.info(`Game.setUpSolution()`);
+
         let rand = Math.floor(Math.random() * this._solution_words.length);
         let solution = this._solution_words[rand];
         if (typeof solution === 'undefined') {

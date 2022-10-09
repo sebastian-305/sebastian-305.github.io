@@ -22,13 +22,26 @@ export class SimpleLogger {
     get level() {
         return this._level;
     }
+    info(msg) {
+        if (this.level >= LoggerLevel.INFO) {
+            console.log(msg);
+        }
+    }
+    warning(msg) {
+        if (this.level >= LoggerLevel.WARNING) {
+            console.log(msg);
+        }
+    }
+    error(msg) {
+        if (this.level >= LoggerLevel.ERROR) {
+            console.log(msg);
+        }
+    }
 }
 export class GameBoardInterface {
     constructor(obj, logger) {
         this._logger = logger;
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.constructor: ${obj}`);
-        }
+        this._logger.info(`GameBoard.constructor: ${obj}`);
         this._canvas = obj;
         this._current_row = 1;
         this._current_letter_index = 1;
@@ -39,9 +52,7 @@ export class GameBoardInterface {
 export class WordleGameInterface {
     constructor(gameBoard, dict_words, logger) {
         this._logger = logger;
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`Game.constuctor: *solution_words*, ${gameBoard}, *dict_words`);
-        }
+        this._logger.info(`Game.constuctor: *solution_words*, ${gameBoard}, *dict_words`);
         this._solution_words = [];
         this._gameBoard = gameBoard;
         this._full_dictionary = dict_words;

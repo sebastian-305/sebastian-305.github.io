@@ -14,10 +14,8 @@ let Board = new GameBoard(element, logger);
 let MyGame = new WordleGame(Board, dict_words, logger);
 MyGame.newGame(LENGTH_WORD, solution_word_array);
 document.addEventListener('keyup', (event) => {
+    logger.info(`Event \'keyup\' ${event}->${event.key}`);
     let name = event.key;
-    if (logger.level >= LoggerLevel.INFO) {
-        console.log(`Event \'keyup\' ${event}->${name}`);
-    }
     if (name == 'End') {
         logger.level =
             logger.level === LoggerLevel.OFF
@@ -32,6 +30,7 @@ document.addEventListener('keyup', (event) => {
     }
 }, false);
 document.addEventListener('click', function handleClick(event) {
+    logger.info(`Event \'click\' ${event}`);
     let target = event.target;
     if (target.classList.contains('keyboard_letter')) {
         MyGame.inputSingleLetter(target.id);
@@ -39,6 +38,7 @@ document.addEventListener('click', function handleClick(event) {
 });
 /*Setup Helper Functions */
 function setVersion(version) {
+    logger.info(`setVersion: ${version}`);
     let elem = document.getElementById('version');
     if (elem) {
         elem.innerHTML = version;

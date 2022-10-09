@@ -1,5 +1,5 @@
-//Ver 2.1.0.0
-setVersion('2.1.0.0');
+//Ver 2.2.0.0
+setVersion('2.2.0.0');
 
 import {setDict, setSolutions} from './dictionary.js';
 import {
@@ -29,11 +29,9 @@ MyGame.newGame(LENGTH_WORD, solution_word_array);
 document.addEventListener(
     'keyup',
     (event) => {
-        let name = event.key;
-        if (logger.level >= LoggerLevel.INFO) {
-            console.log(`Event \'keyup\' ${event}->${name}`);
-        }
+        logger.info(`Event \'keyup\' ${event}->${event.key}`);
 
+        let name = event.key;
         if (name == 'End') {
             logger.level =
                 logger.level === LoggerLevel.OFF
@@ -52,6 +50,8 @@ document.addEventListener(
 );
 
 document.addEventListener('click', function handleClick(event) {
+    logger.info(`Event \'click\' ${event}`);
+
     let target = event.target as HTMLElement;
     if (target.classList.contains('keyboard_letter')) {
         MyGame.inputSingleLetter(target.id);
@@ -60,6 +60,8 @@ document.addEventListener('click', function handleClick(event) {
 
 /*Setup Helper Functions */
 function setVersion(version: string) {
+    logger.info(`setVersion: ${version}`);
+
     let elem: MaybeHTMLElement = document.getElementById('version');
     if (elem) {
         elem.innerHTML = version;

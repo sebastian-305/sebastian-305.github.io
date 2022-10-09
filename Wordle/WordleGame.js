@@ -1,14 +1,12 @@
 const MAX_ROW = 6; //TODO Dynamisch machen!
-import { GameState, LoggerLevel, WordleGameInterface, } from './shared.js';
+import { GameState, WordleGameInterface, } from './shared.js';
 export class WordleGame extends WordleGameInterface {
     constructor(gameBoard, dict_words, logger) {
         super(gameBoard, dict_words, logger);
     }
     //public:
     newGame(length_word, solution_words) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`Game.newGame: ${length_word}, *solution_words*`);
-        }
+        this._logger.info(`Game.newGame: ${length_word}, *solution_words*`);
         this._length_word = length_word;
         this._dictionary = this.setUpDictionary(this._length_word, this._full_dictionary);
         this._solution_words = solution_words;
@@ -23,9 +21,7 @@ export class WordleGame extends WordleGameInterface {
         this._greyLetters = new Set();
     }
     inputSingleLetter(letter) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`Game.inputSingleLetter: ${letter}`);
-        }
+        this._logger.info(`Game.inputSingleLetter: ${letter}`);
         /*
                 if (this.gameState === "finished") {
                     return;
@@ -109,9 +105,7 @@ export class WordleGame extends WordleGameInterface {
     //private
     checkRow() {
         //Vielleicht \u00DCbergabeparameter angeben, damit die Logik leichter nachvollziehbar ist.
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`Game.checkRow()`);
-        }
+        this._logger.info(`Game.checkRow()`);
         let solution = [...this._solution];
         let input_letter = '';
         let return_color = new Array(this._length_word).fill('grey');
@@ -154,13 +148,9 @@ export class WordleGame extends WordleGameInterface {
                 return_color[i] = 'yellow';
                 delete solution[solution.indexOf(input_letter)];
             }
-            if (this._logger.level >= LoggerLevel.INFO) {
-                console.log(`row: ${this._current_row} i: ${i} return_color[i-1] ${return_color[i]} input_letter ${input_letter}`);
-            }
+            this._logger.info(`row: ${this._current_row} i: ${i} return_color[i-1] ${return_color[i]} input_letter ${input_letter}`);
         }
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`checking if won: green Letters: ${this._greenLetters}, green Letter size ${this._greenLetters.size} length word: ${this._length_word}`);
-        }
+        this._logger.info(`checking if won: green Letters: ${this._greenLetters}, green Letter size ${this._greenLetters.size} length word: ${this._length_word}`);
         //Buchstaben einf\u00E4rben
         this._gameBoard.setLetterColor(this._current_row, return_color);
         this.updateKeyboardColor(this._greyLetters, this._yellowLetters, this._greenLetters);
@@ -179,6 +169,7 @@ export class WordleGame extends WordleGameInterface {
         }
     }
     updateKeyboardColor(greyLetters, yellowLetters, greenLetters) {
+        this._logger.info(`Game.updateKeyboardColor()`);
         for (let element of greenLetters.values()) {
             this._gameBoard.setKeyboardLetterColor(element, 'green');
         }
@@ -190,9 +181,7 @@ export class WordleGame extends WordleGameInterface {
         }
     }
     setUpDictionary(word_length, dict_words) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`Game.setUpDictionary: ${word_length}, *dict_words*`);
-        }
+        this._logger.info(`Game.setUpDictionary: ${word_length}, *dict_words*`);
         let wordsArray = new Array();
         for (let element in dict_words) {
             let current_word = String(dict_words[element]);
@@ -203,6 +192,7 @@ export class WordleGame extends WordleGameInterface {
         return wordsArray;
     }
     setUpSolution() {
+        this._logger.info(`Game.setUpSolution()`);
         let rand = Math.floor(Math.random() * this._solution_words.length);
         let solution = this._solution_words[rand];
         if (typeof solution === 'undefined') {

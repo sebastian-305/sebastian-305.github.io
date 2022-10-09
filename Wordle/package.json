@@ -9,5 +9,8 @@
         "start": "lite-server"
     },
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "mongoose": "^6.6.5"
+    }
 }

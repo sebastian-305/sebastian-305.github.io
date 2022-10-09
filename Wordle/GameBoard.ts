@@ -1,9 +1,4 @@
-import {
-    LoggerLevel,
-    MaybeHTMLElement,
-    SimpleLogger,
-    GameBoardInterface,
-} from './shared.js';
+import {MaybeHTMLElement, SimpleLogger, GameBoardInterface} from './shared.js';
 
 export class GameBoard extends GameBoardInterface {
     constructor(obj: Document, logger: SimpleLogger) {
@@ -11,9 +6,7 @@ export class GameBoard extends GameBoardInterface {
     }
 
     newGame(length_word: number) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.newGame: ${length_word}`);
-        }
+        this._logger.info(`GameBoard.newGame: ${length_word}`);
 
         this._current_row = 1;
         this._current_letter_index = 1;
@@ -23,11 +16,10 @@ export class GameBoard extends GameBoardInterface {
     }
 
     writeLetter(row: number, letter_index: number, try_letter: string) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(
-                `GameBoard.writeLetter: ${row}, ${letter_index}, ${try_letter}`,
-            );
-        }
+        this._logger.info(
+            `GameBoard.writeLetter: ${row}, ${letter_index}, ${try_letter}`,
+        );
+
         let writeTarget = `#try${row}${letter_index}`;
         let elem: MaybeHTMLElement = this._canvas.querySelector(writeTarget);
         if (elem === null) {
@@ -38,9 +30,8 @@ export class GameBoard extends GameBoardInterface {
     }
 
     removeLetter(row: number, letter_index: number) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.removeLetter ${row}, ${letter_index}`);
-        }
+        this._logger.info(`GameBoard.removeLetter ${row}, ${letter_index}`);
+
         let writeTarget: string = `#try${row}${letter_index}`;
         let elem: MaybeHTMLElement = this._canvas.querySelector(writeTarget);
         if (elem === null) {
@@ -50,9 +41,8 @@ export class GameBoard extends GameBoardInterface {
     }
 
     setRowColors(row: number, colorClass: string = '') {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.setRowColors ${row}, ${colorClass}`);
-        }
+        this._logger.info(`GameBoard.setRowColors ${row}, ${colorClass}`);
+
         for (let i = 1; i <= this._length_word; i++) {
             //REFACTOR!!
             /*Maybe Add a little animation later */
@@ -67,23 +57,21 @@ export class GameBoard extends GameBoardInterface {
     }
 
     handleShortInput(current_word: string) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.handleShortInput: ${current_word}`);
-        }
+        this._logger.info(`GameBoard.handleShortInput: ${current_word}`);
+
         alert(`This word is too short: ${current_word}`);
     }
 
     handleUnknownWord(row: number, word?: string) {
         //Will be maybe used later
         /* alert(`Unbekanntes Wort: ${word} row: ${row}`); */
-        console.log(`Unbekanntes Wort ${word}`);
+        this._logger.info(`GameBoard.handleUnknownWord: ${word}`);
+
         this.setRowColors(row, 'orange');
     }
 
     setLetterColor(row: number, color: string[]) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.setLetterColor ${row}, ${color}`);
-        }
+        this._logger.info(`GameBoard.setLetterColor ${row}, ${color}`);
 
         for (let i = 1; i <= this._length_word; i++) {
             //REFACTOR!!!
@@ -103,9 +91,8 @@ export class GameBoard extends GameBoardInterface {
     }
 
     setKeyboardLetterColor(key: string, color: string) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`setKeyboardLetterColor()`);
-        }
+        this._logger.info(`GameBoard.setKeyboardLetterColor()`);
+
         let elem: MaybeHTMLElement = this._canvas.querySelector(`#${key}`);
         if (!elem) {
             return;
@@ -118,9 +105,7 @@ export class GameBoard extends GameBoardInterface {
     }
 
     handleGameWon(solution: string) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.handleGameWon()`);
-        }
+        this._logger.info(`GameBoard.handleGameWon()`);
 
         setTimeout(function () {
             alert(`Du hast gewonnnen!\nDas gesuchte Worte war: ${solution}`);
@@ -128,9 +113,7 @@ export class GameBoard extends GameBoardInterface {
     }
 
     handleGameLost(solution: string) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.handleGameLost()`);
-        }
+        this._logger.info(`GameBoard.handleGameLost()`);
 
         setTimeout(function () {
             alert(
@@ -140,15 +123,12 @@ export class GameBoard extends GameBoardInterface {
     }
 
     handleWrongInput() {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.handleWrongInput()`);
-        } /*Do nothing*/
+        this._logger.info(`GameBoard.handleWrongInput()`);
     }
 
     showSolution(solution: string) {
-        if (this._logger.level >= LoggerLevel.INFO) {
-            console.log(`GameBoard.showSolution()`);
-        }
+        this._logger.info(`GameBoard.showSolution()`);
+
         setTimeout(function () {
             alert(`Bauchst du etwas Hilfe?\n L\u00f6sungswort: ${solution}`);
         }, 1);
@@ -157,6 +137,8 @@ export class GameBoard extends GameBoardInterface {
     setUsedLetters(
         usedLetters: Set<string>, //TODO DO I NEED THIS?
     ) {
+        this._logger.info(`GameBoard.setUsedLetters()`);
+
         let setString = 'Nicht vorhandene Buchstaben: <br/>';
         for (let element of usedLetters.values()) {
             setString += element;
