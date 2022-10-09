@@ -1,5 +1,5 @@
-//Ver 2.2.1.0
-setVersion('2.2.1.0');
+//Ver 2.2.1.1
+setVersion('2.2.1.1');
 
 import {setDict, setSolutions} from './dictionary.js';
 import {
@@ -60,8 +60,6 @@ document.addEventListener('click', function handleClick(event) {
 
 /*Setup Helper Functions */
 function setVersion(version: string) {
-    logger.info(`setVersion: ${version}`);
-
     let elem: MaybeHTMLElement = document.getElementById('version');
     if (elem) {
         elem.innerHTML = version;
