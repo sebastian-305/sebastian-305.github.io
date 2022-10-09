@@ -14,13 +14,22 @@ export var GameState;
 })(GameState || (GameState = {}));
 export class SimpleLogger {
     constructor(initial_level = LoggerLevel.OFF) {
+        this._levelString = ['OFF', 'ERROR', 'WARNING', 'INFO'];
         this._level = initial_level;
     }
     set level(lvl) {
+        if (lvl > 3) {
+            console.error('Logger Level ist zu hoch!');
+            this._level = LoggerLevel.INFO;
+            return;
+        }
         this._level = lvl;
     }
     get level() {
         return this._level;
+    }
+    get levelAsString() {
+        return String(this._levelString[this._level]);
     }
     info(msg) {
         if (this.level >= LoggerLevel.INFO) {

@@ -1,5 +1,5 @@
-//Ver 2.1.0.0
-setVersion('2.1.0.0');
+//Ver 2.2.1.1
+setVersion('2.2.1.1');
 import { setDict, setSolutions } from './dictionary.js';
 import { LoggerLevel, SimpleLogger, GameState, } from './shared.js';
 import { GameBoard } from './GameBoard.js';
@@ -21,7 +21,7 @@ document.addEventListener('keyup', (event) => {
             logger.level === LoggerLevel.OFF
                 ? LoggerLevel.INFO
                 : LoggerLevel.OFF;
-        console.log(`Logger level: ${logger.level}`);
+        console.log(`Logger level: ${logger.levelAsString}`);
     }
     else if (MyGame.gameState !== GameState.FINISHED ||
         name === 'Enter' ||
@@ -38,7 +38,6 @@ document.addEventListener('click', function handleClick(event) {
 });
 /*Setup Helper Functions */
 function setVersion(version) {
-    logger.info(`setVersion: ${version}`);
     let elem = document.getElementById('version');
     if (elem) {
         elem.innerHTML = version;
