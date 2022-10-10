@@ -44,12 +44,12 @@ export class SimpleLogger {
     }
     public warning(msg: string): void {
         if (this.level >= LoggerLevel.WARNING) {
-            console.log(msg);
+            console.warn(msg);
         }
     }
     public error(msg: string): void {
         if (this.level >= LoggerLevel.ERROR) {
-            console.log(msg);
+            console.error(msg);
         }
     }
 }
