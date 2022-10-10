@@ -33,17 +33,17 @@ export class SimpleLogger {
     }
     info(msg) {
         if (this.level >= LoggerLevel.INFO) {
-            console.log(msg);
+            console.log('SimpleLogger: ', msg);
         }
     }
     warning(msg) {
         if (this.level >= LoggerLevel.WARNING) {
-            console.warn(msg);
+            console.warn('SimpleLogger: ', msg);
         }
     }
     error(msg) {
         if (this.level >= LoggerLevel.ERROR) {
-            console.error(msg);
+            console.error('SimpleLogger: ', msg);
         }
     }
 }

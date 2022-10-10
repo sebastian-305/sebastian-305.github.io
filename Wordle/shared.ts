@@ -39,17 +39,17 @@ export class SimpleLogger {
 
     public info(msg: string): void {
         if (this.level >= LoggerLevel.INFO) {
-            console.log(msg);
+            console.log('SimpleLogger: ', msg);
         }
     }
     public warning(msg: string): void {
         if (this.level >= LoggerLevel.WARNING) {
-            console.warn(msg);
+            console.warn('SimpleLogger: ', msg);
         }
     }
     public error(msg: string): void {
         if (this.level >= LoggerLevel.ERROR) {
-            console.error(msg);
+            console.error('SimpleLogger: ', msg);
         }
     }
 }

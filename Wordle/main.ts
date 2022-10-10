@@ -1,5 +1,5 @@
-//Ver 2.2.1.2
-setVersion('2.2.1.2');
+//Ver 2.2.1.3
+setVersion('2.2.1.3');
 
 import {setDict, setSolutions} from './dictionary.js';
 import {
