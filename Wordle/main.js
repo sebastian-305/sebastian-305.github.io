@@ -1,5 +1,5 @@
-//Ver 2.2.1.1
-setVersion('2.2.1.1');
+//Ver 2.2.1.2
+setVersion('2.2.1.2');
 import { setDict, setSolutions } from './dictionary.js';
 import { LoggerLevel, SimpleLogger, GameState, } from './shared.js';
 import { GameBoard } from './GameBoard.js';
