@@ -20,8 +20,8 @@ export class GameBoard extends GameBoardInterface {
             `GameBoard.writeLetter: ${row}, ${letter_index}, ${try_letter}`,
         );
 
-        let writeTarget = `#try${row}${letter_index}`;
-        let elem: MaybeHTMLElement = this._canvas.querySelector(writeTarget);
+        const writeTarget = `#try${row}${letter_index}`;
+        const elem: MaybeHTMLElement = this._canvas.querySelector(writeTarget);
         if (elem === null) {
             return;
         }
@@ -32,8 +32,8 @@ export class GameBoard extends GameBoardInterface {
     removeLetter(row: number, letter_index: number) {
         this._logger.info(`GameBoard.removeLetter ${row}, ${letter_index}`);
 
-        let writeTarget: string = `#try${row}${letter_index}`;
-        let elem: MaybeHTMLElement = this._canvas.querySelector(writeTarget);
+        const writeTarget: string = `#try${row}${letter_index}`;
+        const elem: MaybeHTMLElement = this._canvas.querySelector(writeTarget);
         if (elem === null) {
             return;
         }
@@ -46,7 +46,7 @@ export class GameBoard extends GameBoardInterface {
         for (let i = 1; i <= this._length_word; i++) {
             //REFACTOR!!
             /*Maybe Add a little animation later */
-            let elem: MaybeHTMLElement = this._canvas.querySelector(
+            const elem: MaybeHTMLElement = this._canvas.querySelector(
                 `#try${row}${i}`,
             );
             if (elem === null) {
@@ -64,8 +64,7 @@ export class GameBoard extends GameBoardInterface {
 
     handleUnknownWord(row: number, word?: string) {
         //Will be maybe used later
-        /* alert(`Unbekanntes Wort: ${word} row: ${row}`); */
-        this._logger.info(`GameBoard.handleUnknownWord: ${word}`);
+        this._logger.info(`GameBoard.handleUnknownWord: ${row}: ${word}`);
 
         this.setRowColors(row, 'orange');
     }
@@ -74,9 +73,8 @@ export class GameBoard extends GameBoardInterface {
         this._logger.info(`GameBoard.setLetterColor ${row}, ${color}`);
 
         for (let i = 1; i <= this._length_word; i++) {
-            //REFACTOR!!!
-            /*Maybe Add a little animation later */
-            let elem: MaybeHTMLElement = this._canvas.querySelector(
+            /*Maybe add a little animation later */
+            const elem: MaybeHTMLElement = this._canvas.querySelector(
                 `#try${row}${i}`,
             );
 
@@ -93,7 +91,7 @@ export class GameBoard extends GameBoardInterface {
     setKeyboardLetterColor(key: string, color: string) {
         this._logger.info(`GameBoard.setKeyboardLetterColor()`);
 
-        let elem: MaybeHTMLElement = this._canvas.querySelector(`#${key}`);
+        const elem: MaybeHTMLElement = this._canvas.querySelector(`#${key}`);
         if (!elem) {
             return;
         }
@@ -145,7 +143,8 @@ export class GameBoard extends GameBoardInterface {
             setString += '  ';
         }
 
-        let elem: MaybeHTMLElement = this._canvas.querySelector(`#usedLetters`);
+        const elem: MaybeHTMLElement =
+            this._canvas.querySelector(`#usedLetters`);
 
         if (!elem) {
             return;

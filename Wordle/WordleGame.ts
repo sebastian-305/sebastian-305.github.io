@@ -88,7 +88,7 @@ export class WordleGame extends WordleGameInterface {
                 letter = '\u00df';
             }
 
-            let valid_letters = [
+            const valid_letters = [
                 'A',
                 'B',
                 'C',
@@ -268,7 +268,7 @@ export class WordleGame extends WordleGameInterface {
     protected setUpSolution(): string[] {
         this._logger.info(`Game.setUpSolution()`);
 
-        let rand = Math.floor(Math.random() * this._solution_words.length);
+        const rand = Math.floor(Math.random() * this._solution_words.length);
         let solution = this._solution_words[rand];
         if (typeof solution === 'undefined') {
             return [];

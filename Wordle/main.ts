@@ -1,7 +1,7 @@
-//Ver 2.2.1.3
-setVersion('2.2.1.3');
+//Ver 2.2.2.0
+setVersion('2.2.2.0');
 
-import {setDict, setSolutions} from './dictionary.js';
+import {getDict, getSolutions} from './dictionary.js';
 import {
     LoggerLevel,
     MaybeHTMLElement,
@@ -13,16 +13,16 @@ import {GameBoard} from './GameBoard.js';
 import {WordleGame} from './WordleGame.js';
 
 const LENGTH_WORD = 5;
-const dict_words = setDict();
-const solution_word_array = setSolutions();
+const dict_words = getDict();
+const solution_word_array = getSolutions();
 const logger = new SimpleLogger(LoggerLevel.OFF);
 
 /*START MAIN LOGIC*/
 
 const element = window.document;
 
-let Board: GameBoardInterface = new GameBoard(element, logger);
-let MyGame = new WordleGame(Board, dict_words, logger);
+const Board: GameBoardInterface = new GameBoard(element, logger);
+const MyGame = new WordleGame(Board, dict_words, logger);
 
 MyGame.newGame(LENGTH_WORD, solution_word_array);
 
@@ -31,7 +31,7 @@ document.addEventListener(
     (event) => {
         logger.info(`Event \'keyup\' ${event}->${event.key}`);
 
-        let name = event.key;
+        const name = event.key;
         if (name == 'End') {
             logger.level =
                 logger.level === LoggerLevel.OFF
@@ -52,7 +52,7 @@ document.addEventListener(
 document.addEventListener('click', function handleClick(event) {
     logger.info(`Event \'click\' ${event}`);
 
-    let target = event.target as HTMLElement;
+    const target = event.target as HTMLElement;
     if (target.classList.contains('keyboard_letter')) {
         MyGame.inputSingleLetter(target.id);
     }
@@ -60,7 +60,7 @@ document.addEventListener('click', function handleClick(event) {
 
 /*Setup Helper Functions */
 function setVersion(version: string) {
-    let elem: MaybeHTMLElement = document.getElementById('version');
+    const elem: MaybeHTMLElement = document.getElementById('version');
     if (elem) {
         elem.innerHTML = version;
     }
