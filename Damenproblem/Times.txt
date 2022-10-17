@@ -1,0 +1,7 @@
+Ladezeit: 177 s 403 ms unoptimised
+
+Ladezeit: 167 s 881 ms no solution check
+
+Ladezeit: 371 s 412 ms mit Consolenoutput
+
+
