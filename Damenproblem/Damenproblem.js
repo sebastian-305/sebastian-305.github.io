@@ -163,7 +163,7 @@ function updateAll() {
     tempFieldSize = Number(document.getElementById('BoardSizeSelect').value);
     tempCalcMethod = document.getElementById('CalcMethodSelect').value;
 
-    if ((tempFieldSize > 6 && tempCalcMethod === 'loop') || tempFieldSize > 7) {
+    if (tempFieldSize > 10) {
         if (
             !confirm(
                 'Die Berechnung kann einige Zeit andauern. Möchten Sie die Berechnung starten?',
