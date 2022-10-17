@@ -12,7 +12,71 @@ let queenProblemProperties = {
     currentDisplayedSolution: [],
 };
 
-let loadingGif = document.querySelector('#loadingGif');
+const change_appearence = {
+    rotateLeft90degree: (solution, flipCounter = 1) => {
+        let newSolution = [...solution];
+
+        for (let i = 0; i < flipCounter; i++) {
+            newSolution.forEach((currentValue, index) => {
+                newSolution[index] =
+                    currentValue +
+                    queenProblemProperties.fieldSize *
+                        queenProblemProperties.fieldSize -
+                    queenProblemProperties.fieldSize -
+                    (queenProblemProperties.fieldSize + 1) * currentValue +
+                    (queenProblemProperties.fieldSize *
+                        queenProblemProperties.fieldSize +
+                        1) *
+                        Math.floor(
+                            currentValue / queenProblemProperties.fieldSize,
+                        );
+            });
+        }
+        return newSolution.sort((a, b) => {
+            return a - b;
+        });
+    },
+
+    flipHorizontal: (solution1d) => {
+        let newSolution = [...solution1d];
+        solution1d.forEach((currentValue, index) => {
+            newSolution[index] =
+                queenProblemProperties.fieldSize *
+                    (Math.floor(
+                        currentValue / queenProblemProperties.fieldSize,
+                    ) +
+                        1) -
+                1 -
+                (currentValue % queenProblemProperties.fieldSize);
+        });
+        return newSolution.sort((a, b) => {
+            return a - b;
+        });
+    },
+
+    flipVertical: (solution1d) => {
+        let newSolution = [...solution1d];
+
+        solution1d.forEach((currentValue, index) => {
+            newSolution[index] =
+                queenProblemProperties.fieldSize *
+                    queenProblemProperties.fieldSize +
+                queenProblemProperties.fieldSize -
+                currentValue -
+                2 *
+                    ((queenProblemProperties.fieldSize *
+                        queenProblemProperties.fieldSize -
+                        (currentValue + 1)) %
+                        queenProblemProperties.fieldSize) -
+                2;
+        });
+        return newSolution.sort((a, b) => {
+            return a - b;
+        });
+    },
+};
+
+const loadingGifElement = document.querySelector('#loadingGif');
 queenProblemProperties.startTime = new Date().getTime();
 
 calculateSolutionsRecursive(queenProblemProperties.allSolutionsArray); //Lösungen berechnen
@@ -63,7 +127,7 @@ function updateFieldWithOtherSolution(state = 'reset') {
             queenProblemProperties.flipVertical =
                 !queenProblemProperties.flipVertical;
             queenProblemProperties.currentDisplayedSolution = [
-                ...flipVertical(
+                ...change_appearence.flipVertical(
                     queenProblemProperties.currentDisplayedSolution,
                 ),
             ];
@@ -72,7 +136,7 @@ function updateFieldWithOtherSolution(state = 'reset') {
             queenProblemProperties.flipHorizontal =
                 !queenProblemProperties.flipHorizontal;
             queenProblemProperties.currentDisplayedSolution = [
-                ...flipHorizontal(
+                ...change_appearence.flipHorizontal(
                     queenProblemProperties.currentDisplayedSolution,
                 ),
             ];
@@ -83,7 +147,7 @@ function updateFieldWithOtherSolution(state = 'reset') {
                     ? 4
                     : queenProblemProperties.rotation - 1;
             queenProblemProperties.currentDisplayedSolution = [
-                ...rotateLeft90degree(
+                ...change_appearence.rotateLeft90degree(
                     queenProblemProperties.currentDisplayedSolution,
                     3,
                 ),
@@ -107,7 +171,7 @@ function updateAll() {
         ) {
             return;
         }
-        loadingGif.style.display = 'inline';
+        loadingGifElement.style.display = 'inline';
         document.querySelector('#wrapper').innerHTML = '';
         window.setTimeout(updateAllFunctionLogic, 5);
     } else {
@@ -165,7 +229,7 @@ function drawSolutionAsHtml(solution1d) {
     let rowStringAsHtmlCode; //Speichert HTML code, der dann in die Webseite geschrieben wird
     target.innerHTML = ''; //Wir setzen das Spielfeld zurück
 
-    loadingGif.style.display = 'none';
+    loadingGifElement.style.display = 'none';
 
     for (let y_index in solution2d) {
         rowStringAsHtmlCode = '<div>'; //Neue Zeile
@@ -261,7 +325,6 @@ function calculateSolutionsRecursive(
                 currentlyInvestigatedQueen + 1,
             )
         ) {
-            //die jetzige Position der Dame passt soweit, jetzt können wir eine weitere Dame hinzufügen
             return true;
         }
         arrayOfLegitQueens.pop();
@@ -270,21 +333,20 @@ function calculateSolutionsRecursive(
 }
 
 function calculateSolutionsInLoop(saveSolutionsHere) {
-    let calculationArray = new Array(queenProblemProperties.fieldSize);
-    calculationArray.fill(0);
-    let rowPointer = 0;
-    let finished = false;
-    let currentSolution;
-    let testcounter = 0;
+    let currentSolution = [];
+    let indexOfLast;
 
-    do {
-        rowPointer = 0;
-        currentSolution = convertSoltionInConsecutiveNumbers([
-            ...calculationArray,
-        ]);
-        testcounter++;
-        if (!checkCollisonRowForLoopFunction(calculationArray)) {
-            if (!checkCollisionQueenArray([...currentSolution])) {
+    currentSolution.push(0);
+
+    while (currentSolution.length > 0) {
+        indexOfLast = currentSolution.length - 1;
+        if (
+            !checkCollisions(
+                indexOfLast ? [...currentSolution].slice(0, indexOfLast) : [],
+                currentSolution[indexOfLast],
+            )
+        ) {
+            if (currentSolution.length === queenProblemProperties.fieldSize) {
                 queenProblemProperties.totalSolutionsFound++;
                 if (
                     !checkIfSolutionExcists(saveSolutionsHere, currentSolution)
@@ -292,57 +354,36 @@ function calculateSolutionsInLoop(saveSolutionsHere) {
                     saveSolutionsHere.push([...currentSolution]); //Lösung speichern
                     queenProblemProperties.solutionsFound++;
                 }
+            } else {
+                currentSolution.push(
+                    Math.floor(
+                        (currentSolution[indexOfLast] +
+                            queenProblemProperties.fieldSize) /
+                            queenProblemProperties.fieldSize,
+                    ) * queenProblemProperties.fieldSize,
+                );
+                continue;
             }
         }
 
         while (
-            ++calculationArray[rowPointer] === queenProblemProperties.fieldSize
+            currentSolution[currentSolution.length - 1] + 1 >=
+                queenProblemProperties.fieldSize * currentSolution.length &&
+            currentSolution.length > 0
         ) {
-            calculationArray[rowPointer] = 0;
-            ++rowPointer;
-
-            if (rowPointer === queenProblemProperties.fieldSize) {
-                finished = true;
-                break;
-            }
+            currentSolution.pop();
+            x = currentSolution[currentSolution.length] + 1;
+            y = queenProblemProperties.fieldSize * currentSolution.length;
+            z = currentSolution.length > 0;
         }
-
-        if (rowPointer === queenProblemProperties.fieldSize - 2) {
-            const bigPercent =
-                (100 / queenProblemProperties.fieldSize) *
-                calculationArray[queenProblemProperties.fieldSize - 1];
-            const smallPercent =
-                ((100 / queenProblemProperties.fieldSize) *
-                    calculationArray[queenProblemProperties.fieldSize - 2]) /
-                queenProblemProperties.fieldSize;
-            // console.clear();
-            console.log(
-                'Progress: ',
-                (bigPercent + smallPercent).toFixed(2),
-                '%',
-            );
+        if (currentSolution.length > 0) {
+            ++currentSolution[currentSolution.length - 1];
         }
-    } while (!finished);
-
-    // console.clear();
-    console.log(
-        'Progress: ',
-        (100).toFixed(2),
-        '%',
-        'Schleifendurchgänge: ',
-        testcounter,
-    );
-
-    function convertSoltionInConsecutiveNumbers(solution = []) {
-        solution.forEach(function (cur, index, arr) {
-            arr[index] = cur + index * arr.length;
-        });
-        return solution;
     }
 }
 
 function checkCollisionQueenArray(queenArray) {
-    collision = false;
+    let collision = false;
     let tempArray;
     for (let index = 0; index < queenArray.length; ++index) {
         if (index === queenArray.length - 1) {
@@ -469,20 +510,34 @@ function checkIfSolutionExcists(foundSolutions, solutionCandidate) {
 
         for (let i = 1; i < 5; i++) {
             // console.log(`checking ${rotateLeft90(solutionCandidate, i)} with ${solution}`);
-            if (rotateLeft90degree(solutionCandidate, i).equals(solution)) {
-                return true;
-            }
             if (
-                flipHorizontal(rotateLeft90degree(solutionCandidate, i)).equals(
-                    solution,
-                )
+                change_appearence
+                    .rotateLeft90degree(solutionCandidate, i)
+                    .equals(solution)
             ) {
                 return true;
             }
             if (
-                flipVertical(rotateLeft90degree(solutionCandidate, i)).equals(
-                    solution,
-                )
+                change_appearence
+                    .flipHorizontal(
+                        change_appearence.rotateLeft90degree(
+                            solutionCandidate,
+                            i,
+                        ),
+                    )
+                    .equals(solution)
+            ) {
+                return true;
+            }
+            if (
+                change_appearence
+                    .flipVertical(
+                        change_appearence.rotateLeft90degree(
+                            solutionCandidate,
+                            i,
+                        ),
+                    )
+                    .equals(solution)
             ) {
                 return true;
             }
@@ -490,62 +545,4 @@ function checkIfSolutionExcists(foundSolutions, solutionCandidate) {
     }
 
     return false;
-}
-
-function rotateLeft90degree(solution, flipCounter = 1) {
-    let newSolution = [...solution];
-
-    for (let i = 0; i < flipCounter; i++) {
-        newSolution.forEach((currentValue, index) => {
-            newSolution[index] =
-                currentValue +
-                queenProblemProperties.fieldSize *
-                    queenProblemProperties.fieldSize -
-                queenProblemProperties.fieldSize -
-                (queenProblemProperties.fieldSize + 1) * currentValue +
-                (queenProblemProperties.fieldSize *
-                    queenProblemProperties.fieldSize +
-                    1) *
-                    Math.floor(currentValue / queenProblemProperties.fieldSize);
-        });
-    }
-    return newSolution.sort((a, b) => {
-        return a - b;
-    });
-}
-
-function flipHorizontal(solution1d) {
-    let newSolution = [...solution1d];
-    solution1d.forEach((currentValue, index) => {
-        newSolution[index] =
-            queenProblemProperties.fieldSize *
-                (Math.floor(currentValue / queenProblemProperties.fieldSize) +
-                    1) -
-            1 -
-            (currentValue % queenProblemProperties.fieldSize);
-    });
-    return newSolution.sort((a, b) => {
-        return a - b;
-    });
-}
-
-function flipVertical(solution1d) {
-    let newSolution = [...solution1d];
-
-    solution1d.forEach((currentValue, index) => {
-        newSolution[index] =
-            queenProblemProperties.fieldSize *
-                queenProblemProperties.fieldSize +
-            queenProblemProperties.fieldSize -
-            currentValue -
-            2 *
-                ((queenProblemProperties.fieldSize *
-                    queenProblemProperties.fieldSize -
-                    (currentValue + 1)) %
-                    queenProblemProperties.fieldSize) -
-            2;
-    });
-    return newSolution.sort((a, b) => {
-        return a - b;
-    });
 }
