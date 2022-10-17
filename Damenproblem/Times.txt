@@ -92,4 +92,16 @@ function calculateSolutionsInLoopOld(saveSolutionsHere) {
         });
         return solution;
     }
+
+    function checkCollisonRowForLoopFunction(queens) {
+        for (let i = 0; i < queens.length; ++i) {
+            for (let j = i + 1; j < queens.length; ++j) {
+                if (queens[i] === queens[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }

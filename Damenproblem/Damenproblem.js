@@ -308,9 +308,7 @@ function calculateSolutionsRecursive(
             //Eine Lösung gefunden!
             queenProblemProperties.totalSolutionsFound++;
 
-            if (
-                !checkIfSolutionExcists(saveSolutionsHere, arrayOfLegitQueens)
-            ) {
+            if (!checkIfSolutionExists(saveSolutionsHere, arrayOfLegitQueens)) {
                 saveSolutionsHere.push([...arrayOfLegitQueens]); //Lösung speichern
                 queenProblemProperties.solutionsFound++;
             }
@@ -349,7 +347,7 @@ function calculateSolutionsInLoop(saveSolutionsHere) {
             if (currentSolution.length === queenProblemProperties.fieldSize) {
                 queenProblemProperties.totalSolutionsFound++;
                 if (
-                    !checkIfSolutionExcists(saveSolutionsHere, currentSolution)
+                    !checkIfSolutionExists(saveSolutionsHere, currentSolution)
                 ) {
                     saveSolutionsHere.push([...currentSolution]); //Lösung speichern
                     queenProblemProperties.solutionsFound++;
@@ -493,18 +491,7 @@ function checkCollisions(arrayOfLegitQueens, currentlyInvestigatedQueen) {
     }
 }
 
-function checkCollisonRowForLoopFunction(queens) {
-    for (let i = 0; i < queens.length; ++i) {
-        for (let j = i + 1; j < queens.length; ++j) {
-            if (queens[i] === queens[j]) {
-                return true;
-            }
-        }
-    }
-    return false;
-}
-
-function checkIfSolutionExcists(foundSolutions, solutionCandidate) {
+function checkIfSolutionExists(foundSolutions, solutionCandidate) {
     for (let solution of foundSolutions) {
         // console.log(`checking ${solutionCandidate} with ${solution}`);
 
