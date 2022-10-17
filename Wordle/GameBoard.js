@@ -13,8 +13,8 @@ export class GameBoard extends GameBoardInterface {
     }
     writeLetter(row, letter_index, try_letter) {
         this._logger.info(`GameBoard.writeLetter: ${row}, ${letter_index}, ${try_letter}`);
-        let writeTarget = `#try${row}${letter_index}`;
-        let elem = this._canvas.querySelector(writeTarget);
+        const writeTarget = `#try${row}${letter_index}`;
+        const elem = this._canvas.querySelector(writeTarget);
         if (elem === null) {
             return;
         }
@@ -23,8 +23,8 @@ export class GameBoard extends GameBoardInterface {
     }
     removeLetter(row, letter_index) {
         this._logger.info(`GameBoard.removeLetter ${row}, ${letter_index}`);
-        let writeTarget = `#try${row}${letter_index}`;
-        let elem = this._canvas.querySelector(writeTarget);
+        const writeTarget = `#try${row}${letter_index}`;
+        const elem = this._canvas.querySelector(writeTarget);
         if (elem === null) {
             return;
         }
@@ -35,7 +35,7 @@ export class GameBoard extends GameBoardInterface {
         for (let i = 1; i <= this._length_word; i++) {
             //REFACTOR!!
             /*Maybe Add a little animation later */
-            let elem = this._canvas.querySelector(`#try${row}${i}`);
+            const elem = this._canvas.querySelector(`#try${row}${i}`);
             if (elem === null) {
                 return;
             }
@@ -48,16 +48,14 @@ export class GameBoard extends GameBoardInterface {
     }
     handleUnknownWord(row, word) {
         //Will be maybe used later
-        /* alert(`Unbekanntes Wort: ${word} row: ${row}`); */
-        this._logger.info(`GameBoard.handleUnknownWord: ${word}`);
+        this._logger.info(`GameBoard.handleUnknownWord: ${row}: ${word}`);
         this.setRowColors(row, 'orange');
     }
     setLetterColor(row, color) {
         this._logger.info(`GameBoard.setLetterColor ${row}, ${color}`);
         for (let i = 1; i <= this._length_word; i++) {
-            //REFACTOR!!!
-            /*Maybe Add a little animation later */
-            let elem = this._canvas.querySelector(`#try${row}${i}`);
+            /*Maybe add a little animation later */
+            const elem = this._canvas.querySelector(`#try${row}${i}`);
             if (elem === null) {
                 return;
             }
@@ -69,7 +67,7 @@ export class GameBoard extends GameBoardInterface {
     }
     setKeyboardLetterColor(key, color) {
         this._logger.info(`GameBoard.setKeyboardLetterColor()`);
-        let elem = this._canvas.querySelector(`#${key}`);
+        const elem = this._canvas.querySelector(`#${key}`);
         if (!elem) {
             return;
         }
@@ -105,7 +103,7 @@ export class GameBoard extends GameBoardInterface {
             setString += element;
             setString += '  ';
         }
-        let elem = this._canvas.querySelector(`#usedLetters`);
+        const elem = this._canvas.querySelector(`#usedLetters`);
         if (!elem) {
             return;
         }
