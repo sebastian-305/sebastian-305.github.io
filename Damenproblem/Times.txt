@@ -1,7 +1,95 @@
-Ladezeit: 177 s 403 ms unoptimised
+Ladezeit: 177 s 403 ms unoptimised 9x9
 
-Ladezeit: 167 s 881 ms no solution check
+Ladezeit: 167 s 881 ms no solution check 9x9
 
-Ladezeit: 371 s 412 ms mit Consolenoutput
+Ladezeit: 371 s 412 ms mit Consolenoutput 9x9
+
+8 ->        56ms  rek
+8 ->        22ms  schleif
+
+9 -->      429ms  rek
+9 -->      402ms  schleif
+
+10 -->  1s 497ms  rek
+10 -->  1s  55ms  schleif
+
+11 --> 17s 109ms  rek
+11 --> 14s 944ms  schleif
+
+12 --> 22s 383ms  rek
+12 --> 14s 944ms  schleif
 
 
+----------------------------
+
+function calculateSolutionsInLoopOld(saveSolutionsHere) {
+    let calculationArray = new Array(queenProblemProperties.fieldSize);
+    calculationArray.fill(0);
+    let rowPointer = 0;
+    let finished = false;
+    let currentSolution;
+    let testcounter = 0;
+
+    do {
+        rowPointer = 0;
+        currentSolution = convertSoltionInConsecutiveNumbers([
+            ...calculationArray,
+        ]);
+        testcounter++;
+        if (!checkCollisonRowForLoopFunction(calculationArray)) {
+            if (!checkCollisionQueenArray([...currentSolution])) {
+                queenProblemProperties.totalSolutionsFound++;
+                if (
+                    !checkIfSolutionExcists(saveSolutionsHere, currentSolution)
+                ) {
+                    saveSolutionsHere.push([...currentSolution]); //Lösung speichern
+                    queenProblemProperties.solutionsFound++;
+                }
+            }
+        }
+
+        while (
+            ++calculationArray[rowPointer] === queenProblemProperties.fieldSize
+        ) {
+            calculationArray[rowPointer] = 0;
+            ++rowPointer;
+
+            if (rowPointer === queenProblemProperties.fieldSize) {
+                finished = true;
+                break;
+            }
+        }
+
+        if (rowPointer === queenProblemProperties.fieldSize - 2) {
+            const bigPercent =
+                (100 / queenProblemProperties.fieldSize) *
+                calculationArray[queenProblemProperties.fieldSize - 1];
+            const smallPercent =
+                ((100 / queenProblemProperties.fieldSize) *
+                    calculationArray[queenProblemProperties.fieldSize - 2]) /
+                queenProblemProperties.fieldSize;
+            // console.clear();
+            console.log(
+                'Progress: ',
+                (bigPercent + smallPercent).toFixed(2),
+                '%',
+            );
+        }
+    } while (!finished);
+
+    // console.clear();
+    console.log(
+        'Progress: ',
+        (100).toFixed(2),
+        '%',
+        'Schleifendurchgänge: ',
+        testcounter,
+    );
+
+    function convertSoltionInConsecutiveNumbers(solution = []) {
+        solution.forEach(function (cur, index, arr) {
+            arr[index] = cur + index * arr.length;
+        });
+        return solution;
+    }
+}
