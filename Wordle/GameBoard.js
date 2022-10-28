@@ -78,7 +78,7 @@ export class GameBoard extends GameBoardInterface {
     handleGameWon(solution) {
         this._logger.info(`GameBoard.handleGameWon()`);
         setTimeout(function () {
-            alert(`Du hast gewonnnen!\nDas gesuchte Worte war: ${solution}`);
+            alert(`Du hast gewonnnen!\nDas gesuchte Wort war: ${solution}`);
         }, 2);
     }
     handleGameLost(solution) {
